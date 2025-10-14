@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class SpellBase: ScriptableObject
+{
+    public string spellID { get; private set; }
+    public string name_ { get; private set; }
+    public int manaCost { get; private set; }
+    public float maxCD { get; private set; }
+
+    public float castingDura { get; private set; }
+
+    protected GameObject player;
+    // constructor สำหรับยัดค่า [for child]
+    public SpellBase()
+    {}
+    protected void init(string spellID, string name_, int manaCost, float maxCD , float castingDura)
+    {
+        this.spellID = spellID;
+        this.name_ = name_;
+        this.manaCost = manaCost;
+        this.maxCD = maxCD;
+        this.castingDura = castingDura;
+    }
+
+    public virtual void UseSpell()
+    {
+        player = GameObject.FindWithTag("Player");
+        Debug.Log($"{name_} , {manaCost} , {maxCD}");
+    }
+    public virtual void Penalty()
+    { }
+
+    
+    
+}

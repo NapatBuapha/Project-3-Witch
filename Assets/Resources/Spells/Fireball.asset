@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27703f0b187736943a8efb96f3370e99, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  spellID_: 01
+  thisName_: Fire Ball
+  manaCost_: 2
+  maxCD_: 0.5
+  castingDura_: 0.25
+  speed: 20
+  spellPrefab: {fileID: 4261378775923909945, guid: dd947fdb482a50a43a83989bbb72932b, type: 3}
