@@ -8,7 +8,7 @@ public class Debuff_Slow : Debuff_Buff_Base
     //ถ้าเป็น debuff id ต้องเริ่มต้นด้วย 9 เช่น 901 902 903
     //สำหรับ buff id ต้องเริ่มต้นด้วย 8 เช่น 801 802 803
 
-    #region ค่า spell base
+    #region ค่า Bebuff base
     [Header("Base Varaible")]
     [SerializeField] private string buffId_ = "901"; 
     [SerializeField] private string buffName_ = "Slow";

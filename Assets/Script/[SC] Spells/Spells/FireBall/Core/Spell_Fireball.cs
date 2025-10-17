@@ -21,9 +21,10 @@ public class Spell_Fireball : SpellBase
     #region ค่าสำหรับลูกไฟ
     [Header("Fireball Effect Value")]
     [SerializeField] private float speed = 10f;
+        [SerializeField] private GameObject spellPrefab;
     #endregion
 
-    [SerializeField] private GameObject spellPrefab;
+
 
     private void OnEnable()
     {

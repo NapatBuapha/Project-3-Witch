@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27703f0b187736943a8efb96f3370e99, type: 3}
+  m_Name: GunBullet [Special Fireball]
+  m_EditorClassIdentifier: 
+  spellID_: 04
+  thisName_: Bullet [Special Fireball]
+  manaCost_: 0
+  maxCD_: 0.2
+  castingDura_: 0
+  speed: 20
+  spellPrefab: {fileID: 4261378775923909945, guid: 18b991ebb72593b4e818269bd255de9c, type: 3}

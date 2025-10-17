@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Project3 Witch.sln"
+    "dotnet.defaultSolution": "Project-3-Witch.sln"
 }

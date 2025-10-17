@@ -23,6 +23,7 @@ public class B_and_DB_Manager : MonoBehaviour
         // อัปเดตเวลา
         foreach (var debuff in current_DBB.Keys.ToList())
         {
+
             current_DBB[debuff] -= Time.deltaTime;
             if (current_DBB[debuff] <= 0)
                 toRemove.Add(debuff);
@@ -34,6 +35,8 @@ public class B_and_DB_Manager : MonoBehaviour
             d.OnEffectEnd();
             current_DBB.Remove(d);
         }
+
+
     }
 
     public void FindDBB(string dbbId)
@@ -51,7 +54,7 @@ public class B_and_DB_Manager : MonoBehaviour
         //สำหรับเช็ค
         if (!isFound)
         {
-            Debug.Log("Spell not found");
+            Debug.Log("Debuff not found");
         }
     }
     

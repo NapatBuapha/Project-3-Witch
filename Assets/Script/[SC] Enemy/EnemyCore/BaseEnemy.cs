@@ -6,9 +6,10 @@ public class BaseEnemy : MonoBehaviour , IDamageable
 {
     private string eName;
     private int maxHp;
+    public float speed { get; private set;}
     [SerializeField] private int hp;
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         gameObject.tag = "Enemy";
         hp = maxHp;
@@ -24,10 +25,11 @@ public class BaseEnemy : MonoBehaviour , IDamageable
         }
     }
 
-    protected void Init(string eName, int maxHp)
+    protected void Init(string eName, int maxHp, float speed)
     {
         this.eName = eName;
         this.maxHp = maxHp;
+        this.speed = speed;
     }
     
     public void getDamage(int damageValue)

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f29ccad6d50e049b94c7093f97eb4a, type: 3}
+  m_Name: Using_AK47
+  m_EditorClassIdentifier: 
+  buffId_: 801
+  buffName_: AK47
+  maxDura_: 12
+  slowness: 0.5
+  spellAK47ref: {fileID: 11400000, guid: 45d69ca14dd33b4409a5e762df0dac4b, type: 2}
+  gunSpellRef: {fileID: 11400000, guid: 75d03032b3754694aa77740cc0a0980a, type: 2}
