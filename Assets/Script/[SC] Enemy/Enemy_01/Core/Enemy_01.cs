@@ -6,10 +6,9 @@ public class Enemy_01 : BaseEnemy
 {
     [SerializeField] private string eName_;
     [SerializeField] private int maxHp_;
-    [SerializeField] private float speed_;
     protected override void Awake()
     {
-        Init(eName_, maxHp_, speed_);
+        Init(eName_, maxHp_);
         base.Awake();
     }
 

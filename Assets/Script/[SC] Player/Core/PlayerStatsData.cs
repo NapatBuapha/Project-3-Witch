@@ -23,7 +23,7 @@ public class PlayerStatsData : MonoBehaviour
     #region Stats
     [Header("Health")]
     public int maxHp;
-    public int hp;
+
     [Header("Stamina")]
     public float maxStamina = 10f;
     private float stamina;
@@ -77,7 +77,6 @@ public class PlayerStatsData : MonoBehaviour
         #region  setVaraible
         Stamina = 0;
         mana = 0;
-        hp = maxHp;
         #endregion
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
@@ -10,9 +11,8 @@ public class EnemyStateManager : MonoBehaviour
     public Enemy_Idle idle_state { get; private set; } = new Enemy_Idle();
     public Enemy_Chasing enemy_Chasing { get; private set; } = new Enemy_Chasing();
 
-    //ใช้กับ EnemyAI 
-    private EnemyAI ai;
-    [HideInInspector] public Vector2 force;
+    //Pathfinder ref
+    public AIPath pathfinder { get; private set; }
 
     //Movement 
     [HideInInspector] public Rigidbody2D rb { get; private set; }
@@ -24,12 +24,12 @@ public class EnemyStateManager : MonoBehaviour
     void Start()
     {
         #region component ref
-        ai = GetComponent<EnemyAI>();
+        pathfinder = GetComponent<AIPath>();
         rb = GetComponent<Rigidbody2D>();
         #endregion
 
         #region set variable
-    
+        pathfinder.canMove = false;
         #endregion
 
 
@@ -40,7 +40,6 @@ public class EnemyStateManager : MonoBehaviour
     void Update()
     {
         #region Normal update code
-        force = ai.force;
         #endregion
 
 

@@ -12,10 +12,12 @@ public class State_PlayerDash : PlayerBaseState
         rb = player.stats.rb;
         stateTimes = player.stats.dashStatesTime;
 
+        player.animaCon.DashAnim(stateTimes);
+
         rb.AddForce(new Vector2
         (player.dashPower * player.player_HInput //Horizontal
-        ,player.dashPower * player.player_VInput) //Vertical)
-        ,ForceMode2D.Impulse); 
+        , player.dashPower * player.player_VInput) //Vertical)
+        , ForceMode2D.Impulse); 
         
     }
 

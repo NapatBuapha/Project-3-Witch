@@ -17,7 +17,7 @@ public class PlayerProjectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (!col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
         }       

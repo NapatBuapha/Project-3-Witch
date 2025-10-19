@@ -6,7 +6,7 @@ public class Enemy_Chasing : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager enemy)
     {
-
+        enemy.pathfinder.canMove = true;
     }
 
     public override void FixedUpdateState(EnemyStateManager enemy)
@@ -16,7 +16,7 @@ public class Enemy_Chasing : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        enemy.rb.AddForce(enemy.force);
+    
     }
 }
     

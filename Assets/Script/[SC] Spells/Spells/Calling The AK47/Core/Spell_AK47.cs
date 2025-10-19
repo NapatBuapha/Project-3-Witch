@@ -14,6 +14,8 @@ public class Spell_AK47 : SpellBase
     [SerializeField] private int manaCost_ = 40;
     [SerializeField] private float maxCD_ = 20f;
     [SerializeField] private float castingDura_ = 0.25f;
+    [SerializeField] private Sprite icon_;
+    [SerializeField] [TextArea] private string desc_;
     #endregion
 
     [Header("Penalty value")]
@@ -23,7 +25,7 @@ public class Spell_AK47 : SpellBase
 
     private void OnEnable()
     {
-        init(spellID_, thisName_, manaCost_, maxCD_, castingDura_);
+        init(spellID_, thisName_, manaCost_, maxCD_, castingDura_,icon_,desc_);
     }
 
     public override void UseSpell()
@@ -34,8 +36,9 @@ public class Spell_AK47 : SpellBase
 
     public override void Penalty()
     {
-        PlayerStatsData stats = player.GetComponent<PlayerStatsData>();
-        stats.hp -= hpCost;
+        PlayerHpManager p_HP = player.GetComponent<PlayerHpManager>();
+
+        p_HP.PayHealth(hpCost);
         B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
         debuffManager.FindDBB("801");
     }

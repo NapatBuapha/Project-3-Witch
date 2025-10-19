@@ -12,6 +12,10 @@ public class SpellSlot : MonoBehaviour
 
     [HideInInspector] public float maxCooldown;
     [HideInInspector] public float cooldown;
+    [SerializeField] GameObject selectedMask;
+    public bool isSelected;
+
+    public Image icon; //ดึงเอา base icon มาใส่ใน inspector 
 
     void Start()
     {
@@ -29,12 +33,24 @@ public class SpellSlot : MonoBehaviour
             cooldownText.text = cooldown.ToString("F1");
             cooldownMask.fillAmount = cooldown / maxCooldown;
         }
-        
-        if(cooldown <= 0)
+
+        if (cooldown <= 0)
         {
             cooldownText.gameObject.SetActive(false);
             cooldownText.text = cooldown.ToString("F1");
             cooldownMask.fillAmount = cooldown / maxCooldown;
+        }
+    }
+    
+    public void SelectedUpdate()
+    {
+        if (isSelected)
+        {
+            selectedMask.SetActive(true);
+        }
+        else
+        {
+            selectedMask.SetActive(false);
         }
     }
 }

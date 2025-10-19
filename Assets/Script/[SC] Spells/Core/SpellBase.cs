@@ -11,18 +11,22 @@ public class SpellBase: ScriptableObject
     public float maxCD { get; private set; }
 
     public float castingDura { get; private set; }
+    public Sprite icon { get; private set; }
+    public string desc { get; private set; }
 
     protected GameObject player;
     // constructor สำหรับยัดค่า [for child]
     public SpellBase()
     {}
-    protected void init(string spellID, string name_, int manaCost, float maxCD , float castingDura)
+    protected void init(string spellID, string name_, int manaCost, float maxCD , float castingDura ,Sprite icon , string desc)
     {
         this.spellID = spellID;
         this.name_ = name_;
         this.manaCost = manaCost;
         this.maxCD = maxCD;
         this.castingDura = castingDura;
+        this.icon = icon;
+        this.desc = desc;
     }
 
     public virtual void UseSpell()

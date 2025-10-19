@@ -17,5 +17,7 @@ MonoBehaviour:
   manaCost_: 60
   maxCD_: 10
   castingDura_: 1
+  icon_: {fileID: 21300000, guid: 54a4091f7df1d3c469a0bb19ee7dfc4f, type: 3}
+  desc_: 
   spellPrefab: {fileID: 6421335502555115044, guid: 593bc53bef6e5324e903c52f9712b7d9, type: 3}
   hpCost: 40

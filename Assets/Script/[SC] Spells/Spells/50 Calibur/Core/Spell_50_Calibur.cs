@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New50_Calibur", menuName = "Spells/50_Calibur")]
@@ -13,6 +14,8 @@ public class Spell_50_Calibur : SpellBase
     [SerializeField] private int manaCost_ = 5;
     [SerializeField] private float maxCD_ = 10f;
     [SerializeField] private float castingDura_ = 1f;
+    [SerializeField] private Sprite icon_;
+    [SerializeField] [TextArea] private string desc_;
 
 
     #endregion
@@ -27,7 +30,7 @@ public class Spell_50_Calibur : SpellBase
 
     private void OnEnable()
     {
-        init(spellID_, thisName_, manaCost_, maxCD_,castingDura_);
+        init(spellID_, thisName_, manaCost_, maxCD_,castingDura_,icon_ ,desc_);
     }
 
     public override void UseSpell()
@@ -46,8 +49,10 @@ public class Spell_50_Calibur : SpellBase
     public override void Penalty()
     {
         base.Penalty();
-        PlayerStatsData stats = player.GetComponent<PlayerStatsData>();
-        stats.hp -= hpCost;
+        PlayerHpManager p_HP = player.GetComponent<PlayerHpManager>();
+
+        if(p_HP.hp > hpCost)
+        p_HP.PayHealth(hpCost);
         B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
         debuffManager.FindDBB("901");
     }

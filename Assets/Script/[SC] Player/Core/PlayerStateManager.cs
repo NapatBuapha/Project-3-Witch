@@ -45,11 +45,16 @@ public class PlayerStateManager : MonoBehaviour
     public float castingDura;
     #endregion
 
+    #region  Animation
+    public AnimationController animaCon { get; private set; }
+    #endregion
+
 
     void Awake()
     {
         #region Get the component Ref here
         stats = GetComponent<PlayerStatsData>();
+        animaCon = GetComponent<AnimationController>();
         #endregion
 
         #region Set the variable

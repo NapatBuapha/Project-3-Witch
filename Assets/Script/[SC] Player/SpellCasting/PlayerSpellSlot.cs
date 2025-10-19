@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class PlayerSpellSlot : MonoBehaviour
 {
     //อ้างอิง spell
@@ -11,9 +12,10 @@ public class PlayerSpellSlot : MonoBehaviour
 
     //อารมณ์ดีเเล้วค่อยมาเเก้เป็น dictionary
     public SpellBase[] spellslot = new SpellBase[5];
-    //[HideInInspector]
-    public float[] slotCD; //Cooldown เเต่ละ slot
-    int currentIndex; //เวทย์ที่เลือกอยู๋ในตอนนี้
+    [HideInInspector]public float[] slotCD; //Cooldown เเต่ละ slot
+    public int currentIndex{ get; private set; } //เวทย์ที่เลือกอยู๋ในตอนนี้
+
+
 
     //อ้างอิงค่าจาก player
     private PlayerStatsData stats;
@@ -23,6 +25,9 @@ public class PlayerSpellSlot : MonoBehaviour
     private bool isCasting;
     public bool canChangeSpell;
 
+    //UI Ref
+    SpellSlotUiManager ui;
+
 
     void Awake()
     {
@@ -30,13 +35,15 @@ public class PlayerSpellSlot : MonoBehaviour
         stats = GetComponent<PlayerStatsData>();
         playerS = GetComponent<PlayerStateManager>();
         spellLibrary = Resources.LoadAll<SpellBase>("Spells");
+        ui = GameObject.Find("[UI] SkillSlot").GetComponent<SpellSlotUiManager>();
         GetSpellData("01");
 
         //variable set
         slotCD = new float[spellslot.Length];
+
         isCasting = false;
         resetSlotCD();
-        currentIndex = 0;
+        ChangeSpell(0);
         canChangeSpell = true;
     }
     
@@ -50,8 +57,6 @@ public class PlayerSpellSlot : MonoBehaviour
 
     void Update()
     {
-
-
         if (!isCasting)
         {
             #region ปุ่มกด skill
@@ -59,41 +64,48 @@ public class PlayerSpellSlot : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    currentIndex = 0;
+                    ChangeSpell(0);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    currentIndex = 1;
+                    ChangeSpell(1);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    currentIndex = 2;
+                    ChangeSpell(2);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha4))
                 {
-                    currentIndex = 3;
+                    ChangeSpell(3);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha5))
                 {
-                    currentIndex = 4;
+                    ChangeSpell(4);
                 }
             }
             #endregion
-            
+
             if (Input.GetMouseButton(0))
-                {
-                    if (spellslot[currentIndex] != null)
-                        CastSpell(currentIndex);
-                }
-
-
-           
+            {
+                if (spellslot[currentIndex] != null)
+                    CastSpell(currentIndex);
+            }
         }
     }
+
+    void ChangeSpell(int index)
+    {
+        currentIndex = index;
+        ui.ChangeChosenSlot(currentIndex);
+    }
+
+    
+    
+
 
     void FixedUpdate()
     {
@@ -141,7 +153,7 @@ public class PlayerSpellSlot : MonoBehaviour
         isCasting = false;
     }
 
-    void GetSpellData(string spellID)
+    public void GetSpellData(string spellID)
     {
         bool isFound = false;
         foreach (SpellBase spell in spellLibrary)

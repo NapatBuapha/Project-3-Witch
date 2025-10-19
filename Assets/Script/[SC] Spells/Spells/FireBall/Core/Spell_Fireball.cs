@@ -14,6 +14,8 @@ public class Spell_Fireball : SpellBase
     [SerializeField] private int manaCost_ = 2;
     [SerializeField] private float maxCD_ = 2f;
     [SerializeField] private float castingDura_ = 0.25f;
+    [SerializeField] private Sprite icon_;
+    [SerializeField] [TextArea] private string desc_;
 
 
     #endregion
@@ -28,7 +30,7 @@ public class Spell_Fireball : SpellBase
 
     private void OnEnable()
     {
-        init(spellID_, thisName_, manaCost_, maxCD_,castingDura_);
+        init(spellID_, thisName_, manaCost_, maxCD_,castingDura_,icon_,desc_);
     }
 
     public override void UseSpell()
