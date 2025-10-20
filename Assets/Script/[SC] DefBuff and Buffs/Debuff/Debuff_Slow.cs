@@ -21,7 +21,7 @@ public class Debuff_Slow : Debuff_Buff_Base
     //ค่าเป็น % ห้ามใส่เกิน 1
     [SerializeField] private float slowness = 0.99f;
     private float baseSpeed;
-    private PlayerStatsData stats;
+    private BaseMobData statsRef;
     
     #endregion
 
@@ -30,22 +30,22 @@ public class Debuff_Slow : Debuff_Buff_Base
         Init(buffId_, buffName_, maxDura_);
     }
 
-    public override void ApplyEffect()
+    public override void ApplyEffect(BaseMobData mob)
     {
-        base.ApplyEffect();
-        stats = player.GetComponent<PlayerStatsData>();
+        base.ApplyEffect(mob);
+        statsRef = mob.GetComponent<BaseMobData>();
         //เก็บค่า speed ก่อนติด slow ไว้ใน playerBaseSpeed
-        baseSpeed = stats.baseW_Speed;
+        baseSpeed = statsRef.base_Speed;
 
         //Slow player
-        stats.baseW_Speed *= slowness;
+        statsRef.base_Speed *= slowness;
     }
 
-    public override void OnEffectEnd()
+    public override void OnEffectEnd(BaseMobData mob)
     {
-        base.OnEffectEnd();
+        base.OnEffectEnd(mob);
         //จบการทำงานของ debuff
-        stats.baseW_Speed = baseSpeed;
+        statsRef.base_Speed = baseSpeed;
     }
 
 }

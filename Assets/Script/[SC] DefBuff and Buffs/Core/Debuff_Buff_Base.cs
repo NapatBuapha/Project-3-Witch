@@ -9,7 +9,6 @@ public class Debuff_Buff_Base : ScriptableObject
     public string buffName { get; private set; }
     public float maxDura { get; private set; }
 
-    protected GameObject player;
     protected void Init(string buffId, string buffName, float maxDura)
     {
         this.buffId = buffId;
@@ -17,12 +16,12 @@ public class Debuff_Buff_Base : ScriptableObject
         this.maxDura = maxDura;
     }
 
-    public virtual void ApplyEffect()
+    public virtual void ApplyEffect(BaseMobData mob)
     {
-        player = GameObject.FindWithTag("Player");
+
     }
     
-    public virtual void OnEffectEnd()
+    public virtual void OnEffectEnd(BaseMobData mob)
     {
         
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHpManager : MonoBehaviour , IDamageable
 {
     public int hp { get; private set; }
-    PlayerStatsData stats;
+    BasePlayerData stats;
 
     //ช่วงเวลาอมตะ
     [SerializeField] float inviTime = 2f;
@@ -17,7 +17,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     void Start()
     {
         //component ref
-        stats = GetComponent<PlayerStatsData>();
+        stats = GetComponent<BasePlayerData>();
 
         //set variable
         hp = stats.maxHp;
@@ -36,8 +36,9 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         hp -= damageValue;
         StartCoroutine(Invincible(inviTime));
 
-        if (hp < 0)
+        if (hp <= 0)
         {
+            //Player Death
             Destroy(gameObject);
         }
     }

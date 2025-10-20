@@ -141,13 +141,13 @@ public class AnimationController : MonoBehaviour
         if (rb.velocity.x >= 0.01f)
         {
             //ขวา
-            transform.localScale = new Vector3(1, 1, 1);
+            animator.gameObject.transform.localScale = new Vector3(1, 1, 1); 
             CheckVertical();
         }
         else if (rb.velocity.x <= -0.01f)
         {
             //ซ้าย
-            transform.localScale = new Vector3(-1, 1, 1);
+            animator.gameObject.transform.localScale = new Vector3(-1, 1, 1);
             CheckVertical();
         }
 
@@ -173,7 +173,7 @@ public class AnimationController : MonoBehaviour
             //บน
             verticalDi = PlayerVerticalDirection.back;
         }
-        else if (rb.velocity.y <= -0.01f)
+        else if (rb.velocity.y <= 0)
         {
             //ล่าง
             verticalDi = PlayerVerticalDirection.front;

@@ -10,8 +10,12 @@ public class B_and_DB_Manager : MonoBehaviour
 
     Dictionary<Debuff_Buff_Base, float> current_DBB = new Dictionary<Debuff_Buff_Base, float>();
 
+    BaseMobData baseMobData;
+    //ref player
+
     void Awake()
     {
+        baseMobData = GetComponent<BaseMobData>();
         dbb_Library = Resources.LoadAll<Debuff_Buff_Base>("Debuff and Buff");
     }
 
@@ -32,7 +36,7 @@ public class B_and_DB_Manager : MonoBehaviour
         // ลบ debuff ที่หมดเวลาแล้ว
         foreach (var d in toRemove)
         {
-            d.OnEffectEnd();
+            d.OnEffectEnd(baseMobData);
             current_DBB.Remove(d);
         }
 
@@ -60,7 +64,7 @@ public class B_and_DB_Manager : MonoBehaviour
     
     public void GainDBB(Debuff_Buff_Base dbb)
     {
-        dbb.ApplyEffect();
+        dbb.ApplyEffect(baseMobData);
         current_DBB.Add(dbb, dbb.maxDura);
     }
 }

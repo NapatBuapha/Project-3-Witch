@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New50_Calibur", menuName = "Spells/50_Calibur")]
@@ -24,6 +23,7 @@ public class Spell_50_Calibur : SpellBase
     [Header("Bomb Effect Value")]
     [SerializeField] private GameObject spellPrefab;
     [SerializeField] private int hpCost;
+    [SerializeField] private bool isSlow = true; //For thunderbolt Variation
     #endregion
 
 
@@ -51,9 +51,13 @@ public class Spell_50_Calibur : SpellBase
         base.Penalty();
         PlayerHpManager p_HP = player.GetComponent<PlayerHpManager>();
 
-        if(p_HP.hp > hpCost)
-        p_HP.PayHealth(hpCost);
-        B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
-        debuffManager.FindDBB("901");
+        if (p_HP.hp > hpCost)
+            p_HP.PayHealth(hpCost);
+        if(isSlow)
+        {
+            B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
+            debuffManager.FindDBB("901");
+        }
+        
     }
 }

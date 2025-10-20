@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerStatsData))]
+[RequireComponent(typeof(BasePlayerData))]
 public class PlayerStateManager : MonoBehaviour
 {
 
@@ -20,7 +20,7 @@ public class PlayerStateManager : MonoBehaviour
     public State_PlayerDash state_PlayerDash { get; private set; } = new State_PlayerDash();
     public State_PlayerCasting state_PlayerCasting { get; private set; } = new State_PlayerCasting();
 
-    public PlayerStatsData stats { get; private set; }
+    public BasePlayerData stats { get; private set; }
 
     #region Walking Stats
     [HideInInspector] public float w_speed = 0f;
@@ -53,13 +53,13 @@ public class PlayerStateManager : MonoBehaviour
     void Awake()
     {
         #region Get the component Ref here
-        stats = GetComponent<PlayerStatsData>();
+        stats = GetComponent<BasePlayerData>();
         animaCon = GetComponent<AnimationController>();
         #endregion
 
         #region Set the variable
         dashPower = stats.baseDashPower;
-        w_speed = stats.baseW_Speed;
+        w_speed = stats.base_Speed;
         canDash = true;
         #endregion
     }
@@ -88,12 +88,12 @@ public class PlayerStateManager : MonoBehaviour
         if (Mathf.Abs(player_HInput) > 0 && Mathf.Abs(player_VInput) > 0)
         {
             dashPower = stats.baseDashPower / stats.DiagonalSpeedReduction;
-            w_speed = stats.baseW_Speed / stats.DiagonalSpeedReduction;
+            w_speed = stats.base_Speed / stats.DiagonalSpeedReduction;
         }
         else
         {
             dashPower = stats.baseDashPower;
-            w_speed = stats.baseW_Speed;
+            w_speed = stats.base_Speed;
         }
 
         #endregion

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StatsDisplayUi : MonoBehaviour
 {
-    private PlayerStatsData stats;
+    private BasePlayerData stats;
     private PlayerHpManager hpManager;
 
     //อ้างอิง textmeshpro
@@ -16,7 +16,7 @@ public class StatsDisplayUi : MonoBehaviour
 
     void Start()
     {
-        stats = GameObject.FindWithTag("Player").GetComponent<PlayerStatsData>();
+        stats = GameObject.FindWithTag("Player").GetComponent<BasePlayerData>();
         hpManager = stats.gameObject.GetComponent<PlayerHpManager>();
     }
 

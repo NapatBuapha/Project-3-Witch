@@ -18,7 +18,7 @@ public class PlayerSpellSlot : MonoBehaviour
 
 
     //อ้างอิงค่าจาก player
-    private PlayerStatsData stats;
+    private BasePlayerData stats;
     private PlayerStateManager playerS;
 
     //เพื่อกันร่ายเวทย์พร้อมกัน ระหว่างกำลังร่ายเวทย์อื่น
@@ -32,7 +32,7 @@ public class PlayerSpellSlot : MonoBehaviour
     void Awake()
     {
         //get Component ref
-        stats = GetComponent<PlayerStatsData>();
+        stats = GetComponent<BasePlayerData>();
         playerS = GetComponent<PlayerStateManager>();
         spellLibrary = Resources.LoadAll<SpellBase>("Spells");
         ui = GameObject.Find("[UI] SkillSlot").GetComponent<SpellSlotUiManager>();

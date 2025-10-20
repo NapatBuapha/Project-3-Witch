@@ -15,6 +15,7 @@ public class SpellBase: ScriptableObject
     public string desc { get; private set; }
 
     protected GameObject player;
+    protected SpellBook spellbookref;
     // constructor สำหรับยัดค่า [for child]
     public SpellBase()
     {}
@@ -32,6 +33,7 @@ public class SpellBase: ScriptableObject
     public virtual void UseSpell()
     {
         player = GameObject.FindWithTag("Player");
+        spellbookref = player.GetComponentInChildren<SpellBook>();
         Debug.Log($"{name_} , {manaCost} , {maxCD}");
     }
     public virtual void Penalty()

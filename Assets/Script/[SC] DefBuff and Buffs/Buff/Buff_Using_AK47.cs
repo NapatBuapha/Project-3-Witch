@@ -22,13 +22,12 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
     //ค่าเป็น % ห้ามใส่เกิน 1
     [SerializeField] private float slowness = 0.5f;
     private float baseSpeed;
-    [SerializeField] private PlayerStatsData stats;
-
     //ref สำหรับเวทย์
     [SerializeField] private PlayerSpellSlot pSpellSlot;
     [SerializeField] private SpellBase spellAK47ref;
     [SerializeField] private SpellBase gunSpellRef;
     private int baseSpellIndex;
+    protected GameObject player;
 
     #endregion
 
@@ -39,15 +38,15 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
         Init(buffId_, buffName_, maxDura_);
     }
 
-    public override void ApplyEffect()
+    public override void ApplyEffect(BaseMobData mob)
     {
-        base.ApplyEffect();
-        stats = player.GetComponent<PlayerStatsData>();
+        base.ApplyEffect(mob);
+        player = mob.gameObject;
         //เก็บค่า speed ก่อนติด slow ไว้ใน playerBaseSpeed
-        baseSpeed = stats.baseW_Speed;
+        baseSpeed = mob.base_Speed;
 
         //Slow player
-        stats.baseW_Speed *= slowness;
+        mob.base_Speed *= slowness;
 
 
         //เปลี่ยน spell เรียก ak47 เป็นการยิงกระสุนปืนจากนั้นสั่งล็อคไม่ให้ใช้ spell อื่น
@@ -66,11 +65,11 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
         }
     }
 
-    public override void OnEffectEnd()
+    public override void OnEffectEnd(BaseMobData mob)
     {
-        base.OnEffectEnd();
+        base.OnEffectEnd(mob);
         //จบการทำงานของ debuff
-        stats.baseW_Speed = baseSpeed;
+        mob.base_Speed = baseSpeed;
         pSpellSlot.canChangeSpell = true;
         pSpellSlot.slotCD[baseSpellIndex] = spellAK47ref.maxCD;
         pSpellSlot.spellslot[baseSpellIndex] = spellAK47ref;

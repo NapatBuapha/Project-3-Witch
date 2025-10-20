@@ -37,13 +37,13 @@ public class Spell_Fireball : SpellBase
     {
         base.UseSpell();
         //หาตำเเหน่ง player กับ mouse
-        Transform playerPos = player.transform;
+        Transform spellBookPos = spellbookref.spellBookPos;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
-        Vector3 direction = (mouseWorldPos - playerPos.position).normalized;
+        Vector3 direction = (mouseWorldPos - spellBookPos.position).normalized;
 
         //สร้างเเล้วส่งเเรงดันให้เคลื่อนที่
-        GameObject fb = Instantiate(spellPrefab, playerPos.position, quaternion.identity);
+        GameObject fb = Instantiate(spellPrefab, spellBookPos.position, spellbookref.transform.rotation);
         Rigidbody2D fbRb = fb.GetComponent<Rigidbody2D>();
         fbRb.AddForce(direction * speed , ForceMode2D.Impulse);
     }
