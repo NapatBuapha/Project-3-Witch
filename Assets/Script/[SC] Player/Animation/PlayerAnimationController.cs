@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationController : MonoBehaviour
+public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator; //ดึง sprite จาก Game object sprite มาใส่ใน inspector
     string currentAnimation; //ชื่อ animation ปัจจุบัน

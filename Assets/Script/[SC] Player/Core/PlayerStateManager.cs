@@ -46,7 +46,7 @@ public class PlayerStateManager : MonoBehaviour
     #endregion
 
     #region  Animation
-    public AnimationController animaCon { get; private set; }
+    public PlayerAnimationController animaCon { get; private set; }
     #endregion
 
 
@@ -54,7 +54,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         #region Get the component Ref here
         stats = GetComponent<BasePlayerData>();
-        animaCon = GetComponent<AnimationController>();
+        animaCon = GetComponent<PlayerAnimationController>();
         #endregion
 
         #region Set the variable

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
-public class EnemyStateManager : MonoBehaviour
+public class BaseEnemyStateManager : MonoBehaviour
 {
     EnemyBaseState currentState;
-    //Input Each State Here
+    //Input Each Basic State Here
 
     public Enemy_Idle idle_state { get; private set; } = new Enemy_Idle();
     public Enemy_Chasing enemy_Chasing { get; private set; } = new Enemy_Chasing();
@@ -21,7 +21,7 @@ public class EnemyStateManager : MonoBehaviour
 
     #region StateMachineZone
 
-    void Start()
+    protected virtual void Start()
     {
         #region component ref
         pathfinder = GetComponent<AIPath>();
@@ -37,25 +37,13 @@ public class EnemyStateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        #region Normal update code
-        #endregion
-
-
-        #region StateCondition
-
-        #endregion
-
-        #region NonStateCondition
-
-        #endregion
-
         currentState.UpdateState(this);
     }
 
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         currentState.FixedUpdateState(this);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DetectionRange : MonoBehaviour
 {
-    [SerializeField] private EnemyStateManager enemyStateManager;
+    [SerializeField] private BaseEnemyStateManager enemyStateManager;
 
     void OnTriggerEnter2D(Collider2D col)
     {

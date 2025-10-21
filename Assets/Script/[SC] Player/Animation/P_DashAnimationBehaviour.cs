@@ -11,6 +11,6 @@ public class P_DashAnimationBehaviour : StateMachineBehaviour
         Debug.Log("Dash!!");
         playerData = GameObject.FindWithTag("Player").GetComponent<BasePlayerData>();
         float stateDura = playerData.dashStatesTime;
-        GameObject.FindWithTag("Player").GetComponent<AnimationController>().ChangeAnimation(animation,stateDura);
+        GameObject.FindWithTag("Player").GetComponent<PlayerAnimationController>().ChangeAnimation(animation,stateDura);
     }
 }
