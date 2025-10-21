@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - SAManager
   - UI
+  - Cinemachine
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 2811672141
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
