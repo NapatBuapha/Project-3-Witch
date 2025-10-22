@@ -5,24 +5,10 @@ using Pathfinding;
 using System.Diagnostics;
 using UnityEngine.Animations;
 
-public class BroccoliAnimationController : MonoBehaviour
+public class BroccoliAnimationController : BaseEnemyAnimationController
 {
-    private enum EnemyVerticalDirection
-    {
-        front,
-        back,
-    }
-    [SerializeField] private Animator animator; //ดึง sprite จาก Game object sprite มาใส่ใน inspector
-    string currentAnimation; //ชื่อ animation ปัจจุบัน
-    Rigidbody2D rb;
-    public AIPath aIPath;
-    public bool canWalk;
 
-    EnemyVerticalDirection currentDi;
-
-
-
-    void Start()
+    protected override void Start()
     {
         //Component Ref
         rb = GetComponent<Rigidbody2D>();
@@ -44,54 +30,43 @@ public class BroccoliAnimationController : MonoBehaviour
             canWalk = false;
             yield return new WaitForSeconds(spawnStatesTime);
             canWalk = true;
-        }   
+        }
 
-        switch(spawnVariation)
+        switch (spawnVariation)
         {
             case 1:
-            ChangeAnimation("B_Spawn" , spawnStatesTime);
-            break;
+                ChangeAnimation("B_Spawn", spawnStatesTime);
+                break;
             default:
-            ChangeAnimation("B_SpecialSpawn" , spawnStatesTime);
-            break;
+                ChangeAnimation("B_SpecialSpawn", spawnStatesTime);
+                break;
         }
 
-        
-        
     }
     
-    public void ChangeAnimation(string animation, float crossfade = 0.2f, float time = 0)
+    public void Attack(float statesTime = 0.5f)
     {
-        //ในทุกๆ animation state จะตั้ง behabiour ไว้ให้เรียก method นี้พร้อมใส่เวลาของ State มา
-        //เเละเมื่อเวลาหมด หรือ state นั้นมีเวลาน้อยมากๆถึงจะสั่งให้เปลี่ยน animation ได้
-        if (time > 0) StartCoroutine(Wait());
-        else validate();
-
-        IEnumerator Wait()
+        StartCoroutine(wait());
+        IEnumerator wait()
         {
-            yield return new WaitForSeconds(time - crossfade);
-            validate();
+            canWalk = false;
+            yield return new WaitForSeconds(statesTime);
+            canWalk = true;
         }
-        //ชื่อ animation ต้องตรงกับ animation ใน animator เท่านั้น
-        void validate()
+
+        switch (currentDi)
         {
-            if (currentAnimation != animation)
-            {
-                currentAnimation = animation;
-                if (currentAnimation == "")
-                {
-                    UpdateDirection();
-                }
-                else
-                {
-                    animator.CrossFade(animation,crossfade);
-                }
-            }
+            case EnemyVerticalDirection.front:
+                ChangeAnimation("B_Attack_F", 0.5f);
+                break;
+            default:
+                ChangeAnimation("B_Attack_B", 0.5f);
+                break;
         }
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if(canWalk)
         {
@@ -131,17 +106,4 @@ public class BroccoliAnimationController : MonoBehaviour
             }
         }
     }
-
-    void UpdateDirection()
-    {
-        if (aIPath.desiredVelocity.y >= 0.06f)
-        {
-            currentDi = EnemyVerticalDirection.back;
-        }
-        else if (aIPath.desiredVelocity.y <= 0.5)
-        {
-            currentDi = EnemyVerticalDirection.front;
-        }
-    }
-    
 }

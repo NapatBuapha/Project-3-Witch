@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class Broccoli_IdleStates : BroccoliBaseState
+public class Broccoli_IdleState : BroccoliBaseState
 {
     public override void EnterState(Enemy_02_StateManager enemy)
     {

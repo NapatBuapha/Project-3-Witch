@@ -9,6 +9,7 @@ TagManager:
   - SAManager
   - UI
   - Cinemachine
+  - DialogueBox
   layers:
   - Default
   - TransparentFX

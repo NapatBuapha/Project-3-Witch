@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707a78e126b734147997944be7b03b37, type: 3}
+  m_Name: Scene 1
+  m_EditorClassIdentifier: 
+  dialogueLine:
+  - 'kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay
+    kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay kuay '
+  - 'Fuck you Fuck you  Fuck you  Fuck you  Fuck you  Fuck you  Fuck you  Fuck you
+    Fuck you  Fuck you  Fuck you Fuck you  Fuck you Fuck you  Fuck you  Fuck you 
+    Fuck you  Fuck you  '
+  nextLine: {fileID: 11400000, guid: e440caf20e5ad3c44b368f454ac67e53, type: 2}
+  speakerName: John
+  speakerIcon: {fileID: 1657147732, guid: 8f7873cfe3028554e94c80d639e50706, type: 3}
+  isLeft: 1

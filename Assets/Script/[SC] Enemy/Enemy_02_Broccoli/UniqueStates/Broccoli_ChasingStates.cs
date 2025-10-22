@@ -6,6 +6,7 @@ public class Broccoli_ChasingStates : BroccoliBaseState
 {
     public override void EnterState(Enemy_02_StateManager enemy)
     {
+        enemy.aController.Attack();
         enemy.pathfinder.canMove = true;
     }
 

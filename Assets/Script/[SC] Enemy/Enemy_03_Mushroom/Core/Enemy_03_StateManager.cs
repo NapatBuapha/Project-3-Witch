@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class Enemy_02_StateManager : MonoBehaviour
+public class Enemy_03_StateManager : MonoBehaviour
 {
-    BroccoliBaseState currentState;
+    MushroomBaseState currentState;
     //Input Unique States here
-    public Broccoli_IdleState states_Idle { get; private set; } = new Broccoli_IdleState();
-    public Broccoli_ChasingStates states_Chasing { get; private set; } = new Broccoli_ChasingStates();
-    public Broccoli_DashAttack states_DashAttack { get; private set; } = new Broccoli_DashAttack();
+    public Mushroom_IdleState state_Idle { get; private set; } = new Mushroom_IdleState();
+    public Mushroom_ChasingState state_Chasing { get; private set; } = new Mushroom_ChasingState();
+    public Mushroom_ExplodingState state_Exploding { get; private set; } = new Mushroom_ExplodingState();
+
 
     //Component ref
-    [HideInInspector] public Enemy_02_Broccoli stats;
+    [HideInInspector] public Enemy_03_Mushroom stats;
     public AIPath pathfinder { get; private set; }
     public Rigidbody2D rb { get; private set; }
-    public BroccoliAnimationController aController { get; private set; }
+    public MushroomAnimationController aController { get; private set; }
 
     //Player Ref
     private GameObject player;
@@ -23,30 +24,27 @@ public class Enemy_02_StateManager : MonoBehaviour
     [HideInInspector] public Vector2 pDirection { get; private set; }
 
     //Stats Condition
-    public bool dashStateCon { get; private set; }
+    public bool ExplodingCon { get; private set; }
     public bool chaseCon { get; private set; }
 
-    //DashAttackAdjustment
-    public bool canDash;
 
 
     void Start()
     {
         #region component ref
-        stats = GetComponent<Enemy_02_Broccoli>();
+        stats = GetComponent<Enemy_03_Mushroom>();
         pathfinder = GetComponent<AIPath>();
         rb = GetComponent<Rigidbody2D>();
-        aController = GetComponent<BroccoliAnimationController>();
+        aController = GetComponent<MushroomAnimationController>();
         #endregion
 
         #region set variable
         player = GameObject.FindWithTag("Player");
         pathfinder.canMove = false;
-        canDash = true;
         #endregion
 
 
-        SwitchState(states_Idle);
+        SwitchState(state_Idle);
         currentState.EnterState(this);
     }
 
@@ -57,7 +55,7 @@ public class Enemy_02_StateManager : MonoBehaviour
         pDirection = (player.transform.position - transform.position).normalized;
 
         //StatesCondition
-        dashStateCon = pDistance < stats.startDashDistance && canDash;
+        ExplodingCon = pDistance < stats.startExplodingDistance;
         chaseCon = pDistance < stats.StartMoveDistance;
         
 
@@ -69,7 +67,7 @@ public class Enemy_02_StateManager : MonoBehaviour
         currentState.FixedUpdateState(this);
     }
 
-    public void SwitchState(BroccoliBaseState state)
+    public void SwitchState(MushroomBaseState state)
     {
         currentState = state;
         state.EnterState(this);
@@ -77,17 +75,6 @@ public class Enemy_02_StateManager : MonoBehaviour
 
 
     //Specific Method For Specific States
-    public void StartTimeDelay()
-    {
-        StartCoroutine(wait());
-        IEnumerator wait()
-        {
-            canDash = false;
-            yield return new WaitForSeconds(stats.delayed);
-            canDash = true;
-        }
-    }
-
     public void Appearing()
     {
         aController.Spawn(stats.spawnStatesTime);
@@ -95,8 +82,22 @@ public class Enemy_02_StateManager : MonoBehaviour
         IEnumerator wait()
         {
             yield return new WaitForSeconds(stats.spawnStatesTime);
-            SwitchState(states_Chasing);
+            SwitchState(state_Chasing);
         }
     }
+
+    public void Explode()
+    {
+        aController.Explode(stats.explodingStatesTime);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(stats.explodingStatesTime);
+            Destroy(gameObject);
+        }
+
+    }
+
+
 
 }
