@@ -11,6 +11,7 @@ public class State_PlayerCasting : PlayerBaseState
         rb = player.stats.rb;
         stateTimes = player.castingDura;
         rb.velocity = Vector2.zero; //reset ค่า velocity กันไม่ให้ตัวละครขยับเเม้ไม่ได้กดอะไร
+        rb.isKinematic = true;
     }
 
     public override void FixedUpdateState(PlayerStateManager player)
@@ -26,6 +27,8 @@ public class State_PlayerCasting : PlayerBaseState
         }
         else
         {
+            rb.isKinematic = false;
+
             player.StartCoroutine(player.SetDashCoolDown());
 
             if (player.isWalking)

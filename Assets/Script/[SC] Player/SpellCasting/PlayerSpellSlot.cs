@@ -146,6 +146,8 @@ public class PlayerSpellSlot : MonoBehaviour
         //หยุดร่ายเวทย์
         isCasting = true;
         playerS.Casting(spellslot[index].castingDura);
+        spellslot[index].BeforeCasting();
+
         yield return new WaitForSeconds(spellslot[index].castingDura);
         //ใช้ spell + ลด mana
         stats.Mana -= spellslot[index].manaCost;

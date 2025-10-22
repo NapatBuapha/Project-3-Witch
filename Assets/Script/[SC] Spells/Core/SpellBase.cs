@@ -30,11 +30,16 @@ public class SpellBase: ScriptableObject
         this.desc = desc;
     }
 
-    public virtual void UseSpell()
+    public virtual void BeforeCasting()
     {
         player = GameObject.FindWithTag("Player");
         spellbookref = player.GetComponentInChildren<SpellBook>();
         Debug.Log($"{name_} , {manaCost} , {maxCD}");
+    }
+
+    public virtual void UseSpell()
+    {
+        
     }
     public virtual void Penalty()
     { }
