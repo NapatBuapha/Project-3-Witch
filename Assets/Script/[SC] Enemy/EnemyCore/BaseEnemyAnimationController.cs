@@ -11,7 +11,7 @@ public class BaseEnemyAnimationController : MonoBehaviour
         back,
     }
 
-     [SerializeField] private Animator animator; //ดึง sprite จาก Game object sprite มาใส่ใน inspector
+     [SerializeField] protected Animator animator; //ดึง sprite จาก Game object sprite มาใส่ใน inspector
     protected string currentAnimation; //ชื่อ animation ปัจจุบัน
     protected Rigidbody2D rb;
     public AIPath aIPath;
