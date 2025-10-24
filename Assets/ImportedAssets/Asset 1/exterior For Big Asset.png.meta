@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exterior For Big Asset_0
+      name: House
       rect:
         serializedVersion: 2
         x: 14
@@ -139,7 +139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_11
+      name: Tree1
       rect:
         serializedVersion: 2
         x: 164
@@ -160,13 +160,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_12
+      name: Bush 1
       rect:
         serializedVersion: 2
         x: 224
-        y: 576
+        y: 592
         width: 16
-        height: 31
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,7 +202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_16
+      name: Bush 3
       rect:
         serializedVersion: 2
         x: 224
@@ -223,7 +223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_17
+      name: Bush 5
       rect:
         serializedVersion: 2
         x: 166
@@ -244,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_18
+      name: Bush 4
       rect:
         serializedVersion: 2
         x: 213
@@ -265,7 +265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_22
+      name: Bush 6
       rect:
         serializedVersion: 2
         x: 161
@@ -286,7 +286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_23
+      name: Tree2
       rect:
         serializedVersion: 2
         x: 198
@@ -307,7 +307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_25
+      name: Tree5
       rect:
         serializedVersion: 2
         x: 1
@@ -328,7 +328,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_26
+      name: Tree4
       rect:
         serializedVersion: 2
         x: 65
@@ -349,7 +349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_27
+      name: Tree3
       rect:
         serializedVersion: 2
         x: 135
@@ -370,7 +370,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_28
+      name: Bush 7
       rect:
         serializedVersion: 2
         x: 194
@@ -391,7 +391,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_29
+      name: Bush 8
       rect:
         serializedVersion: 2
         x: 198
@@ -412,7 +412,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_30
+      name: stone 12
       rect:
         serializedVersion: 2
         x: 7
@@ -433,7 +433,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_31
+      name: stone 10
       rect:
         serializedVersion: 2
         x: 49
@@ -454,7 +454,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_32
+      name: stone 8
       rect:
         serializedVersion: 2
         x: 84
@@ -475,7 +475,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_33
+      name: stone 6
       rect:
         serializedVersion: 2
         x: 115
@@ -496,7 +496,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_34
+      name: stone 4
       rect:
         serializedVersion: 2
         x: 149
@@ -517,7 +517,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_35
+      name: stone 2
       rect:
         serializedVersion: 2
         x: 185
@@ -538,7 +538,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_36
+      name: stone 1
       rect:
         serializedVersion: 2
         x: 213
@@ -559,7 +559,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_37
+      name: stone 11
       rect:
         serializedVersion: 2
         x: 48
@@ -580,7 +580,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_38
+      name: stone 9
       rect:
         serializedVersion: 2
         x: 81
@@ -601,7 +601,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_39
+      name: stone 7
       rect:
         serializedVersion: 2
         x: 118
@@ -622,7 +622,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_40
+      name: stone 5
       rect:
         serializedVersion: 2
         x: 150
@@ -643,7 +643,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_41
+      name: stone 3
       rect:
         serializedVersion: 2
         x: 184
@@ -664,7 +664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_42
+      name: Box 1
       rect:
         serializedVersion: 2
         x: 216
@@ -685,10 +685,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_43
+      name: Bush 9
       rect:
         serializedVersion: 2
-        x: 6
+        x: 8
         y: 311
         width: 36
         height: 34
@@ -706,10 +706,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_44
+      name: Mushroom 3
       rect:
         serializedVersion: 2
-        x: 56
+        x: 55
         y: 311
         width: 16
         height: 19
@@ -727,7 +727,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_45
+      name: Barrel
       rect:
         serializedVersion: 2
         x: 91
@@ -748,7 +748,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_46
+      name: Box 2
       rect:
         serializedVersion: 2
         x: 119
@@ -769,7 +769,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_47
+      name: Tree6
       rect:
         serializedVersion: 2
         x: 154
@@ -790,7 +790,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_48
+      name: well dirt
       rect:
         serializedVersion: 2
         x: 1
@@ -811,7 +811,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_49
+      name: well grass
       rect:
         serializedVersion: 2
         x: 48
@@ -832,7 +832,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_50
+      name: Mushroom 2
       rect:
         serializedVersion: 2
         x: 102
@@ -853,7 +853,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_51
+      name: ScarCrow
       rect:
         serializedVersion: 2
         x: 4
@@ -874,7 +874,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_52
+      name: Mushroom 1
       rect:
         serializedVersion: 2
         x: 64
@@ -895,7 +895,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_53
+      name: Tree7
       rect:
         serializedVersion: 2
         x: 124
@@ -916,7 +916,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_54
+      name: Tree8
       rect:
         serializedVersion: 2
         x: 179
@@ -937,7 +937,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_55
+      name: Bush 10
       rect:
         serializedVersion: 2
         x: 3
@@ -958,7 +958,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_56
+      name: Mushroom 4
       rect:
         serializedVersion: 2
         x: 69
@@ -979,7 +979,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_57
+      name: Log 2
       rect:
         serializedVersion: 2
         x: 96
@@ -1000,13 +1000,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_58
+      name: Log 3
       rect:
         serializedVersion: 2
         x: 129
-        y: 177
-        width: 46
-        height: 28
+        y: 176
+        width: 31
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1021,49 +1021,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_59
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 185
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae3e8391dfcb21549ac92834ad43beb0
-      internalID: 1327060392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exterior For Big Asset_60
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 179
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 836af3ec13dfed04d8da9599aee15237
-      internalID: -1825453294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exterior For Big Asset_61
+      name: Bush 11
       rect:
         serializedVersion: 2
         x: 49
@@ -1084,7 +1042,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_62
+      name: Log 1
       rect:
         serializedVersion: 2
         x: 88
@@ -1105,7 +1063,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_63
+      name: Mushroom 5
       rect:
         serializedVersion: 2
         x: 135
@@ -1126,49 +1084,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_64
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 165
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c5e2385bee011a45b0af3b167483e74
-      internalID: -1449828898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exterior For Big Asset_65
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 166
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 498db940c509cdd48955575035b24cd8
-      internalID: -1351735885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exterior For Big Asset_66
+      name: Flow 2
       rect:
         serializedVersion: 2
         x: 225
@@ -1189,7 +1105,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_67
+      name: Big Stone 4
       rect:
         serializedVersion: 2
         x: 0
@@ -1210,7 +1126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_68
+      name: Big Stone 3 dirth
       rect:
         serializedVersion: 2
         x: 69
@@ -1231,7 +1147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_69
+      name: Flow 1
       rect:
         serializedVersion: 2
         x: 131
@@ -1252,7 +1168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_70
+      name: Log 4
       rect:
         serializedVersion: 2
         x: 165
@@ -1273,7 +1189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_71
+      name: Log 5
       rect:
         serializedVersion: 2
         x: 213
@@ -1294,7 +1210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_72
+      name: Big Stone 2 dirth
       rect:
         serializedVersion: 2
         x: 132
@@ -1315,7 +1231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_73
+      name: Big Stone 1
       rect:
         serializedVersion: 2
         x: 179
@@ -1336,7 +1252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_74
+      name: Flow 3
       rect:
         serializedVersion: 2
         x: 226
@@ -1357,7 +1273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_75
+      name: Flow 4
       rect:
         serializedVersion: 2
         x: 227
@@ -1378,28 +1294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_76
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 84
-        width: 12
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f833b2ea0aa1f5747a37c666a041465a
-      internalID: 528173482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exterior For Big Asset_77
+      name: Flow 5
       rect:
         serializedVersion: 2
         x: 226
@@ -1420,7 +1315,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_78
+      name: Big Stone 5
       rect:
         serializedVersion: 2
         x: 7
@@ -1441,7 +1336,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_79
+      name: Big Stone 6 dirth
       rect:
         serializedVersion: 2
         x: 56
@@ -1462,7 +1357,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_80
+      name: Log 7
       rect:
         serializedVersion: 2
         x: 101
@@ -1483,7 +1378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_81
+      name: Log 6
       rect:
         serializedVersion: 2
         x: 144
@@ -1504,7 +1399,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_82
+      name: stones 1
       rect:
         serializedVersion: 2
         x: 178
@@ -1525,7 +1420,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_83
+      name: stones 2
       rect:
         serializedVersion: 2
         x: 210
@@ -1546,12 +1441,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_84
+      name: Flow 7
       rect:
         serializedVersion: 2
         x: 148
         y: 36
-        width: 25
+        width: 11
         height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1567,7 +1462,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_85
+      name: Stones 3
       rect:
         serializedVersion: 2
         x: 5
@@ -1588,7 +1483,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_86
+      name: stones 4
       rect:
         serializedVersion: 2
         x: 35
@@ -1609,7 +1504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_87
+      name: stones 5
       rect:
         serializedVersion: 2
         x: 67
@@ -1630,7 +1525,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_88
+      name: stones 6
       rect:
         serializedVersion: 2
         x: 101
@@ -1651,7 +1546,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_89
+      name: Flow 6
       rect:
         serializedVersion: 2
         x: 128
@@ -1672,13 +1567,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_90
+      name: flow 8
       rect:
         serializedVersion: 2
-        x: 149
+        x: 146
         y: 8
-        width: 9
-        height: 18
+        width: 12
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1693,7 +1588,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_91
+      name: Flow 9
       rect:
         serializedVersion: 2
         x: 160
@@ -1714,7 +1609,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_92
+      name: Flow 10
       rect:
         serializedVersion: 2
         x: 178
@@ -1735,7 +1630,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_93
+      name: Flow 11
       rect:
         serializedVersion: 2
         x: 192
@@ -1756,7 +1651,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_94
+      name: Flow 12
       rect:
         serializedVersion: 2
         x: 212
@@ -1777,13 +1672,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_95
+      name: Flow 15
       rect:
         serializedVersion: 2
         x: 227
         y: 18
-        width: 5
-        height: 8
+        width: 10
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1798,49 +1693,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_96
-      rect:
-        serializedVersion: 2
-        x: 231
-        y: 21
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52e8955e7a640e540b9bbb4824054fb4
-      internalID: -447073308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exterior For Big Asset_97
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 13
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 442b57b56f1ea0d49a297d8be4ea3ec6
-      internalID: 1792365145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: exterior For Big Asset_98
+      name: small bush 1
       rect:
         serializedVersion: 2
         x: 174
@@ -1861,7 +1714,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_99
+      name: small bush 2
       rect:
         serializedVersion: 2
         x: 160
@@ -1882,7 +1735,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_100
+      name: Flow 13
       rect:
         serializedVersion: 2
         x: 209
@@ -1903,7 +1756,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exterior For Big Asset_101
+      name: Flow 14
       rect:
         serializedVersion: 2
         x: 230
@@ -1923,6 +1776,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bush 2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 575
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e619c18c2dcad84c98fc91c5d054299
+      internalID: 2057359460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1934,108 +1808,108 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      exterior For Big Asset_0: 770970516
+      Barrel: -189292244
+      Big Stone 1: -687500248
+      Big Stone 2 dirth: -555631640
+      Big Stone 3 dirth: 121408142
+      Big Stone 4: 581375194
+      Big Stone 5: -933062332
+      Big Stone 6 dirth: -883522485
+      Box 1: -1887075729
+      Box 2: -1026713198
+      Bush 1: -820796209
+      Bush 10: -1763129381
+      Bush 11: -750995299
+      Bush 2: 2057359460
+      Bush 3: 1368478589
+      Bush 4: -1663794161
+      Bush 5: -2113673033
+      Bush 6: 1936681691
+      Bush 7: 319924011
+      Bush 8: -1195867020
+      Bush 9: -1882145916
+      Flow 1: -6663435
+      Flow 10: 57944453
+      Flow 11: 1336959086
+      Flow 12: 1091842551
+      Flow 13: -2003158268
+      Flow 14: -1765233054
+      Flow 15: -1468147681
+      Flow 2: 332130669
+      Flow 3: -472256137
+      Flow 4: -1207478903
+      Flow 5: -2104415220
+      Flow 6: -1562342640
+      Flow 7: -1511784427
+      Flow 9: 109668828
+      House: 770970516
+      Log 1: 520232038
+      Log 2: 1365576306
+      Log 3: -376271531
+      Log 4: -56170692
+      Log 5: 1124100518
+      Log 6: -289979291
+      Log 7: 1205262468
+      Mushroom 1: 528962964
+      Mushroom 2: 1252266453
+      Mushroom 3: -219730912
+      Mushroom 4: -2001218569
+      Mushroom 5: 1020370183
+      ScarCrow: -1279012595
+      Stones 3: -317175600
+      Tree1: -284844882
+      Tree2: 841953733
+      Tree3: 556446147
+      Tree4: -1171271289
+      Tree5: 469396473
+      Tree6: 365519369
+      Tree7: -1626428598
+      Tree8: -1935920781
       exterior For Big Asset_1: -2001893608
       exterior For Big Asset_10: -1807095481
-      exterior For Big Asset_100: -2003158268
-      exterior For Big Asset_101: -1765233054
-      exterior For Big Asset_11: -284844882
-      exterior For Big Asset_12: -820796209
       exterior For Big Asset_13: 339049864
       exterior For Big Asset_14: 1660293561
       exterior For Big Asset_15: 1466360069
-      exterior For Big Asset_16: 1368478589
-      exterior For Big Asset_17: -2113673033
-      exterior For Big Asset_18: -1663794161
       exterior For Big Asset_19: -1863967430
       exterior For Big Asset_2: -679850975
       exterior For Big Asset_20: 1913730627
       exterior For Big Asset_21: 464156103
-      exterior For Big Asset_22: 1936681691
-      exterior For Big Asset_23: 841953733
       exterior For Big Asset_24: 1510660133
-      exterior For Big Asset_25: 469396473
-      exterior For Big Asset_26: -1171271289
-      exterior For Big Asset_27: 556446147
-      exterior For Big Asset_28: 319924011
-      exterior For Big Asset_29: -1195867020
       exterior For Big Asset_3: 140314371
-      exterior For Big Asset_30: -586413926
-      exterior For Big Asset_31: -1295317812
-      exterior For Big Asset_32: 586556497
-      exterior For Big Asset_33: 300536470
-      exterior For Big Asset_34: 1482171970
-      exterior For Big Asset_35: -1561348212
-      exterior For Big Asset_36: 1483497190
-      exterior For Big Asset_37: 383502089
-      exterior For Big Asset_38: -1051535524
-      exterior For Big Asset_39: -1313002922
       exterior For Big Asset_4: 643632093
-      exterior For Big Asset_40: -1971563296
-      exterior For Big Asset_41: -879234014
-      exterior For Big Asset_42: -1887075729
-      exterior For Big Asset_43: -1882145916
-      exterior For Big Asset_44: -219730912
-      exterior For Big Asset_45: -189292244
-      exterior For Big Asset_46: -1026713198
-      exterior For Big Asset_47: 365519369
-      exterior For Big Asset_48: -1835384749
-      exterior For Big Asset_49: 326208238
       exterior For Big Asset_5: 318042979
-      exterior For Big Asset_50: 1252266453
-      exterior For Big Asset_51: -1279012595
-      exterior For Big Asset_52: 528962964
-      exterior For Big Asset_53: -1626428598
-      exterior For Big Asset_54: -1935920781
-      exterior For Big Asset_55: -1763129381
-      exterior For Big Asset_56: -2001218569
-      exterior For Big Asset_57: 1365576306
-      exterior For Big Asset_58: -376271531
       exterior For Big Asset_59: 1327060392
       exterior For Big Asset_6: -1093283502
       exterior For Big Asset_60: -1825453294
-      exterior For Big Asset_61: -750995299
-      exterior For Big Asset_62: 520232038
-      exterior For Big Asset_63: 1020370183
       exterior For Big Asset_64: -1449828898
       exterior For Big Asset_65: -1351735885
-      exterior For Big Asset_66: 332130669
-      exterior For Big Asset_67: 581375194
-      exterior For Big Asset_68: 121408142
-      exterior For Big Asset_69: -6663435
       exterior For Big Asset_7: 2134479542
-      exterior For Big Asset_70: -56170692
-      exterior For Big Asset_71: 1124100518
-      exterior For Big Asset_72: -555631640
-      exterior For Big Asset_73: -687500248
-      exterior For Big Asset_74: -472256137
-      exterior For Big Asset_75: -1207478903
       exterior For Big Asset_76: 528173482
-      exterior For Big Asset_77: -2104415220
-      exterior For Big Asset_78: -933062332
-      exterior For Big Asset_79: -883522485
-      exterior For Big Asset_8: -1062470851
-      exterior For Big Asset_80: 1205262468
-      exterior For Big Asset_81: -289979291
-      exterior For Big Asset_82: -340437974
-      exterior For Big Asset_83: 1342202886
-      exterior For Big Asset_84: -1511784427
-      exterior For Big Asset_85: -317175600
-      exterior For Big Asset_86: -139109337
-      exterior For Big Asset_87: -52124689
-      exterior For Big Asset_88: -1691624680
-      exterior For Big Asset_89: -1562342640
       exterior For Big Asset_9: -1335008567
-      exterior For Big Asset_90: 983271432
-      exterior For Big Asset_91: 109668828
-      exterior For Big Asset_92: 57944453
-      exterior For Big Asset_93: 1336959086
-      exterior For Big Asset_94: 1091842551
-      exterior For Big Asset_95: -1468147681
       exterior For Big Asset_96: -447073308
       exterior For Big Asset_97: 1792365145
-      exterior For Big Asset_98: 319686752
-      exterior For Big Asset_99: 1069337681
+      flow 8: 983271432
+      small bush 1: 319686752
+      small bush 2: 1069337681
+      stone 1: 1483497190
+      stone 10: -1295317812
+      stone 11: 383502089
+      stone 12: -586413926
+      stone 2: -1561348212
+      stone 3: -879234014
+      stone 4: 1482171970
+      stone 5: -1971563296
+      stone 6: 300536470
+      stone 7: -1313002922
+      stone 8: 586556497
+      stone 9: -1051535524
+      stones 1: -340437974
+      stones 2: 1342202886
+      stones 4: -139109337
+      stones 5: -52124689
+      stones 6: -1691624680
+      well dirt: -1835384749
+      well grass: 326208238
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

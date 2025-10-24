@@ -6,8 +6,11 @@ public class Broccoli_ChasingStates : BroccoliBaseState
 {
     public override void EnterState(Enemy_02_StateManager enemy)
     {
+        enemy.onContactDamage.isHiding = false;
+        enemy.rb.isKinematic = false;
         enemy.aController.Attack();
         enemy.pathfinder.canMove = true;
+        enemy.col.isTrigger = false;
     }
 
     public override void FixedUpdateState(Enemy_02_StateManager enemy)

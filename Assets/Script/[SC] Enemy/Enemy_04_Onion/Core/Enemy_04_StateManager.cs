@@ -18,6 +18,7 @@ public class Enemy_04_StateManager : MonoBehaviour
     public AIDestinationSetter aitarget { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public OnionAnimationController aController { get; private set; }
+    public Collider2D col { get; private set; }
 
     //Player Ref
     public GameObject player { get; private set; }
@@ -44,12 +45,14 @@ public class Enemy_04_StateManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         aController = GetComponent<OnionAnimationController>();
         aitarget = GetComponent<AIDestinationSetter>();
+        col = GetComponent<Collider2D>();
         #endregion
 
         #region set variable
         player = GameObject.FindWithTag("Player");
         pathfinder.canMove = false;
         canThrown = true;
+        col.isTrigger = true;
         #endregion
 
 
@@ -65,7 +68,7 @@ public class Enemy_04_StateManager : MonoBehaviour
 
         //StatesCondition
         thrownCon = pDistance < stats.startThrownDistance && canThrown;
-        chaseCon = pDistance < stats.StartMoveDistance;
+        chaseCon = pDistance < stats.startMoveDistance;
         fleeCon = pDistance < stats.startFleeDistance;
         
 

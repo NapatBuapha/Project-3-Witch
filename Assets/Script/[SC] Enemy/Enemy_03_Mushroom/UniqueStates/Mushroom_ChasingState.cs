@@ -6,6 +6,8 @@ public class Mushroom_ChasingState : MushroomBaseState
 {
     public override void EnterState(Enemy_03_StateManager enemy)
     {
+        enemy.col.isTrigger = false;
+        enemy.rb.isKinematic = false;
        enemy.pathfinder.canMove = true;
     }
 

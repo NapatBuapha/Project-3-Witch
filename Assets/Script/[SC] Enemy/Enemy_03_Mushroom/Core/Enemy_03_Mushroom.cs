@@ -16,7 +16,6 @@ public class Enemy_03_Mushroom : BaseEnemyData
     public GameObject explosivePrefab;
 
     [Header("Spawning state variable")]
-     public float StartMoveDistance = 7f;
     public float spawnStatesTime = 0.5f;
     protected override void Awake()
     {

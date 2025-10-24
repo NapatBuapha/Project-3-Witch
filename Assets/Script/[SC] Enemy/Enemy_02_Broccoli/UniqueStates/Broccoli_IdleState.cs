@@ -7,12 +7,12 @@ public class Broccoli_IdleState : BroccoliBaseState
 {
     public override void EnterState(Enemy_02_StateManager enemy)
     {
+        enemy.rb.isKinematic = true;
         enemy.pathfinder.canMove = false;
     }
 
     public override void FixedUpdateState(Enemy_02_StateManager enemy)
     {
-
     }
 
     public override void UpdateState(Enemy_02_StateManager enemy)

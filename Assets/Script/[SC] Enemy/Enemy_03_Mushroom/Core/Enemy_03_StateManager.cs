@@ -17,6 +17,7 @@ public class Enemy_03_StateManager : MonoBehaviour
     public AIPath pathfinder { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public MushroomAnimationController aController { get; private set; }
+    public Collider2D col { get; private set; }
 
     //Player Ref
     private GameObject player;
@@ -36,11 +37,13 @@ public class Enemy_03_StateManager : MonoBehaviour
         pathfinder = GetComponent<AIPath>();
         rb = GetComponent<Rigidbody2D>();
         aController = GetComponent<MushroomAnimationController>();
+        col = GetComponent<Collider2D>();
         #endregion
 
         #region set variable
         player = GameObject.FindWithTag("Player");
         pathfinder.canMove = false;
+        col.isTrigger = true;
         #endregion
 
 
@@ -56,7 +59,7 @@ public class Enemy_03_StateManager : MonoBehaviour
 
         //StatesCondition
         ExplodingCon = pDistance < stats.startExplodingDistance;
-        chaseCon = pDistance < stats.StartMoveDistance;
+        chaseCon = pDistance < stats.startMoveDistance;
         
 
         currentState.UpdateState(this);

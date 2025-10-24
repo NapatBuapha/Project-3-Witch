@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2661158245665399128}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -361,11 +361,11 @@ MonoBehaviour:
   maxHp: 10
   base_Speed: 6
   hp: 1
+  startMoveDistance: 10
   dashPower: 15
   dashStatesTime: 0.5
   startDashDistance: 5
   delayed: 2
-  StartMoveDistance: 10
   spawnStatesTime: 1
 --- !u!114 &6512488917540381207
 MonoBehaviour:

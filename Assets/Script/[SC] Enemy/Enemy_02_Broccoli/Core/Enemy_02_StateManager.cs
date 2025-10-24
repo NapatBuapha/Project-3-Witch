@@ -16,6 +16,8 @@ public class Enemy_02_StateManager : MonoBehaviour
     public AIPath pathfinder { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public BroccoliAnimationController aController { get; private set; }
+    public OnContactDamage onContactDamage { get; private set; }
+    public Collider2D col { get; private set; }
 
     //Player Ref
     private GameObject player;
@@ -37,12 +39,16 @@ public class Enemy_02_StateManager : MonoBehaviour
         pathfinder = GetComponent<AIPath>();
         rb = GetComponent<Rigidbody2D>();
         aController = GetComponent<BroccoliAnimationController>();
+        onContactDamage = GetComponent<OnContactDamage>();
+        col = GetComponent<Collider2D>();
         #endregion
 
         #region set variable
         player = GameObject.FindWithTag("Player");
         pathfinder.canMove = false;
         canDash = true;
+        onContactDamage.isHiding = true;
+        col.isTrigger = true;
         #endregion
 
 
@@ -58,7 +64,7 @@ public class Enemy_02_StateManager : MonoBehaviour
 
         //StatesCondition
         dashStateCon = pDistance < stats.startDashDistance && canDash;
-        chaseCon = pDistance < stats.StartMoveDistance;
+        chaseCon = pDistance < stats.startMoveDistance;
         
 
         currentState.UpdateState(this);

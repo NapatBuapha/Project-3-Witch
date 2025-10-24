@@ -18,7 +18,6 @@ public class Enemy_04_Onion : BaseEnemyData
     public float delayed = 2f;
 
     [Header("Spawning state variable")]
-     public float StartMoveDistance = 10f;
     public float spawnStatesTime = 0.5f;
 
     [Header("Other variable")]

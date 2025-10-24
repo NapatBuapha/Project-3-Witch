@@ -7,6 +7,8 @@ public class Onion_ChasingState : OnionBaseStates
 {
     public override void EnterState(Enemy_04_StateManager enemy)
     {
+        enemy.col.isTrigger = false;
+        enemy.rb.isKinematic = false;
         enemy.aitarget.target = enemy.player.transform;
         enemy.pathfinder.canMove = true;
     }
