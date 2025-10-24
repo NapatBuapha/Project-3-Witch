@@ -44,6 +44,18 @@ public class BasePlayerData : BaseMobData
         }
     }
     [SerializeField] private float rechargeSpeedSta = 0.03f;
+
+
+    [Header("Beast Mode")]
+    public float transformDura = 2.2f;
+    public float attackDura = 0.75f;
+
+    public float beastModeDura = 13f;
+    public bool isBeastMode;
+    
+
+
+
     [Header("Mana")]
     public float maxMana = 10f;
     private float mana;
@@ -78,6 +90,7 @@ public class BasePlayerData : BaseMobData
         #region  setVaraible
         Stamina = 0;
         mana = 0;
+        isBeastMode = false;
         #endregion
     }
 

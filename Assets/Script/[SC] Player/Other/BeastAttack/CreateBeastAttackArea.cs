@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Mathematics;
+using UnityEngine;
+
+public class CreateBeastAttackArea : MonoBehaviour
+{
+    //Script นี้จะใช้ร่วมกับ animation event ของ unity เพื่อความง่ายเเละความเป๊ะของการสร้างวงโจมตีในร่าง beast
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private Transform attackPoint;
+    
+    public void AttackAreaCreate()
+    {
+        Instantiate(prefab, attackPoint.position, quaternion.identity);
+    }
+}

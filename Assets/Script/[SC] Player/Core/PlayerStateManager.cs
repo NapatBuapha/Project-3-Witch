@@ -20,6 +20,13 @@ public class PlayerStateManager : MonoBehaviour
     public State_PlayerDash state_PlayerDash { get; private set; } = new State_PlayerDash();
     public State_PlayerCasting state_PlayerCasting { get; private set; } = new State_PlayerCasting();
 
+    //Beast State here
+    public State_PlayerBeastTransform state_PlayerBeastTransform { get; private set; } = new State_PlayerBeastTransform();
+    public State_PlayerBeastIdle state_PlayerBeastIdle { get; private set; } = new State_PlayerBeastIdle();
+    public State_PlayerBeastWalking state_PlayerBeastWalking { get; private set; } = new State_PlayerBeastWalking();
+    public State_PlayerDeTransform state_PlayerDeTransform { get; private set; } = new State_PlayerDeTransform();
+    public State_PlayerBeastAttack state_PlayerBeastAttack { get; private set; } = new State_PlayerBeastAttack();
+
     public BasePlayerData stats { get; private set; }
 
     #region Walking Stats
@@ -38,6 +45,8 @@ public class PlayerStateManager : MonoBehaviour
     #region StateCondition
     public bool isWalking { get; private set; }
     public bool dashInput { get; private set; }
+    public bool transformCon { get; private set; }
+    public bool AttackCon { get; private set; }
 
     #endregion
 
@@ -47,6 +56,11 @@ public class PlayerStateManager : MonoBehaviour
 
     #region  Animation
     public PlayerAnimationController animaCon { get; private set; }
+    #endregion
+
+    #region BeastAttackAdjustment
+    private float nearEndDecreaser = 1;
+    private bool isNearDeTransform;
     #endregion
 
 
@@ -61,6 +75,7 @@ public class PlayerStateManager : MonoBehaviour
         dashPower = stats.baseDashPower;
         w_speed = stats.base_Speed;
         canDash = true;
+        isNearDeTransform = true;
         #endregion
     }
 
@@ -102,6 +117,9 @@ public class PlayerStateManager : MonoBehaviour
         #region StateCondition
         isWalking = player_HInput != 0 || player_VInput != 0;
         dashInput = Input.GetKeyDown(KeyCode.LeftShift) && canDash && stats.Stamina > stats.dashSta_Consume;
+        transformCon = Input.GetKeyDown(KeyCode.LeftControl);
+        AttackCon = Input.GetMouseButton(0) && !isNearDeTransform;
+        
         #endregion
 
         #region NonStateCondition
@@ -109,6 +127,10 @@ public class PlayerStateManager : MonoBehaviour
         #endregion
 
         //คำสั่งที่ใช้กับทุก State
+        if(transformCon)
+        {
+            SwitchState(state_PlayerBeastTransform);
+        }
 
         currentState.UpdateState(this);
     }
@@ -138,6 +160,56 @@ public class PlayerStateManager : MonoBehaviour
     {
         this.castingDura = castingDura;
         SwitchState(state_PlayerCasting);
+    }
+
+    public void BeastTransform()
+    {
+        stats.isBeastMode = true;
+        animaCon.BeastModeTransform(stats.transformDura);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(stats.transformDura);
+            SwitchState(state_PlayerBeastIdle);
+            StartCoroutine(BeastModeTimer());
+            StartCoroutine(AbleToAttackTimer());
+        }
+
+        IEnumerator AbleToAttackTimer()
+        {
+            isNearDeTransform = false;
+            yield return new WaitForSeconds(stats.beastModeDura - nearEndDecreaser);
+            isNearDeTransform = true;
+        }
+
+        IEnumerator BeastModeTimer()
+        {
+            yield return new WaitForSeconds(stats.beastModeDura);
+            SwitchState(state_PlayerDeTransform);
+        }
+    }
+
+    public void BeastDeTransform()
+    {
+        animaCon.BeastModeDeTransform(stats.transformDura);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(stats.transformDura);
+            SwitchState(state_PlayerIdle);
+            stats.isBeastMode = false;
+        }
+    }
+    
+    public void BeastAttack()
+    {
+        animaCon.BeastModeAttack(stats.attackDura);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(stats.attackDura);
+            SwitchState(state_PlayerBeastIdle);
+        }
     }
     
 

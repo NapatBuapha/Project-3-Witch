@@ -22,6 +22,7 @@ public class PlayerSpellSlot : MonoBehaviour
     private PlayerStateManager playerS;
 
     //เพื่อกันร่ายเวทย์พร้อมกัน ระหว่างกำลังร่ายเวทย์อื่น
+
     private bool isCasting;
     public bool canChangeSpell;
 
@@ -57,6 +58,12 @@ public class PlayerSpellSlot : MonoBehaviour
 
     void Update()
     {
+        if(stats.isBeastMode)
+        {
+            return;
+        }
+
+
         if (!isCasting)
         {
             #region ปุ่มกด skill

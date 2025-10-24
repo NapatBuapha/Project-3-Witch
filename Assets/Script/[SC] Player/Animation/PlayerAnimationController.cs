@@ -16,6 +16,7 @@ public class PlayerAnimationController : MonoBehaviour
     }
 
     bool canWalk;
+    bool isBeastMode;
 
     PlayerVerticalDirection verticalDi;
 
@@ -29,6 +30,7 @@ public class PlayerAnimationController : MonoBehaviour
         //Variable Set
         verticalDi = PlayerVerticalDirection.back;
         canWalk = true;
+        isBeastMode = false;
     }
 
     public void ChangeAnimation(string animation, float crossfade = 0.2f, float time = 0)
@@ -68,9 +70,10 @@ public class PlayerAnimationController : MonoBehaviour
         if(canWalk)
         {
             UpdatePlayerDirection();
+            CheckIdle();
         }
         
-        CheckIdle();
+        
 
     }
 
@@ -112,10 +115,91 @@ public class PlayerAnimationController : MonoBehaviour
             ChangeAnimation("F_Dash");
         }
     }
-    
+
     public void CastingAnim()
     {
-        
+
+    }
+
+    public void BeastModeAttack(float attackDuration = 1.2f)
+    {
+
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            canWalk = false;
+            yield return new WaitForSeconds(attackDuration);
+            canWalk = true;
+        }
+
+        //SpriteFlip
+        if (rb.velocity.x >= 0.01f)
+        {
+            //ขวา
+            animator.gameObject.transform.localScale = new Vector3(1, 1, 1); 
+        }
+        else if (rb.velocity.x <= -0.01f)
+        {
+            //ซ้าย
+            animator.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+
+        if (MathF.Abs(rb.velocity.x) >= 0.01f)
+        {
+            ChangeAnimation("P_Beast_Attack_S");
+        }
+        else if (rb.velocity.y >= 0.01)
+        {
+            ChangeAnimation("P_Beast_Attack_B");
+        }
+        else if (rb.velocity.y <= -0.01)
+        {
+            ChangeAnimation("P_Beast_Attack_F");
+        }
+        else
+        {
+            switch(verticalDi)
+            {
+                case PlayerVerticalDirection.front:
+                ChangeAnimation("P_Beast_Attack_F_Still");
+                break;
+                default:
+                ChangeAnimation("P_Beast_Attack_B_Still");
+                break;
+            }
+            
+        }
+
+
+    }
+
+    public void BeastModeTransform(float transformDuration = 2.2f)
+    {
+        isBeastMode = true;
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            canWalk = false;
+            yield return new WaitForSeconds(transformDuration);
+            canWalk = true;
+        }
+        ChangeAnimation("P_Beast_Transform");
+
+    }
+
+        public void BeastModeDeTransform(float deTransformDuration = 2.2f)
+    {
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            canWalk = false;
+            yield return new WaitForSeconds(deTransformDuration);
+            canWalk = true;
+            isBeastMode = false;
+        }
+        ChangeAnimation("P_Beast_DeTransform");
+
     }
 
     void CheckIdle()
@@ -125,11 +209,17 @@ public class PlayerAnimationController : MonoBehaviour
             switch (verticalDi)
             {
                 case PlayerVerticalDirection.front:
-                    ChangeAnimation("F_Idle");
+                    if(isBeastMode)
+                    ChangeAnimation("P_Beast_Idle_F" ,0);
+                    else
+                    ChangeAnimation("F_Idle",0);
                     break;
 
                 default: //Case Back
-                    ChangeAnimation("B_Idle");
+                    if(isBeastMode)
+                    ChangeAnimation("P_Beast_Idle_B",0);
+                    else
+                    ChangeAnimation("B_Idle",0);
                     break;
             }
         }
@@ -155,12 +245,20 @@ public class PlayerAnimationController : MonoBehaviour
         {
             //บน
             verticalDi = PlayerVerticalDirection.back;
+
+            if(isBeastMode)
+            ChangeAnimation("P_Beast_Walking_B");
+            else
             ChangeAnimation("B_Walking");
         }
         else if (rb.velocity.x == 0 && rb.velocity.y <= -0.01f)
         {
             //ล่าง
             verticalDi = PlayerVerticalDirection.front;
+
+            if(isBeastMode)
+            ChangeAnimation("P_Beast_Walking_F");
+            else
             ChangeAnimation("F_Walking");
         }
     }
@@ -179,15 +277,20 @@ public class PlayerAnimationController : MonoBehaviour
             verticalDi = PlayerVerticalDirection.front;
         }
 
-        switch(verticalDi)
+        if (isBeastMode)
+        ChangeAnimation("P_Beast_Walking_S");
+        else
         {
-            case PlayerVerticalDirection.front:
-            ChangeAnimation("FS_Walking");
-            break;
+            switch (verticalDi)
+            {
+                case PlayerVerticalDirection.front:
+                    ChangeAnimation("FS_Walking");
+                    break;
 
-            default: //Case Back
-            ChangeAnimation("BS_Walking");
-            break;
+                default: //Case Back
+                    ChangeAnimation("BS_Walking");
+                    break;
+            }
         }
         
     }
