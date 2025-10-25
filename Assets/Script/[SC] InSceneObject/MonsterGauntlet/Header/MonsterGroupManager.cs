@@ -6,7 +6,7 @@ public class MonsterGroupManager : MonoBehaviour
 {
     [SerializeField] private BaseEnemyData[] enemies;
 
-    void Start()
+    void Awake()
     {
         enemies = GetComponentsInChildren<BaseEnemyData>();
         for (int i = 0; i < enemies.Length; i++)

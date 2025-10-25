@@ -5,8 +5,9 @@ using UnityEngine.Lumin;
 
 public class MushroomBomb : MonoBehaviour
 {
+    [SerializeField] private bool isFriendlyFire = false;
     [SerializeField] protected int damage;
-   [SerializeField] private float destroyDeley = 0.5f;
+    [SerializeField] private float destroyDeley = 0.5f;
     void Start()
     {
         Destroy(gameObject, destroyDeley);
@@ -14,10 +15,22 @@ public class MushroomBomb : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D col)
     {
-        IDamageable targets = col.GetComponent<IDamageable>();
-        if (targets != null)
+        if (isFriendlyFire)
         {
-            targets.getDamage(damage);
+            IDamageable targets = col.GetComponent<IDamageable>();
+            if (targets != null)
+            {
+                targets.getDamage(damage);
+            }
         }
+        else
+        {
+            if (col.CompareTag("Player"))
+            {
+                IDamageable targets = col.GetComponent<IDamageable>();
+                targets.getDamage(damage);
+            }
+        }
+
     }
 }
