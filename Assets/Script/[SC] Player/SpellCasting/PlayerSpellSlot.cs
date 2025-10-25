@@ -28,6 +28,7 @@ public class PlayerSpellSlot : MonoBehaviour
 
     //UI Ref
     SpellSlotUiManager ui;
+    BeastModeManager beastModeManager;
 
 
     void Awake()
@@ -37,6 +38,7 @@ public class PlayerSpellSlot : MonoBehaviour
         playerS = GetComponent<PlayerStateManager>();
         spellLibrary = Resources.LoadAll<SpellBase>("Spells");
         ui = GameObject.Find("[UI] SkillSlot").GetComponent<SpellSlotUiManager>();
+        beastModeManager = FindAnyObjectByType<BeastModeManager>();
         GetSpellData("01");
 
         //variable set
@@ -160,6 +162,9 @@ public class PlayerSpellSlot : MonoBehaviour
         stats.Mana -= spellslot[index].manaCost;
         spellslot[index].UseSpell();
         isCasting = false;
+
+        if(spellslot[index].spellID != "04")
+        beastModeManager.ReducedBeastCount();
     }
 
     public void GetSpellData(string spellID)

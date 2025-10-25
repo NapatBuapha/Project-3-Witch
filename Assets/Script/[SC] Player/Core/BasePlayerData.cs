@@ -7,13 +7,14 @@ public class BasePlayerData : BaseMobData
 {
     //Stats พื้นฐาน BaseMobData name_ ,base_Speed , MaxHp , Atk ปรับได้ใน inspector
 
-
     #region MoveStats
     [Header("Walking")]
 
     public float DiagonalSpeedReduction = 1.5f;
 
     public Rigidbody2D rb { get; private set; }
+    public BeastModeManager beastModeManager { get; private set; }
+    public SpellBook spellBook { get; private set; }
 
     [Header("Dash")]
     public float dashCD = 2f;
@@ -84,7 +85,8 @@ public class BasePlayerData : BaseMobData
     {
         #region get Component ref
         rb = GetComponent<Rigidbody2D>();
-
+        beastModeManager = FindAnyObjectByType<BeastModeManager>();
+        spellBook = FindAnyObjectByType<SpellBook>();
         #endregion
 
         #region  setVaraible

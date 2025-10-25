@@ -30,6 +30,8 @@ public class Spell_AK47 : SpellBase
 
     public override void UseSpell()
     {
+        SpellBook spellBook = FindAnyObjectByType<SpellBook>();
+        spellBook.ChangeState(2);
         base.UseSpell();
         Penalty();
     }

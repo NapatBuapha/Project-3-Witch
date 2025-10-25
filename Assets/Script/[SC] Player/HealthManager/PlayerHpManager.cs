@@ -26,6 +26,11 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
     public void getDamage(int damageValue)
     {
+        //ถ้าเข้า beast mode ไมรับดาเมจ
+        if(stats.isBeastMode)
+        {
+            return;
+        }
         //ถ้าเป็นอมตะอยู่ ไม่รันcodeที่เหลือ
         if(isInvi)
         {
@@ -54,6 +59,18 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         else
         {
             hp -= value;
+        }
+    }
+
+    public void GainHealth(int value)
+    {
+        if (hp + value > stats.maxHp)
+        {
+            hp = stats.maxHp;
+        }
+        else
+        {
+            hp += value;
         }
     }
     

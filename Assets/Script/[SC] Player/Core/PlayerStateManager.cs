@@ -27,6 +27,7 @@ public class PlayerStateManager : MonoBehaviour
     public State_PlayerDeTransform state_PlayerDeTransform { get; private set; } = new State_PlayerDeTransform();
     public State_PlayerBeastAttack state_PlayerBeastAttack { get; private set; } = new State_PlayerBeastAttack();
 
+    //Components
     public BasePlayerData stats { get; private set; }
 
     #region Walking Stats
@@ -62,6 +63,7 @@ public class PlayerStateManager : MonoBehaviour
     private float nearEndDecreaser = 1;
     private bool isNearDeTransform;
     #endregion
+
 
 
     void Awake()
@@ -117,7 +119,7 @@ public class PlayerStateManager : MonoBehaviour
         #region StateCondition
         isWalking = player_HInput != 0 || player_VInput != 0;
         dashInput = Input.GetKeyDown(KeyCode.LeftShift) && canDash && stats.Stamina > stats.dashSta_Consume;
-        transformCon = Input.GetKeyDown(KeyCode.LeftControl);
+        transformCon = Input.GetKeyDown(KeyCode.LeftControl) && !stats.isBeastMode && stats.beastModeManager.isBeastMode_Able;
         AttackCon = Input.GetMouseButton(0) && !isNearDeTransform;
         
         #endregion
@@ -164,6 +166,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void BeastTransform()
     {
+        stats.spellBook.ChangeState(1);
         stats.isBeastMode = true;
         animaCon.BeastModeTransform(stats.transformDura);
         StartCoroutine(wait());
@@ -198,6 +201,8 @@ public class PlayerStateManager : MonoBehaviour
             yield return new WaitForSeconds(stats.transformDura);
             SwitchState(state_PlayerIdle);
             stats.isBeastMode = false;
+            stats.beastModeManager.ResetBeastCount();
+            stats.spellBook.ChangeState(0);
         }
     }
     

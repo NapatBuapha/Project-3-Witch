@@ -69,6 +69,9 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
     {
         base.OnEffectEnd(mob);
         //จบการทำงานของ debuff
+        SpellBook spellBook = FindAnyObjectByType<SpellBook>();
+        spellBook.ChangeState(0);
+
         mob.base_Speed = baseSpeed;
         pSpellSlot.canChangeSpell = true;
         pSpellSlot.slotCD[baseSpellIndex] = spellAK47ref.maxCD;
