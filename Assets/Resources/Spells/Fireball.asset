@@ -15,8 +15,8 @@ MonoBehaviour:
   spellID_: 01
   thisName_: Fire Ball
   manaCost_: 2
-  maxCD_: 5
-  castingDura_: 0.25
+  maxCD_: 1
+  castingDura_: 0
   icon_: {fileID: 21300000, guid: 54a4091f7df1d3c469a0bb19ee7dfc4f, type: 3}
   desc_: 
   speed: 20
