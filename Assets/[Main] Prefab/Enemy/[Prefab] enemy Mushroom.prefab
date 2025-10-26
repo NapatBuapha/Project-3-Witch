@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3787772789552113834}
   - component: {fileID: 5983762290188878550}
   - component: {fileID: 5606692241861195848}
+  - component: {fileID: 6967752262910367032}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,6 +107,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &6967752262910367032
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903719304542343182}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &6272236573168801484
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6272236573168801484}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.1, y: 11.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -375,10 +388,11 @@ MonoBehaviour:
   maxHp: 10
   base_Speed: 10
   hp: 1
+  startMoveDistance: 10
+  animator: {fileID: 5606692241861195848}
   explodingStatesTime: 1.2
   startExplodingDistance: 1.5
   explosivePrefab: {fileID: 7307816080518607812, guid: 38e7d9fd524adb947bd5af1353cd6183, type: 3}
-  StartMoveDistance: 10
   spawnStatesTime: 0.5
 --- !u!1 &6552212323063691839
 GameObject:

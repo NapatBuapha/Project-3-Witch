@@ -164,8 +164,14 @@ public class PlayerStateManager : MonoBehaviour
         SwitchState(state_PlayerCasting);
     }
 
+    #endregion
+
+
+    #region BeastState
+
     public void BeastTransform()
     {
+        stats.filter.EnterBeast();
         stats.spellBook.ChangeState(1);
         stats.isBeastMode = true;
         animaCon.BeastModeTransform(stats.transformDura);
@@ -194,6 +200,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void BeastDeTransform()
     {
+        stats.filter.EndBeast();
         animaCon.BeastModeDeTransform(stats.transformDura);
         StartCoroutine(wait());
         IEnumerator wait()

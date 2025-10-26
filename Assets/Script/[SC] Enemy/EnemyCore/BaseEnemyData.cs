@@ -9,6 +9,7 @@ public class BaseEnemyData : BaseMobData , IDamageable
     AIDestinationSetter aiFinder;
     [SerializeField] private int hp = 1;
     public float startMoveDistance = 10f;
+    [SerializeField] Animator animator;
     // Start is called before the first frame update
     protected virtual void Awake()
     {
@@ -32,6 +33,7 @@ public class BaseEnemyData : BaseMobData , IDamageable
     
     public void getDamage(int damageValue)
     {
+        animator.SetTrigger("Hit");
         hp -= damageValue;
     }
 }

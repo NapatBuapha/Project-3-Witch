@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class BeastAttackArea : PlayerProjectile
 {
     [SerializeField] private Collider2D col;
+        public CinemachineImpulseSource impulseSource { get; private set; }
     void Start()
     {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+        CameraShakeManager.instance.CameraShake(impulseSource);
         col = GetComponent<Collider2D>();
         col.enabled = false;
         Destroy(gameObject, 1);

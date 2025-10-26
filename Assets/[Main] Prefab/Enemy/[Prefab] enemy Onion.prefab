@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578460122497078895}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.1, y: 11.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -344,11 +344,12 @@ MonoBehaviour:
   maxHp: 10
   base_Speed: 7
   hp: 1
+  startMoveDistance: 10
+  animator: {fileID: 2654770025145660163}
   startThrownDistance: 5
   statesTime: 1
   bombPrefab: {fileID: 0}
   delayed: 3
-  StartMoveDistance: 10
   spawnStatesTime: 0.5
   startFleeDistance: 5
 --- !u!114 &7022432395566594189
@@ -392,6 +393,7 @@ GameObject:
   - component: {fileID: 300391894841618648}
   - component: {fileID: 2654770025145660163}
   - component: {fileID: 7564196845827766019}
+  - component: {fileID: 9073472936640684712}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -503,6 +505,18 @@ MonoBehaviour:
   bombPrefab: {fileID: 6248180573195345940, guid: a5697f8db97ac564882ac716f5a34159, type: 3}
   minRandom: -2
   maxRandom: 2
+--- !u!210 &9073472936640684712
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003946086643788329}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &5757283792878975119
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Lumin;
+using Cinemachine;
 
+[RequireComponent(typeof(CinemachineImpulseSource))]
 public class MushroomBomb : MonoBehaviour
 {
     [SerializeField] private bool isFriendlyFire = false;
     [SerializeField] protected int damage;
     [SerializeField] private float destroyDeley = 0.5f;
+    public CinemachineImpulseSource impulseSource { get; private set; }
     void Start()
     {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+        CameraShakeManager.instance.CameraShake(impulseSource);
         Destroy(gameObject, destroyDeley);
     }
 

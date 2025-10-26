@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 334368586961593745}
   - component: {fileID: 869613516863693278}
   - component: {fileID: 5179782202725180600}
+  - component: {fileID: 6724926990929850962}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,6 +107,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &6724926990929850962
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997577560559424762}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &2661158245665399128
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageValue: 10
+  isHiding: 0
 --- !u!61 &8749054899985326041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -362,6 +376,7 @@ MonoBehaviour:
   base_Speed: 6
   hp: 1
   startMoveDistance: 10
+  animator: {fileID: 5179782202725180600}
   dashPower: 15
   dashStatesTime: 0.5
   startDashDistance: 5

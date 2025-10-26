@@ -2,37 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    private static DialogueManager instance;
     DialogueBoxManager dialogueBox;
     [SerializeField] protected int currentLine;
     public Dialogue currentDialogue;
 
     [SerializeField] private bool isDialogue;
+    [SerializeField] GameObject[] otherUi;
 
     void Start()
     {
+        instance = this;
         isDialogue = false;
         currentLine = 0;
+
+        instance = this;
         dialogueBox = GameObject.FindWithTag("DialogueBox").GetComponent<DialogueBoxManager>();
+    }
+
+
+    void HideOtherCanvas()
+    {
+        foreach (GameObject ui in otherUi)
+        {
+            CanvasGroup cg = ui.GetComponent<CanvasGroup>();
+            cg.alpha = 0;            // ทำให้มองไม่เห็น
+            cg.interactable = false; // ป้องกันการคลิก
+            cg.blocksRaycasts = false; // ไม่ให้รับ event
+        }
+    }
+    
+    void UnHideOtherCanvas()
+    {
+        foreach(GameObject ui in otherUi)
+        {
+            CanvasGroup cg = ui.GetComponent<CanvasGroup>();
+            cg.alpha = 1;            // ทำให้มองไม่เห็น
+            cg.interactable = true; // ป้องกันการคลิก
+            cg.blocksRaycasts = true; // ไม่ให้รับ event
+        }
     }
 
     void Update()
     {
-        if(!isDialogue)
+        if (!isDialogue)
         {
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             NextLine();
         }
     }
+    
+    public static void SetDialogue(Dialogue dialogue)
+    {
+        instance.currentDialogue = dialogue;
+        instance.StartDialougue();
+    }
 
     public void StartDialougue()
     {
+        HideOtherCanvas();
+        GameStateManager.ChangeState(GameStateManager.GameState.DialogueSequence);
         isDialogue = true;
 
         if (dialogueBox == null)
@@ -81,6 +118,8 @@ public class DialogueManager : MonoBehaviour
             currentLine = 0;
             currentDialogue = null;
             dialogueBox.CloseBox();
+            GameStateManager.ChangeState(GameStateManager.GameState.Default);
+            UnHideOtherCanvas();
             
         }
 

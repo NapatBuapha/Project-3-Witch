@@ -5792,100 +5792,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &359211183
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 359211186}
-  - component: {fileID: 359211184}
-  - component: {fileID: 359211185}
-  m_Layer: 3
-  m_Name: Teleport Gate LV.1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &359211184
+--- !u!114 &359211184 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2747394252428746927, guid: 14244412afbc31247914aaf633269314, type: 3}
+  m_PrefabInstance: {fileID: 2202148923080907049}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359211183}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ebd0f8d9fe8d53408b482da6c1b04c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkedGates: {fileID: 2115930334}
-  positionAdjustment: {x: 0, y: -1, z: 0}
-  camBounds: {fileID: 51550921}
-  levelHeader: {fileID: 1285709786}
---- !u!61 &359211185
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359211183}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.32953924}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.34102154}
-  m_EdgeRadius: 0
---- !u!4 &359211186
+--- !u!4 &359211186 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+  m_PrefabInstance: {fileID: 2202148923080907049}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359211183}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5623317, y: -2.34, z: 0.06737821}
-  m_LocalScale: {x: 16.095, y: 1.16, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 309775416}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360397081
 GameObject:
   m_ObjectHideFlags: 0
@@ -84862,100 +84784,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2115930332
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2115930335}
-  - component: {fileID: 2115930334}
-  - component: {fileID: 2115930333}
-  m_Layer: 3
-  m_Name: Teleport Gate LV.2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &2115930333
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115930332}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.07538363}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.24647221}
-  m_EdgeRadius: 0
---- !u!114 &2115930334
+--- !u!114 &2115930334 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 810719855800664248, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+  m_PrefabInstance: {fileID: 6744900300319490642}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115930332}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ebd0f8d9fe8d53408b482da6c1b04c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkedGates: {fileID: 359211184}
-  positionAdjustment: {x: 0, y: 2, z: 0}
-  camBounds: {fileID: 351089199}
-  levelHeader: {fileID: 708002174}
---- !u!4 &2115930335
+--- !u!4 &2115930335 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+  m_PrefabInstance: {fileID: 6744900300319490642}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115930332}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5623317, y: -16.91, z: 0.06737821}
-  m_LocalScale: {x: 16.095, y: 1.16, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 309775416}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2119987803
 GameObject:
   m_ObjectHideFlags: 0
@@ -85329,6 +85173,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5521983882689021481, guid: 3100a8267c26fe24cabca635bf844b6c, type: 3}
   m_PrefabInstance: {fileID: 1003838667581453685}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2202148923080907049
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 309775416}
+    m_Modifications:
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5623317
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06737821
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461222352995655933, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747394252428746927, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: camBounds
+      value: 
+      objectReference: {fileID: 51550921}
+    - target: {fileID: 2747394252428746927, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: levelHeader
+      value: 
+      objectReference: {fileID: 1285709786}
+    - target: {fileID: 2747394252428746927, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: linkedGates
+      value: 
+      objectReference: {fileID: 2115930334}
+    - target: {fileID: 5271453399049400487, guid: 14244412afbc31247914aaf633269314, type: 3}
+      propertyPath: m_Name
+      value: Teleport Gate LV.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14244412afbc31247914aaf633269314, type: 3}
 --- !u!1001 &6240060638803663475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85426,6 +85339,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7fd5072892f9c42acbd8259f08a1bb, type: 3}
+--- !u!1001 &6744900300319490642
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 309775416}
+    m_Modifications:
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5623317
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06737821
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342784765292095669, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810719855800664248, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: camBounds
+      value: 
+      objectReference: {fileID: 351089199}
+    - target: {fileID: 810719855800664248, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: levelHeader
+      value: 
+      objectReference: {fileID: 708002174}
+    - target: {fileID: 810719855800664248, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: linkedGates
+      value: 
+      objectReference: {fileID: 359211184}
+    - target: {fileID: 2234837596478623841, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
+      propertyPath: m_Name
+      value: Teleport Gate LV.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43d0ce3dd6956554299fdfb57940e902, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

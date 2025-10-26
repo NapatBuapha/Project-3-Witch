@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
+using Cinemachine;
 public class BasePlayerData : BaseMobData
 {
     //Stats พื้นฐาน BaseMobData name_ ,base_Speed , MaxHp , Atk ปรับได้ใน inspector
@@ -78,6 +78,10 @@ public class BasePlayerData : BaseMobData
     [SerializeField] private float rechargeSpeedMana = 0.01f;
     #endregion
 
+    //Other
+    public Filter filter { get; private set; }
+    public CinemachineImpulseSource impulseSource { get; private set; }
+
 
 
 
@@ -87,6 +91,8 @@ public class BasePlayerData : BaseMobData
         rb = GetComponent<Rigidbody2D>();
         beastModeManager = FindAnyObjectByType<BeastModeManager>();
         spellBook = FindAnyObjectByType<SpellBook>();
+        filter = FindAnyObjectByType<Filter>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
         #endregion
 
         #region  setVaraible

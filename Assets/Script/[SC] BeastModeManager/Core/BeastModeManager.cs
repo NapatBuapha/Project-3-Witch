@@ -23,6 +23,8 @@ public class BeastModeManager : MonoBehaviour
     [SerializeField] private GameObject mask;
     [SerializeField] private TMP_Text beastCountText;
 
+    [SerializeField] private Dialogue beastCutScene;
+
     void Start()
     {
         //Get ref
@@ -46,15 +48,21 @@ public class BeastModeManager : MonoBehaviour
         {
             UpdateUI();
         }
-        
+
         if (beastCount <= 0)
         {
             isBeastMode_Able = true;
             groupParent.SetActive(true);
-            isUIOpen = true;
+
+            if(!isUIOpen)
+            {
+                DialogueManager.SetDialogue(beastCutScene);
+                isUIOpen = true;
+            }
             UpdateUI();
-            
         }
+        
+
     }
 
     void UpdateUI()
@@ -75,19 +83,8 @@ public class BeastModeManager : MonoBehaviour
     {
         isBeastMode_Able = false;
         beastCount = maxBeastCount;
-        BeastPenalty();
+        playerHp.BeastPenalty();
         UpdateUI();
     }
-    
-    public void BeastPenalty()
-    {
-        stats.maxHp -= 20;
-        if (playerHp.hp > stats.maxHp)
-        {
-            int dif = playerHp.hp - stats.maxHp;
-            playerHp.PayHealth(dif); 
-        }
-    }
-
 
 }

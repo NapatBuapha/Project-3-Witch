@@ -24,8 +24,11 @@ public class Boss_01_MushroomBoss : BaseMobData , IDamageable
     public Mushroom_Gauntlet mushroom_Gauntlet { get; private set; }
     private Dictionary<int, bool> screamThreshold = new Dictionary<int, bool>();
 
+
     [Header("Other")]
     public float actionDelayed = 5;
+
+    [SerializeField] private Animator animator;
 
     [Header("Health Value")]
     public bool isInvi;
@@ -59,6 +62,8 @@ public class Boss_01_MushroomBoss : BaseMobData , IDamageable
 
 
         hp -= damageValue;
+        animator.SetTrigger("Hit");
+
         if (hp <= hpThreshHold1 && screamThreshold[1])
         {
             screamThreshold[1] = false;

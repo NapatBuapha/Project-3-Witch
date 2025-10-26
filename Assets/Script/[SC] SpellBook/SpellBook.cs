@@ -40,6 +40,13 @@ public class SpellBook : MonoBehaviour
             render.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             UpdateDefaultSprite();
         }
+
+        if(currentState ==SpellBookState.Ak47)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            render.gameObject.transform.rotation = Quaternion.Euler(0, 0, z);
+        }
+        
         
         
         

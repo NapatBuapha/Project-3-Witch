@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6035614974433655969}
   - component: {fileID: 6763713222256344667}
   - component: {fileID: 4776759125180275073}
+  - component: {fileID: 4985304342210503828}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -122,6 +123,18 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4265315293786433742, guid: 4be9ac0920ceb924fb9c2058ed290b56, type: 3}
   groundSmashingPrefab: {fileID: 5869482412272944294, guid: 65ba6d089908cdf4985167f636456a8b, type: 3}
   projectileSpeed: 20
+--- !u!210 &4985304342210503828
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338720429681581515}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &4238126413082894247
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +262,7 @@ MonoBehaviour:
   hpThreshHold2: 70
   screamToken: 0
   actionDelayed: 5
+  animator: {fileID: 6763713222256344667}
   isInvi: 0
   hp: 0
 --- !u!114 &3209634262934922814
