@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Scene 1
   m_EditorClassIdentifier: 
   dialogueLine:
-  - Test 1
-  - Test 2
-  - Test 3
+  - What happened to me?
+  - Why do these vegetables come out and walk like this?
+  - Too bad...they're coming this way. I have to deal with them first.
   nextLine: {fileID: 0}
   speakerName: Witch
   speakerIcon: {fileID: -1430188852, guid: 8902b3abf20120a4da2c69f7a9dcb4d4, type: 3}
