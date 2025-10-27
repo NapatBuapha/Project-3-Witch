@@ -43,7 +43,7 @@ public class Boss_01_StateManager : MonoBehaviour
 
         SwitchState(state_BeforeSpawn);
 
-        Appearing();
+        
         currentState.EnterState(this);
     }
 
@@ -120,6 +120,7 @@ public class Boss_01_StateManager : MonoBehaviour
 
     public void Scream()
     {
+        AudioManager.PlaySound(SoundType.Enemy_Boss_Roar);
         SwitchState(state_Scream);
         stats.screamToken--;
         stats.mushroom_Gauntlet.StartWave();

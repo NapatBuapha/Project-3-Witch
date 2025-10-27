@@ -17,11 +17,11 @@ public class UpdateSpriteDirectionAI : MonoBehaviour
     {
         if (aIPath.desiredVelocity.x >= 0.01f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if(aIPath.desiredVelocity.x <= -0.01f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

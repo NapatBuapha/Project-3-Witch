@@ -12,7 +12,7 @@ public class MushroomBomb : MonoBehaviour
     public CinemachineImpulseSource impulseSource { get; private set; }
     void Start()
     {
-        AudioManager.PlaySound(SoundType.Explosive , 0.5f);
+        AudioManager.PlaySound(SoundType.Explosive , 0.2f);
         impulseSource = GetComponent<CinemachineImpulseSource>();
         CameraShakeManager.instance.CameraShake(impulseSource);
         Destroy(gameObject, destroyDeley);

@@ -44,9 +44,14 @@ public class GroundAttackAnimationEvent : MonoBehaviour
             rb.AddForce(Direction[i] * projectileSpeed, ForceMode2D.Impulse);
         }
     }
-    
+
     public void GroundSmash()
     {
-        Instantiate(groundSmashingPrefab, transform.position, quaternion.identity);   
+        Instantiate(groundSmashingPrefab, transform.position, quaternion.identity);
+    }
+    
+    public void ScreamSfx()
+    {
+        AudioManager.PlaySound(SoundType.Enemy_Boss_Roar);
     }
 }

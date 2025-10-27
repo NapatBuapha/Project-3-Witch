@@ -60,7 +60,7 @@ public class Boss_01_MushroomBoss : BaseMobData , IDamageable
             return;
         }
 
-
+        AudioManager.PlaySound(SoundType.Hit);
         hp -= damageValue;
         animator.SetTrigger("Hit");
 
