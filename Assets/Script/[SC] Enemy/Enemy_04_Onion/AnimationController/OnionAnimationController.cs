@@ -22,6 +22,7 @@ public class OnionAnimationController : BaseEnemyAnimationController
 
     public void Spawn(float spawnStatesTime = 0.3f)
     {
+        
         StartCoroutine(wait());
         IEnumerator wait()
         {
@@ -34,6 +35,7 @@ public class OnionAnimationController : BaseEnemyAnimationController
     
     public void Thrown(float statesTime = 0.5f)
     {
+        AudioManager.PlaySound(SoundType.Enemy_Oion_Thrown , 0.5f);
         StartCoroutine(wait());
         IEnumerator wait()
         {

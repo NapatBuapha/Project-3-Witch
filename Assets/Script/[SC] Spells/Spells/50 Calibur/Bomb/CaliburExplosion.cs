@@ -7,6 +7,7 @@ public class CaliburExplosion : PlayerProjectile
     [SerializeField] private float destroyDeley = 0.5f;
     void Start()
     {
+        AudioManager.PlaySound(SoundType.Spell_50Cal ,0.75f);
         Destroy(gameObject, destroyDeley);
     }
     // Start is called before the first frame update

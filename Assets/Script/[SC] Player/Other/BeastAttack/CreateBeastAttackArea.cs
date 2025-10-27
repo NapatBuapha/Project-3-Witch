@@ -11,6 +11,7 @@ public class CreateBeastAttackArea : MonoBehaviour
     
     public void AttackAreaCreate()
     {
+        AudioManager.PlaySound(SoundType.Player_BeastStomp , 0.5f);
         Instantiate(prefab, attackPoint.position, quaternion.identity);
     }
 }

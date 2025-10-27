@@ -53,6 +53,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         hp--;
         hpUi.UpdateHP();
         stats.filter.Hit();
+        AudioManager.PlaySound(SoundType.Hit , 0.5f);
         CameraShakeManager.instance.CameraShake(stats.impulseSource);
         
         StartCoroutine(Invincible(inviTime));

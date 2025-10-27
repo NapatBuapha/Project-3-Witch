@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mushroom_IdleState : MushroomBaseState
 {
+    bool isPlaySound;
     public override void EnterState(Enemy_03_StateManager enemy)
     {
         enemy.rb.isKinematic = true;
@@ -19,6 +20,11 @@ public class Mushroom_IdleState : MushroomBaseState
     {
         if(enemy.chaseCon)
         {
+             if(!isPlaySound)
+            {
+                AudioManager.PlaySound(SoundType.Enemy_Spawn, 0.5f);
+                isPlaySound = true;
+            }
             enemy.Appearing();
         }
     }

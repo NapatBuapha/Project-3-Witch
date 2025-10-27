@@ -33,6 +33,7 @@ public class BaseEnemyData : BaseMobData , IDamageable
     
     public void getDamage(int damageValue)
     {
+        AudioManager.PlaySound(SoundType.Hit , 0.5f);
         animator.SetTrigger("Hit");
         hp -= damageValue;
     }

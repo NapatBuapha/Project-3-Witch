@@ -10,6 +10,7 @@ public class ThunderExplosion : PlayerProjectile
     Collider2D col;
     void Start()
     {
+         AudioManager.PlaySound(SoundType.Spell_LightnighBolt, 0.5f);
         col = GetComponent<Collider2D>();
         col.enabled = false;
 

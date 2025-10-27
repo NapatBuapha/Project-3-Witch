@@ -171,6 +171,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public void BeastTransform()
     {
+        stats.rb.isKinematic = true;
+        AudioManager.PlaySound(SoundType.Player_Transform , 1f);
         stats.filter.EnterBeast();
         stats.spellBook.ChangeState(1);
         stats.isBeastMode = true;
@@ -179,6 +181,7 @@ public class PlayerStateManager : MonoBehaviour
         IEnumerator wait()
         {
             yield return new WaitForSeconds(stats.transformDura);
+            stats.rb.isKinematic = false;
             SwitchState(state_PlayerBeastIdle);
             StartCoroutine(BeastModeTimer());
             StartCoroutine(AbleToAttackTimer());
@@ -200,11 +203,14 @@ public class PlayerStateManager : MonoBehaviour
 
     public void BeastDeTransform()
     {
+        stats.rb.isKinematic = true;
+        AudioManager.PlaySound(SoundType.Player_DeTransform , 1f);
         stats.filter.EndBeast();
         animaCon.BeastModeDeTransform(stats.transformDura);
         StartCoroutine(wait());
         IEnumerator wait()
         {
+            stats.rb.isKinematic = false;
             yield return new WaitForSeconds(stats.transformDura);
             SwitchState(state_PlayerIdle);
             stats.isBeastMode = false;

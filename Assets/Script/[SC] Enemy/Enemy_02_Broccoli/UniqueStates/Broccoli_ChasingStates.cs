@@ -8,13 +8,13 @@ public class Broccoli_ChasingStates : BroccoliBaseState
     {
         enemy.onContactDamage.isHiding = false;
         enemy.rb.isKinematic = false;
-        enemy.aController.Attack();
         enemy.pathfinder.canMove = true;
         enemy.col.isTrigger = false;
     }
 
     public override void FixedUpdateState(Enemy_02_StateManager enemy)
     {
+       
 
     }
 
@@ -24,6 +24,5 @@ public class Broccoli_ChasingStates : BroccoliBaseState
         {
             enemy.SwitchState(enemy.states_DashAttack);
         }
-
     }
 }

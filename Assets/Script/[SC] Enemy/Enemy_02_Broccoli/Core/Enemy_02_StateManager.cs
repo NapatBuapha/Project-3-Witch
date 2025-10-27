@@ -88,7 +88,6 @@ public class Enemy_02_StateManager : MonoBehaviour
         StartCoroutine(wait());
         IEnumerator wait()
         {
-            canDash = false;
             yield return new WaitForSeconds(stats.delayed);
             canDash = true;
         }

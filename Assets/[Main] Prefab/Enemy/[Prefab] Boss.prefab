@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6763713222256344667}
   - component: {fileID: 4776759125180275073}
   - component: {fileID: 4985304342210503828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 8046647519981290372}
   - component: {fileID: 3384657731812193009}
   - component: {fileID: 762237817953988340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: '[Prefab] Boss'
   m_TagString: Enemy
   m_Icon: {fileID: 0}

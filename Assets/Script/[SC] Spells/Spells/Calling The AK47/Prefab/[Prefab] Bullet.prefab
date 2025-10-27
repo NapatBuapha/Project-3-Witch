@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  isBullet: 1
 --- !u!50 &8852937806837880418
 Rigidbody2D:
   serializedVersion: 4

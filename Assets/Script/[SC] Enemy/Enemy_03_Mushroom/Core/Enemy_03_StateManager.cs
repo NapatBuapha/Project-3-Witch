@@ -80,7 +80,6 @@ public class Enemy_03_StateManager : MonoBehaviour
     //Specific Method For Specific States
     public void Appearing()
     {
-        aController.Spawn(stats.spawnStatesTime);
         StartCoroutine(wait());
         IEnumerator wait()
         {

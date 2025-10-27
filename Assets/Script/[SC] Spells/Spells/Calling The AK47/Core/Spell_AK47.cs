@@ -30,6 +30,7 @@ public class Spell_AK47 : SpellBase
 
     public override void UseSpell()
     {
+        AudioManager.PlaySound(SoundType.Spell_AK47Equip, 0.5f);
         SpellBook spellBook = FindAnyObjectByType<SpellBook>();
         spellBook.ChangeState(2);
         base.UseSpell();
