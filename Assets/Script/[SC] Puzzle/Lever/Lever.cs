@@ -41,6 +41,7 @@ public class Lever : MonoBehaviour , IInteractable
 
     public void interact()
     {
+        AudioManager.PlaySound(SoundType.Lever_Interact);
         ChangeDi();
         Rotate();
     }

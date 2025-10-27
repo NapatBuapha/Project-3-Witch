@@ -210,12 +210,12 @@ public class PlayerStateManager : MonoBehaviour
         StartCoroutine(wait());
         IEnumerator wait()
         {
-            stats.rb.isKinematic = false;
             yield return new WaitForSeconds(stats.transformDura);
             SwitchState(state_PlayerIdle);
             stats.isBeastMode = false;
             stats.beastModeManager.ResetBeastCount();
             stats.spellBook.ChangeState(0);
+            stats.rb.isKinematic = false;
         }
     }
     

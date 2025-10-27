@@ -7,7 +7,6 @@ public enum SoundType
 {
     Hit,
     Explosive,
-
     Player_Transform,
     Player_DeTransform,
     Player_BeastStomp,
@@ -22,7 +21,13 @@ public enum SoundType
     Enemy_Broc_Slash,
     Enemy_Oion_Thrown,
     Enemy_Boss_Roar,
-    Enemy_Mushroom_ExplosoveCharge
+    Enemy_Mushroom_ExplosoveCharge,
+
+    Hearth_Breaking,
+
+    Enemy_Mushroom_Charge,
+    Lever_Interact,
+    Puzzle_Complete,
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

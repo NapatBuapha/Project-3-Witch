@@ -9,6 +9,7 @@ public class Mushroom_ExplodingState : MushroomBaseState
         enemy.pathfinder.canMove = true;
         Debug.Log("Exploded");
         enemy.Explode();
+        AudioManager.PlaySound(SoundType.Enemy_Mushroom_Charge);
 
 
     }

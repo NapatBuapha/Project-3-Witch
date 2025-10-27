@@ -27,6 +27,7 @@ public class Puzzle_01 : MonoBehaviour
         if(correct == levers.Length)
         {
             lockWall.SetActive(false);
+            AudioManager.PlaySound(SoundType.Puzzle_Complete);
         }
     }
 }

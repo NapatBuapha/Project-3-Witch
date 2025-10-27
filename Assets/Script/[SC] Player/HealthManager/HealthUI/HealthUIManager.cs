@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthUIManager : MonoBehaviour
@@ -22,9 +23,9 @@ public class HealthUIManager : MonoBehaviour
 
         for (int i = 0; i < hearth.Length; i++)
         {
-            if (hearth[i] == null)
+            if (hearth[i] == null && hearth[i].isDestroying)
             {
-                break;
+                continue;
             }
 
             if (hpValue > 0)
