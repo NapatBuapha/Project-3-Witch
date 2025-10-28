@@ -10,9 +10,9 @@ public class PlayerProjectile : MonoBehaviour
     void Start()
     {
         if (!isBullet)
-            AudioManager.PlaySound(SoundType.Spell_Fireball, 0.5f);
+            AudioManager.PlaySound(SoundType.Spell_Fireball, 0.2f);
         else
-             AudioManager.PlaySound(SoundType.Spell_AKBullet, 0.5f);
+             AudioManager.PlaySound(SoundType.Spell_AKBullet, 0.2f);
     }
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {

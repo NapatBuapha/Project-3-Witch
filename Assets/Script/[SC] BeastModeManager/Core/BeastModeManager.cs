@@ -24,6 +24,8 @@ public class BeastModeManager : MonoBehaviour
     [SerializeField] private TMP_Text beastCountText;
 
     [SerializeField] private Dialogue beastCutScene;
+    [SerializeField] private Dialogue deTransformCutscene;
+    bool isSeenTheCutscene;
 
     void Start()
     {
@@ -38,6 +40,7 @@ public class BeastModeManager : MonoBehaviour
         beastCount = maxBeastCount;
         isBeastMode_Able = false;
         isUIOpen = false;
+        isSeenTheCutscene = false;
     }
 
     public void ReducedBeastCount()
@@ -81,6 +84,12 @@ public class BeastModeManager : MonoBehaviour
 
     public void ResetBeastCount()
     {
+        if(!isSeenTheCutscene)
+        {
+            DialogueManager.SetDialogue(deTransformCutscene);
+            isSeenTheCutscene = true;
+        }
+
         isBeastMode_Able = false;
         beastCount = maxBeastCount;
         playerHp.BeastPenalty();

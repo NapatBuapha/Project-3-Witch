@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    private static GameStateManager instance;
+    public static GameStateManager instance;
+    [SerializeField] AudioSource audioSource;
 
     public enum GameState
     {
@@ -20,15 +21,17 @@ public class GameStateManager : MonoBehaviour
         instance = this;
     }
 
-    public static void ChangeState(GameState state)
+    public void ChangeState(GameState state)
     {
         switch(state)
         {
             case GameState.Default:
+                AudioListener.pause = false;
             Time.timeScale = 1f;
             break;
 
             case GameState.DialogueSequence:
+                AudioListener.pause = true;
             Time.timeScale = 0f;
             break;
 

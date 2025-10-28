@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             NextLine();
         }
@@ -69,7 +69,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialougue()
     {
         HideOtherCanvas();
-        GameStateManager.ChangeState(GameStateManager.GameState.DialogueSequence);
+        GameStateManager.instance.ChangeState(GameStateManager.GameState.DialogueSequence);
         isDialogue = true;
 
         if (dialogueBox == null)
@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
             currentLine = 0;
             currentDialogue = null;
             dialogueBox.CloseBox();
-            GameStateManager.ChangeState(GameStateManager.GameState.Default);
+            GameStateManager.instance.ChangeState(GameStateManager.GameState.Default);
             UnHideOtherCanvas();
             
         }

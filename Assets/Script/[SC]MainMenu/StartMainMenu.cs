@@ -8,7 +8,7 @@ public class StartMainMenu : MonoBehaviour
     public void StartPlayGame()
     {
         // โหลด Scene ที่ชื่อ "GameScene"
-        SceneManager.LoadScene("Level_Tiw");
+        SceneManager.LoadScene("Prolugue-Cutscene");
     }
 
     // เรียกเมื่อกดปุ่ม "Exit"
