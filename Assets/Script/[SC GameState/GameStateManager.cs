@@ -20,6 +20,7 @@ public class GameStateManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        ChangeState(GameState.Default);
     }
 
     public void ChangeState(GameState state)
