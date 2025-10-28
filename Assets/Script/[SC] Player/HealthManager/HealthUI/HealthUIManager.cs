@@ -42,14 +42,13 @@ public class HealthUIManager : MonoBehaviour
 
     public void DestroyLastHearth()
     {
-        for (int i = hearth.Length-1; i > 0; i--)
+        for (int i = hearth.Length - 1; i > 0; i--)
         {
-            if (hearth[i] != null)
+            if (hearth[i] != null && !hearth[i].isDestroying)
             {
                 hearth[i].SelfDestroy();
                 break;
             }
-            
         
         }
     }

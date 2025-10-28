@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using Unity.Mathematics;
+using UnityEngine.SceneManagement;
 
 public class Enemy_03_Mushroom : BaseEnemyData
 {
@@ -30,8 +31,22 @@ public class Enemy_03_Mushroom : BaseEnemyData
         base.Update();
     }
 
+    //กันมันสร้างระเบิดหลังกดออก
+    private bool isQuitting = false;
+
+    private void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+
     void OnDestroy()
     {
+        if (isQuitting) return; // ปิดไม่ให้ทำงานตอนออกเกม
+
+        // ถ้ากำลังเปลี่ยน scene
+        if (SceneManager.GetActiveScene().isLoaded == false)
+            return;
+
         Instantiate(explosivePrefab, transform.position, quaternion.identity);
     }
 }

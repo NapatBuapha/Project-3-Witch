@@ -12,6 +12,7 @@ public class GameStateManager : MonoBehaviour
     {
         Default,
         DialogueSequence,
+        GameOver,
     }
 
     GameState currentGameState;
@@ -26,14 +27,18 @@ public class GameStateManager : MonoBehaviour
         switch(state)
         {
             case GameState.Default:
-                AudioListener.pause = false;
+            AudioListener.pause = false;
             Time.timeScale = 1f;
             break;
 
             case GameState.DialogueSequence:
-                AudioListener.pause = true;
+            AudioListener.pause = true;
             Time.timeScale = 0f;
-            break;
+                break;
+
+            case GameState.GameOver:
+                Time.timeScale = 0f;
+                break;
 
         }
     }

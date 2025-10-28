@@ -28,6 +28,8 @@ public enum SoundType
     Enemy_Mushroom_Charge,
     Lever_Interact,
     Puzzle_Complete,
+
+    Player_BeastScream
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

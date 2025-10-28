@@ -17,7 +17,7 @@ MonoBehaviour:
   manaCost_: 80
   maxCD_: 20
   castingDura_: 2
-  icon_: {fileID: 0}
-  desc_: 
+  icon_: {fileID: 21300000, guid: 78528b805f1ccfc4caee4debb4ca9ec2, type: 3}
+  desc_: For a skill issue player
   spellPrefab: {fileID: 6421335502555115044, guid: d09c877ecde5fd343b28ad3a578adc26, type: 3}
   hpCost: 10

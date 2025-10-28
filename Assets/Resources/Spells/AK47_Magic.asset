@@ -17,6 +17,6 @@ MonoBehaviour:
   manaCost_: 40
   maxCD_: 20
   castingDura_: 0.25
-  icon_: {fileID: 21300000, guid: 54a4091f7df1d3c469a0bb19ee7dfc4f, type: 3}
-  desc_: 
+  icon_: {fileID: 21300000, guid: b1c78271a37033e49be49cc529d1ee07, type: 3}
+  desc_: Yep! this spell with make you use an AK-47
   hpCost: 4

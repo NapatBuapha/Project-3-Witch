@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellID_: 01
   thisName_: Fire Ball
-  manaCost_: 2
+  manaCost_: 5
   maxCD_: 1
   castingDura_: 0
-  icon_: {fileID: 21300000, guid: 54a4091f7df1d3c469a0bb19ee7dfc4f, type: 3}
-  desc_: 
+  icon_: {fileID: 21300000, guid: 037beadc53c49794ba7f32f8b9670890, type: 3}
+  desc_: Shoot a fire ball, By the way how did you get this spell?
   speed: 20
   spellPrefab: {fileID: 4261378775923909945, guid: dd947fdb482a50a43a83989bbb72932b, type: 3}

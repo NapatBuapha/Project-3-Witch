@@ -61,7 +61,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         if (hp <= 0)
         {
             //Player Death
-            Destroy(gameObject);
+            GameOverMenu.instance.GameOver();
         }
     }
 
@@ -121,7 +121,8 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     
     public void BeastPenalty()
     {
-        stats.maxHp -= 1;
+        stats.maxHp -= 2;
+        hpUi.DestroyLastHearth();
         hpUi.DestroyLastHearth();
         if (hp > stats.maxHp)
         {
@@ -129,5 +130,6 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
             hp -= dif;
             hpUi.UpdateHP();
         }
+
     }
 }

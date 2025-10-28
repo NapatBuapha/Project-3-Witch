@@ -80,6 +80,7 @@ public class Boss_01_MushroomBoss : BaseMobData , IDamageable
         {
             //ตอนตาย
             Destroy(gameObject);
+            GameEndMenu.instance.GameEnd();
         }
     }
 }
