@@ -373,13 +373,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name_: Broccoli
   maxHp: 10
-  base_Speed: 6
+  base_Speed: 8.5
   hp: 1
   startMoveDistance: 10
   animator: {fileID: 5179782202725180600}
-  dashPower: 15
+  dashPower: 20
   dashStatesTime: 0.5
-  startDashDistance: 5
+  startDashDistance: 10
   delayed: 2
   spawnStatesTime: 1
 --- !u!114 &6512488917540381207

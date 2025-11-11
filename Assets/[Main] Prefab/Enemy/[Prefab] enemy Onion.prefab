@@ -346,7 +346,7 @@ MonoBehaviour:
   hp: 1
   startMoveDistance: 10
   animator: {fileID: 2654770025145660163}
-  startThrownDistance: 5
+  startThrownDistance: 20
   statesTime: 1
   bombPrefab: {fileID: 0}
   delayed: 3
