@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerHpManager : MonoBehaviour , IDamageable
 {
     public int hp { get; private set; }
+    public int witheredHp;
     public BasePlayerData stats{ get; private set; }
 
     //ช่วงเวลาอมตะ
@@ -66,19 +67,44 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     }
 
 
-    public void PayHealth(int value)
+    public bool PayHealth(int value, bool isBeastPenalty = false)
     {
-        // การจ่ายเลือด
-        /*if (hp - value < 0)
+        if (!isBeastPenalty && value >= hp)
         {
+            return false;
+        }
+
+        if (isBeastPenalty && value >= hp)
+        {
+            witheredHp += hp - 1;
             hp = 1;
         }
         else
         {
-            hp -= value;
-        }*/
+            witheredHp += value;
+        }
+        
+        hp -= value;
+        hpUi.UpdateHP();
 
-        Debug.Log("not doing anything cause i am lazy");
+        if (witheredHp >= 0)
+        {
+            StartCoroutine(StartRegen());
+        }
+
+        IEnumerator StartRegen()
+        {
+            while (witheredHp > 0)
+            {
+                yield return new WaitForSeconds(2);
+                witheredHp--;
+                GainHealth(1);
+                
+            }
+        }
+
+
+        return true;
     }
 
     public void GainHealth(int value)

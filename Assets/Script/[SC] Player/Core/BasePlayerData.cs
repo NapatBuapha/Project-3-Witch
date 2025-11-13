@@ -69,6 +69,10 @@ public class BasePlayerData : BaseMobData
             {
                 mana = maxMana;
             }
+            if(mana < 0)
+            {
+                mana = 0;
+            }
             else
             {
                 mana = value;

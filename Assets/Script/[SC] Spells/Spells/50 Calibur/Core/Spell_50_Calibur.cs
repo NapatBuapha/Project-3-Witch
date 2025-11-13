@@ -50,9 +50,6 @@ public class Spell_50_Calibur : SpellBase
     {
         base.Penalty();
         PlayerHpManager p_HP = player.GetComponent<PlayerHpManager>();
-
-        if (p_HP.hp > hpCost)
-            p_HP.PayHealth(hpCost);
         if(isSlow)
         {
             B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();

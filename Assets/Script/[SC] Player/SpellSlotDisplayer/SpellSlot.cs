@@ -9,6 +9,7 @@ public class SpellSlot : MonoBehaviour
     //อ้างอิงค่าต่างๆจาก inspector
     [SerializeField] private Image cooldownMask;
     [SerializeField] private TMP_Text cooldownText;
+    [SerializeField] private TMP_Text buttonGuide;
 
     [HideInInspector] public float maxCooldown;
     [HideInInspector] public float cooldown;
@@ -40,6 +41,11 @@ public class SpellSlot : MonoBehaviour
             cooldownText.text = cooldown.ToString("F1");
             cooldownMask.fillAmount = cooldown / maxCooldown;
         }
+    }
+
+    public void SetButton(int numb)
+    {
+        buttonGuide.text = numb.ToString();
     }
     
     public void SelectedUpdate()

@@ -27,7 +27,6 @@ public class B_and_DB_Manager : MonoBehaviour
         // อัปเดตเวลา
         foreach (var debuff in current_DBB.Keys.ToList())
         {
-
             current_DBB[debuff] -= Time.deltaTime;
             if (current_DBB[debuff] <= 0)
                 toRemove.Add(debuff);

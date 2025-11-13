@@ -6,46 +6,67 @@ public class SpellSlotUiManager : MonoBehaviour
 {
     //อ้างอิง ref จาก component ต่างๆ
     PlayerSpellSlot slotRef;//เก็บไว้ดึงค่า icon skill กับ max cooldown
+  
+    //เพิ่ม slot ใหม่ทุกครั้งที่มีเวทย์เพิ่ม
+    [SerializeField] private GameObject slotPrefab;
+    [SerializeField] private GameObject slotParent;
+    Dictionary<int, SpellSlot> spellSlotDict;
 
-
-    [SerializeField] SpellSlot[] spellSlots = new SpellSlot[5];
     int currentIndex;
-    float[] slotCD;
+
+    void Awake()
+    {
+        //Variable Set
+        spellSlotDict = new Dictionary<int, SpellSlot>();
+    }
     void Start()
     {
+        //Comp Ref
         slotRef = GameObject.FindWithTag("Player").GetComponent<PlayerSpellSlot>();
+
+        //Code line
+    }
+
+    public void CreateNewSpellSlot()
+    {
+        GameObject slot = Instantiate(slotPrefab, slotParent.transform);
+        SpellSlot spSlot = slot.GetComponent<SpellSlot>();
+        int numb = spellSlotDict.Count + 1;
+        spSlot.SetButton(numb);
+        spellSlotDict.Add(numb, spSlot);
     }
 
     // Update is called once per frame
     void Update()
     {
         this.currentIndex = slotRef.currentIndex;
-        this.slotCD = slotRef.slotCD;
-        for (int i = 0; i < slotRef.spellslot.Length; i++)
+        foreach(KeyValuePair<int, SpellSlot> spellslot in spellSlotDict)
         {
-            if (slotRef.spellslot[i] != null)
-            {
-                spellSlots[i].maxCooldown = slotRef.spellslot[i].maxCD;
-                spellSlots[i].cooldown = slotCD[i];
-                spellSlots[i].icon.sprite = slotRef.spellslot[i].icon;
-            }
-
+            spellslot.Value.maxCooldown = slotRef.spellDict[spellslot.Key].Item1.maxCD;
+            spellslot.Value.cooldown = slotRef.spellDict[spellslot.Key].Item2;
+            spellslot.Value.icon.sprite = slotRef.spellDict[spellslot.Key].Item1.icon;
         }
     }
 
-    public void ChangeChosenSlot(int index)
+    public bool ChangeChosenSlot(int index)
     {
-        ResetSelected();
-        spellSlots[index].isSelected = true;
-        spellSlots[index].SelectedUpdate();
+        if (spellSlotDict.ContainsKey(index))
+        {
+            ResetSelected();
+            spellSlotDict[index].isSelected = true;
+            spellSlotDict[index].SelectedUpdate();
+            return true;
+        }
+
+        return false;
     }
     
-    void ResetSelected()
+    public void ResetSelected()
     {
-        for(int i = 0; i < spellSlots.Length; i++)
+        foreach(KeyValuePair<int, SpellSlot> spellslot in spellSlotDict)
         {
-            spellSlots[i].isSelected = false;
-            spellSlots[i].SelectedUpdate();
+            spellslot.Value.isSelected = false;
+            spellslot.Value.SelectedUpdate();
         }
     }
 }

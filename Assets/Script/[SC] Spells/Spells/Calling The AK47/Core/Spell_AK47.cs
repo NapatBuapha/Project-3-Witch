@@ -40,8 +40,6 @@ public class Spell_AK47 : SpellBase
     public override void Penalty()
     {
         PlayerHpManager p_HP = player.GetComponent<PlayerHpManager>();
-
-        p_HP.PayHealth(hpCost);
         B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
         debuffManager.FindDBB("801");
     }

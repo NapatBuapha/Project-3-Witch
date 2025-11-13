@@ -51,7 +51,7 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
 
         //เปลี่ยน spell เรียก ak47 เป็นการยิงกระสุนปืนจากนั้นสั่งล็อคไม่ให้ใช้ spell อื่น
         pSpellSlot = player.GetComponent<PlayerSpellSlot>();
-        for (int i = 0; i < pSpellSlot.spellslot.Length; i++)
+        /*for (int i = 0; i < pSpellSlot.spellslot.Length; i++)
         {
             if (pSpellSlot.spellslot[i] == spellAK47ref)
             {
@@ -62,7 +62,7 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
                 pSpellSlot.spellslot[i] = gunSpellRef;
                 pSpellSlot.slotCD[i] = 0;
             }
-        }
+        }*/
     }
 
     public override void OnEffectEnd(BaseMobData mob)
@@ -74,8 +74,8 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
 
         mob.base_Speed = baseSpeed;
         pSpellSlot.canChangeSpell = true;
-        pSpellSlot.slotCD[baseSpellIndex] = spellAK47ref.maxCD;
-        pSpellSlot.spellslot[baseSpellIndex] = spellAK47ref;
+        //pSpellSlot.slotCD[baseSpellIndex] = spellAK47ref.maxCD;
+        //pSpellSlot.spellslot[baseSpellIndex] = spellAK47ref;
     }
 
 }

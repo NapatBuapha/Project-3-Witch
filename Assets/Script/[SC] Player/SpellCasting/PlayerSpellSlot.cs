@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,11 +10,8 @@ public class PlayerSpellSlot : MonoBehaviour
 {
     //อ้างอิง spell
     [SerializeField] SpellBase[] spellLibrary;
-
-    //อารมณ์ดีเเล้วค่อยมาเเก้เป็น dictionary
-    public SpellBase[] spellslot = new SpellBase[5];
-    [HideInInspector]public float[] slotCD; //Cooldown เเต่ละ slot
-    public int currentIndex{ get; private set; } //เวทย์ที่เลือกอยู๋ในตอนนี้
+    public Dictionary<int, (SpellBase , float)> spellDict; //ลำดับช่อง (เวทย์ , cooldown)
+    public int currentIndex; //เวทย์ที่เลือกอยู๋ในตอนนี้
 
 
 
@@ -29,32 +27,40 @@ public class PlayerSpellSlot : MonoBehaviour
     //UI Ref
     SpellSlotUiManager ui;
     BeastModeManager beastModeManager;
+    PlayerHpManager playerHp;
 
 
     void Awake()
     {
+        //variable set
+        spellDict = new Dictionary<int, (SpellBase , float)>();
+        isCasting = false;
+        canChangeSpell = true;
+
         //get Component ref
         stats = GetComponent<BasePlayerData>();
         playerS = GetComponent<PlayerStateManager>();
         spellLibrary = Resources.LoadAll<SpellBase>("Spells");
         ui = GameObject.Find("[UI] SkillSlot").GetComponent<SpellSlotUiManager>();
         beastModeManager = FindAnyObjectByType<BeastModeManager>();
-        GetSpellData("01");
-
-        //variable set
-        slotCD = new float[spellslot.Length];
-
-        isCasting = false;
-        resetSlotCD();
-        ChangeSpell(0);
-        canChangeSpell = true;
+        playerHp = GetComponent<PlayerHpManager>();
     }
-    
+
+    void Start()
+    {
+        GetSpellData("01");
+        resetSlotCD();
+        ChangeSpell(1);
+    }
+
     void resetSlotCD()
     {
-        for (int i = 0; i < slotCD.Length; i++)
+        foreach (var key in  spellDict.Keys.ToList())
         {
-            slotCD[i] = 0;
+            if(spellDict[key].Item2 > 0)
+            {
+                spellDict[key] = (spellDict[key].Item1, 0);
+            }
         }
     }
 
@@ -73,34 +79,34 @@ public class PlayerSpellSlot : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    ChangeSpell(0);
+                    ChangeSpell(1);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    ChangeSpell(1);
+                    ChangeSpell(2);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    ChangeSpell(2);
+                    ChangeSpell(3);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha4))
                 {
-                    ChangeSpell(3);
+                    ChangeSpell(4);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha5))
                 {
-                    ChangeSpell(4);
+                    ChangeSpell(5);
                 }
             }
             #endregion
 
             if (Input.GetMouseButton(0))
             {
-                if (spellslot[currentIndex] != null)
+                if (spellDict[currentIndex].Item1 != null)
                     CastSpell(currentIndex);
             }
         }
@@ -108,8 +114,10 @@ public class PlayerSpellSlot : MonoBehaviour
 
     void ChangeSpell(int index)
     {
-        currentIndex = index;
-        ui.ChangeChosenSlot(currentIndex);
+        if(ui.ChangeChosenSlot(index))
+        {
+            currentIndex = index;
+        }
     }
 
     
@@ -119,11 +127,11 @@ public class PlayerSpellSlot : MonoBehaviour
     void FixedUpdate()
     {
         //นับเวลา cooldown สำหรับ spell ทั้งหมด
-        for(int i = 0; i < slotCD.Length; i++)
+        foreach (var key in  spellDict.Keys.ToList())
         {
-            if(slotCD[i] > 0)
+            if(spellDict[key].Item2 > 0)
             {
-                slotCD[i] -= Time.deltaTime;
+                spellDict[key] = (spellDict[key].Item1, spellDict[key].Item2 - Time.deltaTime);
             }
         }
     }
@@ -131,22 +139,33 @@ public class PlayerSpellSlot : MonoBehaviour
     void CastSpell(int index)
     {
         //เช็ค cooldown spell
-        if (slotCD[index] > 0)
+        if (spellDict[index].Item2 > 0)
         {
             Debug.Log($"{index} spell in on cooldown");
             return;
         }
 
-        if (stats.Mana > spellslot[index].manaCost)
+        if (stats.Mana > spellDict[index].Item1.manaCost)
         {
             //สั่งใช้ spell
             StartCoroutine(Casting(index));
             //สั่งให้ spell ติด cooldown
-            slotCD[index] = spellslot[index].maxCD;
+            spellDict[index] = (spellDict[index].Item1 , spellDict[index].Item1.maxCD);
         }
         else
         {
-            Debug.Log("YOU HAVE NO MANA!!!");
+            if (playerHp.PayHealth(1))
+            {
+                //สั่งใช้ spell
+                StartCoroutine(Casting(index));
+
+                //สั่งให้ spell ติด cooldown
+                spellDict[index] = (spellDict[index].Item1, spellDict[index].Item1.maxCD);
+            }
+            else
+            {
+                Debug.Log("YOU HAVE NOTHING TO PAY ANYMORE KID");
+            }
         }
     }
 
@@ -154,16 +173,16 @@ public class PlayerSpellSlot : MonoBehaviour
     {
         //หยุดร่ายเวทย์
         isCasting = true;
-        playerS.Casting(spellslot[index].castingDura);
-        spellslot[index].BeforeCasting();
+        playerS.Casting(spellDict[index].Item1.castingDura);
+        spellDict[index].Item1.BeforeCasting();
 
-        yield return new WaitForSeconds(spellslot[index].castingDura);
+        yield return new WaitForSeconds(spellDict[index].Item1.castingDura);
         //ใช้ spell + ลด mana
-        stats.Mana -= spellslot[index].manaCost;
-        spellslot[index].UseSpell();
+        stats.Mana -= spellDict[index].Item1.manaCost;
+        spellDict[index].Item1.UseSpell();
         isCasting = false;
 
-        if(spellslot[index].spellID != "04")
+        if(spellDict[index].Item1.spellID != "04")
         beastModeManager.ReducedBeastCount();
     }
 
@@ -188,14 +207,10 @@ public class PlayerSpellSlot : MonoBehaviour
     
     void AddSpell(SpellBase spell)
     {
-        for(int i = 0; i < spellslot.Length; i++)
-        {
-            if(spellslot[i] == null)
-            {
-                spellslot[i] = spell;
-                break;
-            }
-        }
+        spellDict.Add(spellDict.Count + 1, (spell,0));
+        ui.CreateNewSpellSlot();
+        ChangeSpell(spellDict.Count);
+        Debug.Log("Added");
     }
 
 }

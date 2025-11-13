@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownMask: {fileID: 3718412078667757747}
   cooldownText: {fileID: 1348029420845225617}
+  buttonGuide: {fileID: 4092704339728113127}
   maxCooldown: 0
   cooldown: 0
   selectedMask: {fileID: 3972570587104028393}
