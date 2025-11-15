@@ -59,7 +59,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         
         StartCoroutine(Invincible(inviTime));
 
-        if (hp <= 0)
+        if (hp <= 0 || hp <= witheredHp) 
         {
             //Player Death
             GameOverMenu.instance.GameOver();
@@ -69,36 +69,35 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
     public bool PayHealth(int value, bool isBeastPenalty = false)
     {
-        if (!isBeastPenalty && value >= hp)
+        if (!isBeastPenalty && witheredHp >= hp)
         {
             return false;
         }
 
-        if (isBeastPenalty && value >= hp)
+        if (isBeastPenalty &&  witheredHp >= hp)
         {
             witheredHp += hp - 1;
             hp = 1;
+        }
+
+        if (witheredHp <= 0)
+        {
+            witheredHp += value;
+            StartCoroutine(StartRegen());
         }
         else
         {
             witheredHp += value;
         }
-        
-        hp -= value;
         hpUi.UpdateHP();
-
-        if (witheredHp >= 0)
-        {
-            StartCoroutine(StartRegen());
-        }
 
         IEnumerator StartRegen()
         {
             while (witheredHp > 0)
             {
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(10);
                 witheredHp--;
-                GainHealth(1);
+                hpUi.UpdateHP();
                 
             }
         }

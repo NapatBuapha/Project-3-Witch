@@ -80,26 +80,36 @@ public class PlayerSpellSlot : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     ChangeSpell(1);
+                    if (spellDict[currentIndex].Item1 != null)
+                    CastSpell(currentIndex);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
                     ChangeSpell(2);
+                    if (spellDict[currentIndex].Item1 != null)
+                    CastSpell(currentIndex);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
                     ChangeSpell(3);
+                    if (spellDict[currentIndex].Item1 != null)
+                    CastSpell(currentIndex);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha4))
                 {
                     ChangeSpell(4);
+                    if (spellDict[currentIndex].Item1 != null)
+                    CastSpell(currentIndex);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha5))
                 {
                     ChangeSpell(5);
+                    if (spellDict[currentIndex].Item1 != null)
+                    CastSpell(currentIndex);
                 }
             }
             #endregion

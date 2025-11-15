@@ -9,6 +9,8 @@ public class HealthUIManager : MonoBehaviour
     PlayerHpManager playerHp;
     [SerializeField] GameObject hpGroup;
     [SerializeField] Hearth[] hearth;
+
+    public int witheredValue;
     int hpValue;
 
     void Awake()
@@ -20,24 +22,38 @@ public class HealthUIManager : MonoBehaviour
     public void UpdateHP()
     {
         hpValue = playerHp.hp;
+        Debug.Log(playerHp.hp);
 
+    
+        //Set Hearth
         for (int i = 0; i < hearth.Length; i++)
         {
-            if (hearth[i] == null && hearth[i].isDestroying)
+            if (hpValue > 0)
+                {
+                    hearth[i].UpdateValue(1);
+                    hpValue--;
+                }
+            else
+                {
+                    hearth[i].UpdateValue(0);
+                }
+        }
+
+        //Set Withered
+        witheredValue = playerHp.witheredHp;
+            for(int i = hearth.Length-1; i >= 0; i--)
             {
-                continue;
+            if(witheredValue > 0)
+            {
+                if(hearth[i].Withered())
+                {
+                    witheredValue--;
+                }
+            }            
             }
 
-            if (hpValue > 0)
-            {
-                hearth[i].UpdateValue(1);
-                hpValue--;
-            }
-            else
-            {
-                hearth[i].UpdateValue(0);
-            }
-        }
+
+
     }
 
     public void DestroyLastHearth()

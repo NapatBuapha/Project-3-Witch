@@ -8,10 +8,12 @@ public class Hearth : MonoBehaviour
 {
     [SerializeField] Sprite emptySprite;
     [SerializeField] Sprite fullSprite;
+    [SerializeField] Sprite witheredSprite;
     Image image;
     [SerializeField] int containValue;
     [SerializeField] Animator animator;
     public bool isDestroying;
+    public bool isWitherd;
 
     void Awake()
     {
@@ -25,11 +27,10 @@ public class Hearth : MonoBehaviour
 
     public void UpdateValue(int value)
     {
-        if(containValue != value)
-        {
-            containValue = value;
-            ChangeSprite();
-        }
+
+        containValue = value;
+        ChangeSprite();
+        
     }
 
     void ChangeSprite()
@@ -56,6 +57,18 @@ public class Hearth : MonoBehaviour
         animator.SetTrigger("Empty Breaking");
     }
 
+    public bool Withered()
+    {
+        if(containValue > 0)
+        {
+            image.sprite = witheredSprite;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public void DestroyEvent()
     {
         Destroy(gameObject);
