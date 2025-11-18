@@ -11,6 +11,7 @@ public class PlayerSpellSlot : MonoBehaviour
     //อ้างอิง spell
     [SerializeField] SpellBase[] spellLibrary;
     public Dictionary<int, (SpellBase , float)> spellDict; //ลำดับช่อง (เวทย์ , cooldown)
+    public int maxSpellCount = 5;
     public int currentIndex; //เวทย์ที่เลือกอยู๋ในตอนนี้
 
 
@@ -21,7 +22,7 @@ public class PlayerSpellSlot : MonoBehaviour
 
     //เพื่อกันร่ายเวทย์พร้อมกัน ระหว่างกำลังร่ายเวทย์อื่น
 
-    private bool isCasting;
+    public bool canCastSpell;
     public bool canChangeSpell;
 
     //UI Ref
@@ -34,7 +35,7 @@ public class PlayerSpellSlot : MonoBehaviour
     {
         //variable set
         spellDict = new Dictionary<int, (SpellBase , float)>();
-        isCasting = false;
+        canCastSpell = true;
         canChangeSpell = true;
 
         //get Component ref
@@ -72,46 +73,22 @@ public class PlayerSpellSlot : MonoBehaviour
         }
 
 
-        if (!isCasting)
+        if (canCastSpell)
         {
             #region ปุ่มกด skill
             if (canChangeSpell)
+{
+            for (int i = 1; i <= 5; i++)
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (Input.GetKeyDown(KeyCode.Alpha0 + i))
                 {
-                    ChangeSpell(1);
-                    if (spellDict[currentIndex].Item1 != null)
-                    CastSpell(currentIndex);
-                }
+                    ChangeSpell(i);
 
-                if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    ChangeSpell(2);
-                    if (spellDict[currentIndex].Item1 != null)
-                    CastSpell(currentIndex);
-                }
-
-                if (Input.GetKeyDown(KeyCode.Alpha3))
-                {
-                    ChangeSpell(3);
-                    if (spellDict[currentIndex].Item1 != null)
-                    CastSpell(currentIndex);
-                }
-
-                if (Input.GetKeyDown(KeyCode.Alpha4))
-                {
-                    ChangeSpell(4);
-                    if (spellDict[currentIndex].Item1 != null)
-                    CastSpell(currentIndex);
-                }
-
-                if (Input.GetKeyDown(KeyCode.Alpha5))
-                {
-                    ChangeSpell(5);
                     if (spellDict[currentIndex].Item1 != null)
                     CastSpell(currentIndex);
                 }
             }
+}
             #endregion
 
             if (Input.GetMouseButton(0))
@@ -182,7 +159,7 @@ public class PlayerSpellSlot : MonoBehaviour
     IEnumerator Casting(int index)
     {
         //หยุดร่ายเวทย์
-        isCasting = true;
+        canCastSpell = false;
         playerS.Casting(spellDict[index].Item1.castingDura);
         spellDict[index].Item1.BeforeCasting();
 
@@ -190,7 +167,7 @@ public class PlayerSpellSlot : MonoBehaviour
         //ใช้ spell + ลด mana
         stats.Mana -= spellDict[index].Item1.manaCost;
         spellDict[index].Item1.UseSpell();
-        isCasting = false;
+        canCastSpell = true;
 
         if(spellDict[index].Item1.spellID != "04")
         beastModeManager.ReducedBeastCount();
@@ -217,10 +194,23 @@ public class PlayerSpellSlot : MonoBehaviour
     
     void AddSpell(SpellBase spell)
     {
-        spellDict.Add(spellDict.Count + 1, (spell,0));
-        ui.CreateNewSpellSlot();
-        ChangeSpell(spellDict.Count);
-        Debug.Log("Added");
+        if(spellDict.Count < maxSpellCount)
+        {
+            spellDict.Add(spellDict.Count + 1, (spell,0));
+            ui.CreateNewSpellSlot();
+            ChangeSpell(spellDict.Count);
+            Debug.Log("Added");
+        }
+        else
+        {
+
+            ReplaceMenu.instance.OpenPanel(spell);
+        }
+    }
+
+    public void SpellReplace()
+    {
+        
     }
 
 }

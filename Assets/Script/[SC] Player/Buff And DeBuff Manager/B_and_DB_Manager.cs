@@ -63,7 +63,14 @@ public class B_and_DB_Manager : MonoBehaviour
     
     public void GainDBB(Debuff_Buff_Base dbb)
     {
-        dbb.ApplyEffect(baseMobData);
-        current_DBB.Add(dbb, dbb.maxDura);
+        if(current_DBB.ContainsKey(dbb))
+        {
+            current_DBB[dbb] = dbb.maxDura;
+        }
+        else
+        {
+            dbb.ApplyEffect(baseMobData);
+            current_DBB.Add(dbb, dbb.maxDura);
+        }
     }
 }
