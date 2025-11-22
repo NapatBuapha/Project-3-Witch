@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterGauntlet : MonoBehaviour
 {
-    [SerializeField] private GameObject[] bushwWall;
+    [SerializeField] private GameObject[] bushWall;
     [SerializeField] private MonsterGroupManager[] waves;
     [SerializeField] private AudioSource bGManager;
     [SerializeField] private AudioClip battleBGM;
@@ -16,9 +16,9 @@ public class MonsterGauntlet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < bushwWall.Length; i++)
+        for(int i = 0; i < bushWall.Length; i++)
         {
-            bushwWall[i].SetActive(false);
+            bushWall[i].SetActive(false);
         }
         currentWave = 0;
         isStart = false;
@@ -32,12 +32,12 @@ public class MonsterGauntlet : MonoBehaviour
 
         if(col.CompareTag("Player"))
         {
-            for(int i = 0; i < bushwWall.Length; i++)
+            for(int i = 0; i < bushWall.Length; i++)
             {
                 bGManager.clip = battleBGM;
                 bGManager.Play();
                 isStart = true;
-                bushwWall[i].SetActive(true);
+                bushWall[i].SetActive(true);
                 StartNextWave();
             }
         }
@@ -69,9 +69,9 @@ public class MonsterGauntlet : MonoBehaviour
     {
                 bGManager.clip = normalBGM;
                 bGManager.Play();
-        for (int i = 0; i < bushwWall.Length; i++)
+        for (int i = 0; i < bushWall.Length; i++)
         {
-            bushwWall[i].SetActive(false);
+            bushWall[i].SetActive(false);
         }
         Destroy(gameObject);
     }
