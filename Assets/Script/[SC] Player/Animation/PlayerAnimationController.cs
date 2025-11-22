@@ -61,7 +61,6 @@ public class PlayerAnimationController : MonoBehaviour
                 }
             }
         }
-        
     }
 
 
@@ -72,9 +71,6 @@ public class PlayerAnimationController : MonoBehaviour
             UpdatePlayerDirection();
             CheckIdle();
         }
-        
-        
-
     }
 
     public void DashAnim(float dashDuration = 0.3f)
@@ -119,6 +115,12 @@ public class PlayerAnimationController : MonoBehaviour
     public void CastingAnim()
     {
 
+    }
+
+    public void Dying()
+    {
+        canWalk = false;
+        ChangeAnimation("P_Dying");
     }
 
     public void BeastModeAttack(float attackDuration = 1.2f)

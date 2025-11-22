@@ -13,6 +13,8 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     //ช่วงเวลาอมตะ
     [SerializeField] float inviTime = 2f;
     bool isInvi;
+    bool isDeath;
+
 
     //variable สำหรับระบบ player เดินทะลุหลังโดนตี
     [SerializeField] LayerMask enemyLayer;
@@ -33,6 +35,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         hp = stats.maxHp;
         isInvi = false;
         hpUi.UpdateHP();
+        isDeath = false;
     }
 
 
@@ -44,7 +47,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
             return;
         }
         //ถ้าเป็นอมตะอยู่ ไม่รันcodeที่เหลือ
-        if(isInvi)
+        if(isInvi || isDeath)
         {
             return;
         }
@@ -61,8 +64,19 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
         if (hp <= 0 || hp <= witheredHp) 
         {
-            //Player Death
-            GameOverMenu.instance.GameOver();
+            PlayerStateManager playerState = GetComponent<PlayerStateManager>();
+            PlayerSpellSlot playerSpellSlot = GetComponent<PlayerSpellSlot>();
+            playerState.Dying();
+
+            StartCoroutine(Wait());
+            IEnumerator Wait()
+            {
+                GameOverFilter.instance.GameOver();
+                playerSpellSlot.canCastSpell = false;
+                isDeath = true;
+                yield return new WaitForSeconds(4);
+                GameOverMenu.instance.GameOver();
+            }
         }
     }
 
@@ -98,7 +112,6 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
                 yield return new WaitForSeconds(10);
                 witheredHp--;
                 hpUi.UpdateHP();
-                
             }
         }
 

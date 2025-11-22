@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,6 +20,7 @@ public class PlayerStateManager : MonoBehaviour
     public State_PlayerWalking state_PlayerWalking { get; private set; } = new State_PlayerWalking();
     public State_PlayerDash state_PlayerDash { get; private set; } = new State_PlayerDash();
     public State_PlayerCasting state_PlayerCasting { get; private set; } = new State_PlayerCasting();
+    public State_PlayerDying state_PlayerDying {get; private set;} = new State_PlayerDying();
 
     //Beast State here
     public State_PlayerBeastTransform state_PlayerBeastTransform { get; private set; } = new State_PlayerBeastTransform();
@@ -162,6 +164,12 @@ public class PlayerStateManager : MonoBehaviour
     {
         this.castingDura = castingDura;
         SwitchState(state_PlayerCasting);
+    }
+
+    public void Dying()
+    {
+        stats.rb.isKinematic = true;
+        SwitchState(state_PlayerDying);
     }
 
     #endregion
