@@ -15,6 +15,8 @@ public class BeastModeManager : MonoBehaviour
     PlayerHpManager playerHp;
     BasePlayerData stats;
     SpellBook spellBook;
+    PlayerStateManager player;
+    [SerializeField] private CanvasGroup manaDisplayer;
 
     //Visual
     [Header("Visual Ui")]
@@ -25,6 +27,9 @@ public class BeastModeManager : MonoBehaviour
 
     [SerializeField] private Dialogue beastCutScene;
     [SerializeField] private Dialogue deTransformCutscene;
+
+    [SerializeField] private CanvasGroup attackDisplayer;
+    [SerializeField] private CanvasGroup dashDisplayer;
     bool isSeenTheCutscene;
 
     void Start()
@@ -33,6 +38,7 @@ public class BeastModeManager : MonoBehaviour
         spellBook = FindAnyObjectByType<SpellBook>();
         stats = FindAnyObjectByType<BasePlayerData>();
         playerHp = stats.gameObject.GetComponent<PlayerHpManager>();
+        player = FindAnyObjectByType<PlayerStateManager>();
 
 
         groupParent.SetActive(false);
@@ -41,6 +47,8 @@ public class BeastModeManager : MonoBehaviour
         isBeastMode_Able = false;
         isUIOpen = false;
         isSeenTheCutscene = false;
+        attackDisplayer.alpha = 0;
+        dashDisplayer.alpha = 1;
     }
 
     public void ReducedBeastCount()
@@ -54,7 +62,6 @@ public class BeastModeManager : MonoBehaviour
 
         if (beastCount <= 0)
         {
-            isBeastMode_Able = true;
             groupParent.SetActive(true);
 
             if(!isUIOpen)
@@ -62,7 +69,18 @@ public class BeastModeManager : MonoBehaviour
                 DialogueManager.SetDialogue(beastCutScene);
                 isUIOpen = true;
             }
-            UpdateUI();
+
+            player.SwitchState(player.state_PlayerBeastTransform);
+            StartCoroutine(Wait());
+            UpdateUI();            
+        }
+
+        IEnumerator Wait()
+        {
+            yield return new WaitForSeconds(1);
+            dashDisplayer.alpha = 0;
+            manaDisplayer.alpha = 0;
+            attackDisplayer.alpha = 1;
         }
         
 
@@ -93,6 +111,10 @@ public class BeastModeManager : MonoBehaviour
         isBeastMode_Able = false;
         beastCount = maxBeastCount;
         playerHp.BeastPenalty();
+
+        attackDisplayer.alpha = 0;
+        dashDisplayer.alpha = 1;
+        manaDisplayer.alpha = 1;
         UpdateUI();
     }
 

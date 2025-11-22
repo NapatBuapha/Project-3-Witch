@@ -12,9 +12,8 @@ public class State_PlayerBeastWalking : PlayerBaseState
 
     public override void FixedUpdateState(PlayerStateManager player)
     {
-        rb.velocity = new Vector2
-        (player.w_speed * player.player_HInput //Horizontal
-        , player.w_speed *  player.player_VInput); //Vertical
+        Vector2 direction = new Vector2(player.player_HInput,player.player_VInput).normalized;
+        rb.velocity = player.w_speed * direction;
     }
 
     public override void UpdateState(PlayerStateManager player)

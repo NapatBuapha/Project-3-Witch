@@ -19,6 +19,7 @@ public class PlayerSpellSlot : MonoBehaviour
     //อ้างอิงค่าจาก player
     private BasePlayerData stats;
     private PlayerStateManager playerS;
+    private SpellBook spellBook;
 
     //เพื่อกันร่ายเวทย์พร้อมกัน ระหว่างกำลังร่ายเวทย์อื่น
 
@@ -44,6 +45,7 @@ public class PlayerSpellSlot : MonoBehaviour
         spellLibrary = Resources.LoadAll<SpellBase>("Spells");
         ui = GameObject.Find("[UI] SkillSlot").GetComponent<SpellSlotUiManager>();
         beastModeManager = FindAnyObjectByType<BeastModeManager>();
+        spellBook = FindAnyObjectByType<SpellBook>();
         playerHp = GetComponent<PlayerHpManager>();
     }
 
@@ -168,6 +170,7 @@ public class PlayerSpellSlot : MonoBehaviour
         stats.Mana -= spellDict[index].Item1.manaCost;
         spellDict[index].Item1.UseSpell();
         canCastSpell = true;
+        spellBook.ShrededPapaerEffect();
 
         if(spellDict[index].Item1.spellID != "04")
         beastModeManager.ReducedBeastCount();

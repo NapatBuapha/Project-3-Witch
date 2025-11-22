@@ -8,16 +8,14 @@ public class State_PlayerDash : PlayerBaseState
     float stateTimes; 
     public override void EnterState(PlayerStateManager player)
     {
-        player.stats.Stamina -= player.stats.dashSta_Consume;
+        player.dashDisplayer.DashCooldown();
         rb = player.stats.rb;
         stateTimes = player.stats.dashStatesTime;
 
         player.animaCon.DashAnim(stateTimes);
+        Vector2 direction = new Vector2(player.player_HInput,player.player_VInput).normalized;
 
-        rb.AddForce(new Vector2
-        (player.dashPower * player.player_HInput //Horizontal
-        , player.dashPower * player.player_VInput) //Vertical)
-        , ForceMode2D.Impulse); 
+        rb.AddForce(player.dashPower * direction, ForceMode2D.Impulse); 
         
     }
 

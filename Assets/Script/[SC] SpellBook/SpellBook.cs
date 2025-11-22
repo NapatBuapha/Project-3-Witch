@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ public class SpellBook : MonoBehaviour
     // 1 ด้านข้าง
     // 2 ด้านหลัง
     [SerializeField] private Sprite ak47Sprite;
+    [SerializeField] private GameObject shrededPaper;
     Vector3 mousePos;
 
     public Transform spellBookPos; //เพื่ออ้างอิงตำเเหน่ง spell book จริงๆ
@@ -29,6 +31,11 @@ public class SpellBook : MonoBehaviour
     void Start()
     {
         render.sprite = book_Sprite[0];
+    }
+
+    public void ShrededPapaerEffect()
+    {
+        Instantiate(shrededPaper,render.gameObject.transform.position,quaternion.identity);
     }
 
     void Update()
@@ -47,10 +54,6 @@ public class SpellBook : MonoBehaviour
             render.gameObject.transform.rotation = Quaternion.Euler(0, 0, z);
         }
         
-        
-        
-        
-
     }
 
     public void ChangeState(int state = 0)

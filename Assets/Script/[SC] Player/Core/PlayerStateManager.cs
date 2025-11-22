@@ -40,7 +40,7 @@ public class PlayerStateManager : MonoBehaviour
 
     #region Dash Stats
     [HideInInspector] public float dashPower;
-    private bool canDash;
+    public DashDisplayer dashDisplayer {get ; private set;}
     
     #endregion
 
@@ -48,7 +48,7 @@ public class PlayerStateManager : MonoBehaviour
     #region StateCondition
     public bool isWalking { get; private set; }
     public bool dashInput { get; private set; }
-    public bool transformCon { get; private set; }
+
     public bool AttackCon { get; private set; }
 
     #endregion
@@ -73,12 +73,12 @@ public class PlayerStateManager : MonoBehaviour
         #region Get the component Ref here
         stats = GetComponent<BasePlayerData>();
         animaCon = GetComponent<PlayerAnimationController>();
+        dashDisplayer = FindAnyObjectByType<DashDisplayer>();
         #endregion
 
         #region Set the variable
         dashPower = stats.baseDashPower;
         w_speed = stats.base_Speed;
-        canDash = true;
         isNearDeTransform = true;
         #endregion
     }
@@ -103,25 +103,12 @@ public class PlayerStateManager : MonoBehaviour
 
         //นับเวลา Dash
 
-        //ลดความเร็วเวลาเดินเฉียง
-        if (Mathf.Abs(player_HInput) > 0 && Mathf.Abs(player_VInput) > 0)
-        {
-            dashPower = stats.baseDashPower / stats.DiagonalSpeedReduction;
-            w_speed = stats.base_Speed / stats.DiagonalSpeedReduction;
-        }
-        else
-        {
-            dashPower = stats.baseDashPower;
-            w_speed = stats.base_Speed;
-        }
-
         #endregion
 
 
         #region StateCondition
         isWalking = player_HInput != 0 || player_VInput != 0;
-        dashInput = Input.GetKeyDown(KeyCode.LeftShift) && canDash && stats.Stamina > stats.dashSta_Consume;
-        transformCon = Input.GetKeyDown(KeyCode.LeftControl) && !stats.isBeastMode && stats.beastModeManager.isBeastMode_Able;
+        dashInput = Input.GetKeyDown(KeyCode.LeftShift) && stats.canDash;
         AttackCon = Input.GetMouseButton(0) && !isNearDeTransform;
         
         #endregion
@@ -129,12 +116,6 @@ public class PlayerStateManager : MonoBehaviour
         #region NonStateCondition
 
         #endregion
-
-        //คำสั่งที่ใช้กับทุก State
-        if(transformCon)
-        {
-            SwitchState(state_PlayerBeastTransform);
-        }
 
         currentState.UpdateState(this);
     }
@@ -155,9 +136,10 @@ public class PlayerStateManager : MonoBehaviour
     #region Method Ref for Specific State
     public IEnumerator SetDashCoolDown()
     {
-        canDash = false;
+        stats.canDash = false;
         yield return new WaitForSeconds(stats.dashCD);
-        canDash = true;
+        dashDisplayer.DashReady();
+        stats.canDash = true;
     }
 
     public void Casting(float castingDura)
@@ -181,6 +163,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         stats.rb.isKinematic = true;
         AudioManager.PlaySound(SoundType.Player_Transform , 1f);
+        BeastBoarderFilter.instance.CallFilter();
         stats.filter.EnterBeast();
         stats.spellBook.ChangeState(1);
         stats.isBeastMode = true;
@@ -213,6 +196,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         stats.rb.isKinematic = true;
         AudioManager.PlaySound(SoundType.Player_DeTransform , 1f);
+        BeastBoarderFilter.instance.DisableFilter();
         stats.filter.EndBeast();
         animaCon.BeastModeDeTransform(stats.transformDura);
         StartCoroutine(wait());

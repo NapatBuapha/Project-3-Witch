@@ -18,32 +18,13 @@ public class BasePlayerData : BaseMobData
 
     [Header("Dash")]
     public float dashCD = 2f;
+    public bool canDash;
     public float baseDashPower = 10f;
     public float dashStatesTime = 0.3f;
-    public float dashSta_Consume = 3f;
 
     #endregion
 
     #region Stats
-
-    [Header("Stamina")]
-    public float maxStamina = 10f;
-    private float stamina;
-    public float Stamina
-    {
-        get { return stamina; }
-        set
-        {
-            if (value > maxStamina)
-            {
-                stamina = maxStamina;
-            }
-            else
-            {
-                stamina = value;
-            }
-        }
-    }
     [SerializeField] private float rechargeSpeedSta = 0.03f;
 
 
@@ -100,9 +81,9 @@ public class BasePlayerData : BaseMobData
         #endregion
 
         #region  setVaraible
-        Stamina = 0;
-        mana = 0;
+        mana = maxMana;
         isBeastMode = false;
+        canDash = true;
         #endregion
     }
 
@@ -113,10 +94,6 @@ public class BasePlayerData : BaseMobData
 
     void FixedUpdate()
     {
-        if (stamina < maxStamina)
-        {
-            Stamina += rechargeSpeedSta;
-        }
         
         if (mana < maxMana)
         {

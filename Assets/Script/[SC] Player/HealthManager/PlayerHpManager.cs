@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerHpManager : MonoBehaviour , IDamageable
 {
     public int hp { get; private set; }
-    public int witheredHp;
+
     public BasePlayerData stats{ get; private set; }
 
     //ช่วงเวลาอมตะ
@@ -24,6 +24,13 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     [SerializeField] private Animator animator;
     HealthUIManager hpUi;
 
+    //BeastPenalty
+    [SerializeField] private int startPenaltyValue = 2;
+    int beastPenaltyVal;
+
+    //Withred HP System
+    public int witheredHp;
+    [SerializeField] private float witheredRegenRate = 10f;
 
     void Start()
     {
@@ -36,6 +43,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         isInvi = false;
         hpUi.UpdateHP();
         isDeath = false;
+        beastPenaltyVal = startPenaltyValue;
     }
 
 
@@ -53,6 +61,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         }
 
         Debug.Log("Player Take Damage: " + damageValue);
+        witheredHp = Mathf.Clamp(witheredHp,0,hp); //เพื่อจำกัดจำนวน withered hp ให้เท่ากับ จำนวน hp ในปัจจุบัน
         animator.SetTrigger("Hit");
         hp--;
         hpUi.UpdateHP();
@@ -88,12 +97,6 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
             return false;
         }
 
-        if (isBeastPenalty &&  witheredHp >= hp)
-        {
-            witheredHp += hp - 1;
-            hp = 1;
-        }
-
         if (witheredHp <= 0)
         {
             witheredHp += value;
@@ -103,13 +106,14 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         {
             witheredHp += value;
         }
+        witheredHp = Mathf.Clamp(witheredHp,0,hp);
         hpUi.UpdateHP();
 
         IEnumerator StartRegen()
         {
             while (witheredHp > 0)
             {
-                yield return new WaitForSeconds(10);
+                yield return new WaitForSeconds(witheredRegenRate);
                 witheredHp--;
                 hpUi.UpdateHP();
             }
@@ -159,15 +163,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     
     public void BeastPenalty()
     {
-        stats.maxHp -= 2;
-        hpUi.DestroyLastHearth();
-        hpUi.DestroyLastHearth();
-        if (hp > stats.maxHp)
-        {
-            int dif = hp - stats.maxHp;
-            hp -= dif;
-            hpUi.UpdateHP();
-        }
-
+        PayHealth(beastPenaltyVal , true);
+        beastPenaltyVal ++;
     }
 }
