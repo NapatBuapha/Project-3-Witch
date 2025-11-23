@@ -182,6 +182,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     public void BeastPenalty()
     {
         PayHealth(beastPenaltyVal , true);
+        StartCoroutine(Invincible(inviTime));
         beastPenaltyVal ++;
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class KeyInventory : MonoBehaviour
 {
-    public Dictionary<string, KeyItem> inventoryDict;
+    public Dictionary<string, (KeyItem,int)> inventoryDict;
+    InventoryDisplayer ui;
     void Start()
     {
-        inventoryDict = new Dictionary<string, KeyItem>();
+        ui = FindAnyObjectByType<InventoryDisplayer>();
+        inventoryDict = new Dictionary<string, (KeyItem,int)>();
     }
 
     public bool CheckForItem(KeyItem item)
@@ -22,7 +24,13 @@ public class KeyInventory : MonoBehaviour
 
     public void AddItem(KeyItem item)
     {
-        inventoryDict.Add(item.itemID , item);
-    }
+        if(inventoryDict.ContainsKey(item.itemID))
+        {
+            int currentQuantity = inventoryDict[item.itemID].Item2;
+            inventoryDict[item.itemID] = (item , currentQuantity + 1);
+        }
+        else inventoryDict.Add(item.itemID , (item , 1));
 
+        ui.UpdateUi(inventoryDict);
+    }
 }

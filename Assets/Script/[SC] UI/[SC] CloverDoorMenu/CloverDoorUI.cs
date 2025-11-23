@@ -7,6 +7,8 @@ public class CloverDoorUI : MonoBehaviour
     [SerializeField] CloverReceiver[] cloverReceivers;
     [SerializeField] GameObject[] clovers;
     [SerializeField] GameObject header;
+
+    [SerializeField] GameObject[] disableAfterComObj;
     int cloverCount;
     int maxCloverCount = 4;
 
@@ -31,9 +33,9 @@ public class CloverDoorUI : MonoBehaviour
 
     public void ActiveClover(int amouth)
     {
-        foreach(GameObject clover in clovers)
+        for(int i = 0; i < amouth; i++)
         {
-            clover.SetActive(true);
+            clovers[i].SetActive(true);
         }
     }
 
@@ -58,7 +60,11 @@ public class CloverDoorUI : MonoBehaviour
 
     void Complete()
     {
-        Debug.Log("Complete");
+        CloseUi();
+        foreach(GameObject gameObject in disableAfterComObj)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     

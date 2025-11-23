@@ -11,6 +11,7 @@ TagManager:
   - Cinemachine
   - DialogueBox
   - Interactable
+  - Door
   layers:
   - Default
   - TransparentFX

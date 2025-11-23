@@ -14,6 +14,10 @@ public class MonsterGauntlet : MonoBehaviour
     [SerializeField] private int currentWave;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        bushWall = GameObject.FindGameObjectsWithTag("Door");
+    }
     void Start()
     {
         for(int i = 0; i < bushWall.Length; i++)
