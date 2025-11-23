@@ -35,6 +35,7 @@ public class SpellBook : MonoBehaviour
 
     public void ShrededPapaerEffect()
     {
+        if(currentState != SpellBookState.Ak47)
         Instantiate(shrededPaper,render.gameObject.transform.position,quaternion.identity);
     }
 

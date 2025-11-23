@@ -82636,6 +82636,67 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &268942007
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.998746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6357684
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382527599465964752, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399316071916955333, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: spell
+      value: 
+      objectReference: {fileID: 11400000, guid: 45d69ca14dd33b4409a5e762df0dac4b, type: 2}
+    - target: {fileID: 4976913558967094238, guid: 042e0831cc420e3478c703134846af5b, type: 3}
+      propertyPath: m_Name
+      value: '[Prefab] Spellpage'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 042e0831cc420e3478c703134846af5b, type: 3}
 --- !u!1 &269137362
 GameObject:
   m_ObjectHideFlags: 0
@@ -487788,3 +487849,4 @@ SceneRoots:
   - {fileID: 421104917}
   - {fileID: 1419852756}
   - {fileID: 1442567312}
+  - {fileID: 268942007}
