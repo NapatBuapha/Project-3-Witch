@@ -460927,7 +460927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beastCount: 0
-  maxBeastCount: 13
+  maxBeastCount: 30
   manaDisplayer: {fileID: 1004775817}
   groupParent: {fileID: 7883308}
   mask: {fileID: 1812615008}

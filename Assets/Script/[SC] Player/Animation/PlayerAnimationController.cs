@@ -17,7 +17,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     bool canWalk;
     bool isBeastMode;
-    bool isDeath;
+    public bool isDeath;
 
     PlayerVerticalDirection verticalDi;
 
@@ -32,6 +32,7 @@ public class PlayerAnimationController : MonoBehaviour
         verticalDi = PlayerVerticalDirection.back;
         canWalk = true;
         isBeastMode = false;
+        isDeath = false;
     }
 
     public void ChangeAnimation(string animation, float crossfade = 0.2f, float time = 0)
@@ -81,17 +82,21 @@ public class PlayerAnimationController : MonoBehaviour
         {
             canWalk = false;
             yield return new WaitForSeconds(duration);
+            if(isDeath)
+            {
+                animator.SetTrigger("Death");
+            }
             canWalk = true;
         }
         
             switch (verticalDi)
             {
                 case PlayerVerticalDirection.front:
-                    ChangeAnimation("P_Hurt_f" , duration);
+                    ChangeAnimation("P_Hurt_f");
                     break;
 
                 default: //Case Back
-                    ChangeAnimation("P_Hurt_b" , duration);
+                    ChangeAnimation("P_Hurt_b");
                     break;
             }
     }
@@ -143,7 +148,8 @@ public class PlayerAnimationController : MonoBehaviour
     public void Dying()
     {
         canWalk = false;
-        ChangeAnimation("P_Dying" , 0.2f);
+        isDeath = true;
+        animator.SetTrigger("Death");
     }
 
     public void BeastModeAttack(float attackDuration = 1.2f)
