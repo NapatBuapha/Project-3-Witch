@@ -33,6 +33,34 @@ public class MushroomAnimationController : BaseEnemyAnimationController
         }
         ChangeAnimation("M_Spawn", spawnStatesTime);
     }
+
+    public void Hurt(float duration = 0.25f)
+    {
+        if(!canWalk) return;
+
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            canWalk = false;
+
+            switch (currentDi)
+            {
+                case EnemyVerticalDirection.front:
+                    ChangeAnimation("M_Hurt_F");
+                    break;
+
+                default: //Case Back
+                    ChangeAnimation("M_Hurt_B");
+                    break;
+            }
+
+
+
+            yield return new WaitForSeconds(duration);
+
+            canWalk = true;
+        }
+    }
     
     public void Explode(float statesTime = 0.5f)
     {

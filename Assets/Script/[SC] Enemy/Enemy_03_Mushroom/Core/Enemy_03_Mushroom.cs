@@ -9,6 +9,7 @@ public class Enemy_03_Mushroom : BaseEnemyData
 {
     //Stats พื้นฐาน BaseMobData name_ ,base_Speed , MaxHp , Atk ปรับได้ใน inspector
     AIPath aIPath;
+    Enemy_03_StateManager stateManager;
 
     //Stats for dash attack
     [Header("Exploding variable")]
@@ -20,6 +21,7 @@ public class Enemy_03_Mushroom : BaseEnemyData
     public float spawnStatesTime = 0.5f;
     protected override void Awake()
     {
+        stateManager = GetComponent<Enemy_03_StateManager>();
         base.Awake();
         aIPath = GetComponent<AIPath>();
     }
@@ -48,5 +50,12 @@ public class Enemy_03_Mushroom : BaseEnemyData
             return;
 
         Instantiate(explosivePrefab, transform.position, quaternion.identity);
+    }
+
+    public override void getDamage(int damageValue)
+    {
+        stateManager.Hurt();
+        base.getDamage(damageValue);
+
     }
 }

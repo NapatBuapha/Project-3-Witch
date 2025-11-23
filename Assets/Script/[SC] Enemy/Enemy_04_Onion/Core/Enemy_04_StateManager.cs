@@ -11,6 +11,7 @@ public class Enemy_04_StateManager : MonoBehaviour
     public Onion_ChasingState state_Chasing { get; private set; } = new Onion_ChasingState();
     public Onion_RunAwayState state_RunAway { get; private set; } = new Onion_RunAwayState();
     public Onion_ThrownState state_Thrown { get; private set; } = new Onion_ThrownState();
+    public Onion_StunState state_Stun {get; private set;} = new Onion_StunState();
 
     //Component ref
     [HideInInspector] public Enemy_04_Onion stats;
@@ -116,6 +117,20 @@ public class Enemy_04_StateManager : MonoBehaviour
             yield return new WaitForSeconds(stats.statesTime);
             SwitchState(state_Chasing);
         }
+    }
 
+    public void Hurt()
+    {
+        if(currentState == state_Thrown)
+        {
+            return;
+        }
+        SwitchState(state_Stun);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(stats.stunDura);
+            SwitchState(state_Chasing);
+        }
     }
 }

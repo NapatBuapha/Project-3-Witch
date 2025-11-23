@@ -25,8 +25,6 @@ public class BasePlayerData : BaseMobData
     #endregion
 
     #region Stats
-    [SerializeField] private float rechargeSpeedSta = 0.03f;
-
 
     [Header("Beast Mode")]
     public float transformDura = 2.2f;

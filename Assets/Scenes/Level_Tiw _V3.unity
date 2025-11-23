@@ -460307,7 +460307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beastCount: 0
-  maxBeastCount: 13
+  maxBeastCount: 100
   manaDisplayer: {fileID: 1004775817}
   groupParent: {fileID: 7883308}
   mask: {fileID: 1812615008}
@@ -487022,6 +487022,10 @@ PrefabInstance:
     - target: {fileID: 119668786358537763, guid: 2591941350989914ea75f7e6c80f91d3, type: 3}
       propertyPath: rechargeSpeedMana
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 546048640539906660, guid: 2591941350989914ea75f7e6c80f91d3, type: 3}
+      propertyPath: m_DefaultVelocity.y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2214532314829891530, guid: 2591941350989914ea75f7e6c80f91d3, type: 3}
       propertyPath: maxSpellCount

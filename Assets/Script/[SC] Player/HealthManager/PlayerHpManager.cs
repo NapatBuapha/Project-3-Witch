@@ -22,6 +22,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
     //For on hit effect
     [SerializeField] private Animator animator;
+    private PlayerAnimationController animaCon;
     HealthUIManager hpUi;
 
     //BeastPenalty
@@ -37,6 +38,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         //component ref
         stats = GetComponent<BasePlayerData>();
         hpUi = FindAnyObjectByType<HealthUIManager>();
+        animaCon = GetComponent<PlayerAnimationController>();
 
         //set variable
         hp = stats.maxHp;
@@ -60,14 +62,29 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
             return;
         }
 
+        //ON hit event//
+
         Debug.Log("Player Take Damage: " + damageValue);
         witheredHp = Mathf.Clamp(witheredHp,0,hp); //เพื่อจำกัดจำนวน withered hp ให้เท่ากับ จำนวน hp ในปัจจุบัน
         animator.SetTrigger("Hit");
+
         hp--;
         hpUi.UpdateHP();
         stats.filter.Hit();
         AudioManager.PlaySound(SoundType.Hit , 0.5f);
-        CameraShakeManager.instance.CameraShake(stats.impulseSource);
+        CameraShakeManager.instance.CameraShake(stats.impulseSource , 3f);
+        animaCon.Hurt();
+
+        StartCoroutine(FrameFreeze());
+        IEnumerator FrameFreeze()
+        {
+            Time.timeScale = 0f;
+            yield return new WaitForSecondsRealtime(0.1f);
+            Time.timeScale = 1f;
+        }
+        stats.rb.velocity = Vector2.zero;
+
+        ////
         
         StartCoroutine(Invincible(inviTime));
 

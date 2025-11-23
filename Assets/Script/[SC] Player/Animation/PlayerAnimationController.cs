@@ -73,6 +73,28 @@ public class PlayerAnimationController : MonoBehaviour
         }
     }
 
+    public void Hurt(float duration = 0.1f)
+    {
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            canWalk = false;
+            yield return new WaitForSeconds(duration);
+            canWalk = true;
+        }
+        
+            switch (verticalDi)
+            {
+                case PlayerVerticalDirection.front:
+                    ChangeAnimation("P_Hurt_f" , duration);
+                    break;
+
+                default: //Case Back
+                    ChangeAnimation("P_Hurt_b" , duration);
+                    break;
+            }
+    }
+
     public void DashAnim(float dashDuration = 0.3f)
     {
         //ป้องกันการเปลี่ยน state ระหว่าง dash

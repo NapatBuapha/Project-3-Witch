@@ -10,6 +10,7 @@ public class Enemy_03_StateManager : MonoBehaviour
     public Mushroom_IdleState state_Idle { get; private set; } = new Mushroom_IdleState();
     public Mushroom_ChasingState state_Chasing { get; private set; } = new Mushroom_ChasingState();
     public Mushroom_ExplodingState state_Exploding { get; private set; } = new Mushroom_ExplodingState();
+    public Mushroom_StunState state_Stun {get; private set;} = new Mushroom_StunState();
 
 
     //Component ref
@@ -99,6 +100,17 @@ public class Enemy_03_StateManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public void Hurt()
+    {
+        SwitchState(state_Stun);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(stats.stunDura);
+            SwitchState(state_Chasing);
+        }
     }
 
 

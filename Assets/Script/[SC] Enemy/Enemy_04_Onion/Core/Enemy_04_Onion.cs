@@ -7,6 +7,7 @@ public class Enemy_04_Onion : BaseEnemyData
 {
     //Stats พื้นฐาน BaseMobData name_ ,base_Speed , MaxHp , Atk ปรับได้ใน inspector
     AIPath aIPath;
+    Enemy_04_StateManager stateManager;
     
 
     //Stats for dash attack
@@ -26,6 +27,7 @@ public class Enemy_04_Onion : BaseEnemyData
     {
         base.Awake();
         aIPath = GetComponent<AIPath>();
+                stateManager = GetComponent<Enemy_04_StateManager>();
     }
 
     // Update is called once per frame
@@ -33,5 +35,11 @@ public class Enemy_04_Onion : BaseEnemyData
     {
         aIPath.maxSpeed = base_Speed;
         base.Update();
+    }
+
+    public override void getDamage(int damageValue)
+    {
+        stateManager.Hurt();
+        base.getDamage(damageValue);
     }
 }

@@ -43,6 +43,29 @@ public class BroccoliAnimationController : BaseEnemyAnimationController
         }
 
     }
+
+    public void Hurt(float duration = 0.1f)
+    {
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            canWalk = false;
+
+            switch (currentDi)
+            {
+                case EnemyVerticalDirection.front:
+                    ChangeAnimation("B_Hurt_F");
+                    break;
+
+                default: //Case Back
+                    ChangeAnimation("B_Hurt_B");
+                    break;
+            }
+            yield return new WaitForSeconds(duration);
+
+            canWalk = true;
+        }
+    }
     
     public void Attack(float statesTime = 0.5f)
     {
@@ -84,11 +107,11 @@ public class BroccoliAnimationController : BaseEnemyAnimationController
             switch (currentDi)
             {
                 case EnemyVerticalDirection.front:
-                    ChangeAnimation("B_Idle_F");
+                    ChangeAnimation("B_Idle_F",0.2f);
                     break;
 
                 default:
-                    ChangeAnimation("B_Idle_B");
+                    ChangeAnimation("B_Idle_B",0.2f);
                     break;
             }
         }
@@ -97,11 +120,11 @@ public class BroccoliAnimationController : BaseEnemyAnimationController
             switch (currentDi)
             {
                 case EnemyVerticalDirection.front:
-                    ChangeAnimation("B_Walking_F");
+                    ChangeAnimation("B_Walking_F" ,0.2f);
                     break;
 
                 default:
-                    ChangeAnimation("B_Walking_B");
+                    ChangeAnimation("B_Walking_B", 0.2f);
                     break;
             }
         }

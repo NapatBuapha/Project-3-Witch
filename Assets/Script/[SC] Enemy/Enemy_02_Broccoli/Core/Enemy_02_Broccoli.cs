@@ -7,7 +7,7 @@ public class Enemy_02_Broccoli : BaseEnemyData
 {
     //Stats พื้นฐาน BaseMobData name_ ,base_Speed , MaxHp , Atk ปรับได้ใน inspector
     AIPath aIPath;
-
+    Enemy_02_StateManager stateManager;
 
     //Stats for dash attack
     [Header("Sword Dash variable")]
@@ -22,6 +22,7 @@ public class Enemy_02_Broccoli : BaseEnemyData
     protected override void Awake()
     {
         base.Awake();
+        stateManager = GetComponent<Enemy_02_StateManager>();
         aIPath = GetComponent<AIPath>();
     
 
@@ -32,5 +33,12 @@ public class Enemy_02_Broccoli : BaseEnemyData
     {
         aIPath.maxSpeed = base_Speed;
         base.Update();
+    }
+
+    public override void getDamage(int damageValue)
+    {
+        stateManager.Hurt();
+        base.getDamage(damageValue);
+
     }
 }

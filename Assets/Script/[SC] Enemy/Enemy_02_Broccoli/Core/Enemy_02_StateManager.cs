@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Unity.VisualScripting;
 
 public class Enemy_02_StateManager : MonoBehaviour
 {
     BroccoliBaseState currentState;
     //Input Unique States here
-    public Broccoli_IdleState states_Idle { get; private set; } = new Broccoli_IdleState();
-    public Broccoli_ChasingStates states_Chasing { get; private set; } = new Broccoli_ChasingStates();
-    public Broccoli_DashAttack states_DashAttack { get; private set; } = new Broccoli_DashAttack();
+    public Broccoli_IdleState state_Idle { get; private set; } = new Broccoli_IdleState();
+    public Broccoli_ChasingStates state_Chasing { get; private set; } = new Broccoli_ChasingStates();
+    public Broccoli_DashAttack state_DashAttack { get; private set; } = new Broccoli_DashAttack();
+    public Broccoli_StunState state_Stun {get; private set;} = new Broccoli_StunState();
 
     //Component ref
     [HideInInspector] public Enemy_02_Broccoli stats;
@@ -52,7 +54,7 @@ public class Enemy_02_StateManager : MonoBehaviour
         #endregion
 
 
-        SwitchState(states_Idle);
+        SwitchState(state_Idle);
         currentState.EnterState(this);
     }
 
@@ -100,7 +102,23 @@ public class Enemy_02_StateManager : MonoBehaviour
         IEnumerator wait()
         {
             yield return new WaitForSeconds(stats.spawnStatesTime);
-            SwitchState(states_Chasing);
+            SwitchState(state_Chasing);
+        }
+    }
+
+    public void Hurt()
+    {
+        if(currentState == state_DashAttack)
+        {
+            return;
+        }
+        Debug.Log("Hurt");
+        SwitchState(state_Stun);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(stats.stunDura);
+            SwitchState(state_Chasing);
         }
     }
 

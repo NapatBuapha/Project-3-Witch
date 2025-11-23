@@ -17,8 +17,12 @@ public class CameraShakeManager : MonoBehaviour
 
     }
     
-    public void CameraShake(CinemachineImpulseSource impulseSource)
+    public void CameraShake(CinemachineImpulseSource impulseSource, float shakeForce = -1)
     {
+        if(shakeForce == -1)
+        {
+            shakeForce = globalShakeForce;
+        }
         impulseSource.GenerateImpulseWithForce(globalShakeForce);
     }
 

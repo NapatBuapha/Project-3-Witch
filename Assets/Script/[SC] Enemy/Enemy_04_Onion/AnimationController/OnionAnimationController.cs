@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using Unity.VisualScripting;
+using System;
 
 public class OnionAnimationController : BaseEnemyAnimationController
 {
@@ -19,10 +20,38 @@ public class OnionAnimationController : BaseEnemyAnimationController
         ChangeAnimation("O_Hiding");
     }
 
+    public void Hurt(float duration = 0.25f)
+    {
+        if(!canWalk) return;
+
+
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            canWalk = false;
+
+            switch (currentDi)
+            {
+                case EnemyVerticalDirection.front:
+                    ChangeAnimation("O_Hurt_F");
+                    break;
+
+                default: //Case Back
+                    ChangeAnimation("O_Hurt_B");
+                    break;
+            }
+
+
+
+            yield return new WaitForSeconds(duration);
+
+            canWalk = true;
+        }
+    }
+
 
     public void Spawn(float spawnStatesTime = 0.3f)
     {
-        
         StartCoroutine(wait());
         IEnumerator wait()
         {

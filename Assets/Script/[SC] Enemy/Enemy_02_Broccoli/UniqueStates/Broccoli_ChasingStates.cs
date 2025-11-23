@@ -22,7 +22,7 @@ public class Broccoli_ChasingStates : BroccoliBaseState
     {
         if (enemy.dashStateCon)
         {
-            enemy.SwitchState(enemy.states_DashAttack);
+            enemy.SwitchState(enemy.state_DashAttack);
         }
     }
 }

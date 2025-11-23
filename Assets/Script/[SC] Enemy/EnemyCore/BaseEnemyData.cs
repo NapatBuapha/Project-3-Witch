@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEditor.Callbacks;
 
 public class BaseEnemyData : BaseMobData , IDamageable
 {
@@ -10,12 +11,12 @@ public class BaseEnemyData : BaseMobData , IDamageable
     [SerializeField] private int hp = 1;
     public float startMoveDistance = 10f;
     [SerializeField] Animator animator;
+    public float stunDura = 0.4f;
     // Start is called before the first frame update
     protected virtual void Awake()
     {
         aiFinder = GetComponent<AIDestinationSetter>();
         aiFinder.target = GameObject.FindWithTag("Player").transform;
-
         gameObject.tag = "Enemy";
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         hp = maxHp;
@@ -31,10 +32,16 @@ public class BaseEnemyData : BaseMobData , IDamageable
         }
     }
     
-    public void getDamage(int damageValue)
+    public virtual void getDamage(int damageValue)
     {
         AudioManager.PlaySound(SoundType.Hit , 0.5f);
         animator.SetTrigger("Hit");
         hp -= damageValue;
+    }
+
+    public IEnumerator Stun()
+    {
+        
+        yield return new WaitForSeconds(0.2f);
     }
 }
