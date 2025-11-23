@@ -17,6 +17,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     bool canWalk;
     bool isBeastMode;
+    bool isDeath;
 
     PlayerVerticalDirection verticalDi;
 
@@ -142,7 +143,7 @@ public class PlayerAnimationController : MonoBehaviour
     public void Dying()
     {
         canWalk = false;
-        ChangeAnimation("P_Dying");
+        ChangeAnimation("P_Dying" , 0.2f);
     }
 
     public void BeastModeAttack(float attackDuration = 1.2f)

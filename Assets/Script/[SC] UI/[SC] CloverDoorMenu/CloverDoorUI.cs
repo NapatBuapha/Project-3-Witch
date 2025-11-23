@@ -12,7 +12,7 @@ public class CloverDoorUI : MonoBehaviour
 
     void Awake()
     {
-        //CloseUi();
+        CloseUi();
         foreach(GameObject clover in clovers)
         {
             clover.SetActive(false);

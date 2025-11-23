@@ -73,9 +73,10 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         stats.filter.Hit();
         AudioManager.PlaySound(SoundType.Hit , 0.5f);
         CameraShakeManager.instance.CameraShake(stats.impulseSource , 3f);
-        animaCon.Hurt();
-
+        
+        if (hp > 0 || hp > witheredHp) animaCon.Hurt();
         StartCoroutine(FrameFreeze());
+        
         IEnumerator FrameFreeze()
         {
             Time.timeScale = 0f;
