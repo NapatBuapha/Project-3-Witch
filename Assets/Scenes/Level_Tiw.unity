@@ -243191,7 +243191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -522, y: 87.999756}
+  m_AnchoredPosition: {x: -617, y: 87.999756}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273111303
@@ -243216,10 +243216,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'W A S D To move around.
 
-    1 2 3 4 5 To choose magic.
+    1 2 3 4 5 To use magic.
 
-    L-Click to
-    use it.
+    L-Click to fire
+    a basic Spell.
 
     L-Shift to Dash.'
   m_isRightToLeft: 0
@@ -243284,7 +243284,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -10.05291, y: -2.2340603, z: -369.7786, w: -166.43175}
+  m_margin: {x: -10.05291, y: -2.2340603, z: -423.04028, w: -166.43175}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -430223,8 +430223,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 618, y: 381.91644}
-  m_SizeDelta: {x: 0, y: -274.7264}
+  m_AnchoredPosition: {x: 587.51025, y: 381.91644}
+  m_SizeDelta: {x: 182.426, y: -274.7264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802133677
 MonoBehaviour:
