@@ -6,9 +6,6 @@ public class MonsterGauntlet : MonoBehaviour
 {
     [SerializeField] private GameObject[] bushWall;
     [SerializeField] private MonsterGroupManager[] waves;
-    [SerializeField] private AudioSource bGManager;
-    [SerializeField] private AudioClip battleBGM;
-    [SerializeField] private AudioClip normalBGM;
 
     private bool isStart;
     [SerializeField] private int currentWave;
@@ -36,10 +33,9 @@ public class MonsterGauntlet : MonoBehaviour
 
         if(col.CompareTag("Player"))
         {
+            BGManager.instance.ChangeMusic("ฺฺBattle");
             for(int i = 0; i < bushWall.Length; i++)
             {
-                bGManager.clip = battleBGM;
-                bGManager.Play();
                 isStart = true;
                 bushWall[i].SetActive(true);
                 StartNextWave();
@@ -71,8 +67,7 @@ public class MonsterGauntlet : MonoBehaviour
     
     void EndGauntlet()
     {
-                bGManager.clip = normalBGM;
-                bGManager.Play();
+        BGManager.instance.ChangeMusic("Default");
         for (int i = 0; i < bushWall.Length; i++)
         {
             bushWall[i].SetActive(false);

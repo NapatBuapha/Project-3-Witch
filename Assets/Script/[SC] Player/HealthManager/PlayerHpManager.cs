@@ -101,6 +101,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
                 GameOverFilter.instance.GameOver();
                 playerSpellSlot.canCastSpell = false;
                 isDeath = true;
+                BGManager.instance.ChangeMusic("GameOver");
                 yield return new WaitForSeconds(4);
                 GameOverMenu.instance.GameOver();
             }
