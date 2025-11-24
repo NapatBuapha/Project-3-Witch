@@ -8,11 +8,23 @@ public class CloverTrigger : MonoBehaviour ,IInteractable
     KeyInventory inventory;
     CloverDoorUI cloverDoorUI;
     PlayerSpellSlot playerSpellSlot;
+    bool isOpen;
     void Start()
     {
         playerSpellSlot = FindAnyObjectByType<PlayerSpellSlot>();
         cloverDoorUI = FindAnyObjectByType<CloverDoorUI>();
         inventory = FindAnyObjectByType<KeyInventory>();
+    }
+
+    void Update()
+    {
+        if(isOpen)
+        {
+            if(Input.anyKeyDown)
+            {
+                cloverDoorUI.CloseUi();
+            }
+        }
     }
 
     public void interact()

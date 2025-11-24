@@ -12,7 +12,7 @@ public class CameraBoundChange : MonoBehaviour
         bound = GetComponent<CompositeCollider2D>();
         confiner2D = FindAnyObjectByType<CinemachineConfiner2D>();
     }
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if(col.CompareTag("Player"))
         {
