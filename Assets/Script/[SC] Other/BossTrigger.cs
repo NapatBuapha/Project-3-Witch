@@ -7,7 +7,6 @@ public class BossTrigger : MonoBehaviour
 {
     [SerializeField] private Boss_01_StateManager boss;
     [SerializeField] private GameObject Wall;
-    [SerializeField] private AudioClip battleBGM;
     [SerializeField] private AudioSource bGManager;
 
     void Start()
@@ -19,8 +18,7 @@ public class BossTrigger : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            bGManager.clip = battleBGM;
-            bGManager.Play();
+            BGManager.instance.ChangeMusic("ฺฺBattle");
             boss.Appearing();
             Wall.SetActive(true);
             Destroy(gameObject);

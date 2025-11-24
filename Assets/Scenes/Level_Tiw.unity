@@ -145929,7 +145929,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 373590378}
   Wall: {fileID: 1084096253}
-  battleBGM: {fileID: 8300000, guid: 1f9d4c84b6e8e364fa6031fa336da86c, type: 3}
   bGManager: {fileID: 1972861858}
 --- !u!1 &722362080
 GameObject:
@@ -454673,12 +454672,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148d317be6adcaf4d98371bc6cf31ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAudioV: 0.5
-  duration: 2
+  maxAudioV: 0.3
+  duration: 0.5
   musics:
-  - music: {fileID: 8300000, guid: 0f99526e8df3abc468a6e404798866d0, type: 3}
+  - music: {fileID: 8300000, guid: dda06e6543d815e42ac868903c2ee4ca, type: 3}
     tag: Default
-  - music: {fileID: 8300000, guid: 1f9d4c84b6e8e364fa6031fa336da86c, type: 3}
+  - music: {fileID: 8300000, guid: 66f4143c48440ce41967b7421d3c4132, type: 3}
     tag: "\u0E3A\u0E3ABattle"
   - music: {fileID: 8300000, guid: 90f14ea4782d49240b2585d905a31119, type: 3}
     tag: GameOver
@@ -482429,8 +482428,8 @@ GameObject:
   - component: {fileID: 2111760851}
   - component: {fileID: 2111760850}
   m_Layer: 3
-  m_Name: Door_l (6)
-  m_TagString: Door
+  m_Name: Black Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
