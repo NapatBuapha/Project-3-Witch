@@ -22,7 +22,7 @@ public class Mushroom_IdleState : MushroomBaseState
         {
              if(!isPlaySound)
             {
-                AudioManager.PlaySound(SoundType.Enemy_Spawn, 0.5f);
+                AudioManager.PlaySound(SoundType.Enemy_Spawn, 0.2f);
                 isPlaySound = true;
             }
             enemy.Appearing();

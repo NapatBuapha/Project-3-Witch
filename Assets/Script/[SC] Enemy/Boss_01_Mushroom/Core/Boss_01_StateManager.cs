@@ -120,7 +120,7 @@ public class Boss_01_StateManager : MonoBehaviour
 
     public void Scream()
     {
-        AudioManager.PlaySound(SoundType.Enemy_Boss_Roar);
+        AudioManager.PlaySound(SoundType.Enemy_Boss_Roar , 0.3f);
         SwitchState(state_Scream);
         stats.screamToken--;
         stats.mushroom_Gauntlet.StartWave();

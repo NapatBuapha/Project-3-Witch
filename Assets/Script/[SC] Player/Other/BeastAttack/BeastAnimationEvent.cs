@@ -11,12 +11,12 @@ public class BeastAnimationEvent : MonoBehaviour
 
     public void AttackAreaCreate()
     {
-        AudioManager.PlaySound(SoundType.Player_BeastStomp, 0.5f);
+        AudioManager.PlaySound(SoundType.Player_BeastStomp, 0.2f);
         Instantiate(prefab, attackPoint.position, quaternion.identity);
     }
     
     public void ScreamAnimationEvent()
     {
-        AudioManager.PlaySound(SoundType.Player_BeastScream);
+        AudioManager.PlaySound(SoundType.Player_BeastScream , 0.3f);
     }
 }

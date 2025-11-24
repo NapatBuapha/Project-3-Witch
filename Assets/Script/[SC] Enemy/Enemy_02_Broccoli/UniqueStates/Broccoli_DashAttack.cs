@@ -33,7 +33,7 @@ public class Broccoli_DashAttack : BroccoliBaseState
     {
         if(!isPlaySound)
         {
-            AudioManager.PlaySound(SoundType.Enemy_Broc_Slash, 0.5f);
+            AudioManager.PlaySound(SoundType.Enemy_Broc_Slash, 0.2f);
             isPlaySound = true;
         }
 

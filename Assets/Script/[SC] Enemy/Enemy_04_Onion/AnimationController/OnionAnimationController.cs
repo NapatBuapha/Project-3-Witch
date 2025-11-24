@@ -64,7 +64,7 @@ public class OnionAnimationController : BaseEnemyAnimationController
     
     public void Thrown(float statesTime = 0.5f)
     {
-        AudioManager.PlaySound(SoundType.Enemy_Oion_Thrown , 0.5f);
+        AudioManager.PlaySound(SoundType.Enemy_Oion_Thrown , 0.2f);
         StartCoroutine(wait());
         IEnumerator wait()
         {

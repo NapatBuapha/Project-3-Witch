@@ -28,7 +28,7 @@ public class MushroomBossAnimationController : MonoBehaviour
 
     public void Scream(float statesTime = 0.5f)
     {
-        AudioManager.PlaySound(SoundType.Enemy_Boss_Roar);
+        AudioManager.PlaySound(SoundType.Enemy_Boss_Roar , 0.3f);
         ChangeAnimation("B_Scream");
     }
 

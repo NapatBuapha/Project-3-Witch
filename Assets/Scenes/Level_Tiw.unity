@@ -454672,7 +454672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148d317be6adcaf4d98371bc6cf31ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAudioV: 0.3
+  maxAudioV: 0.2
   duration: 0.5
   musics:
   - music: {fileID: 8300000, guid: dda06e6543d815e42ac868903c2ee4ca, type: 3}
@@ -483342,11 +483342,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 74016980471432824, guid: 43fd777a8c576834d97e26842c63955e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1788487
+      value: -42.2
       objectReference: {fileID: 0}
     - target: {fileID: 74016980471432824, guid: 43fd777a8c576834d97e26842c63955e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1480236
+      value: 48.4
       objectReference: {fileID: 0}
     - target: {fileID: 74016980471432824, guid: 43fd777a8c576834d97e26842c63955e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -483386,11 +483386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731000406389220844, guid: 43fd777a8c576834d97e26842c63955e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2731000406389220844, guid: 43fd777a8c576834d97e26842c63955e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

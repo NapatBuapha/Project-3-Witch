@@ -162,7 +162,7 @@ public class PlayerStateManager : MonoBehaviour
     public void BeastTransform()
     {
         stats.rb.isKinematic = true;
-        AudioManager.PlaySound(SoundType.Player_Transform , 1f);
+        AudioManager.PlaySound(SoundType.Player_Transform , 0.1f);
         BeastBoarderFilter.instance.CallFilter();
         stats.filter.EnterBeast();
         stats.spellBook.ChangeState(1);
@@ -195,7 +195,7 @@ public class PlayerStateManager : MonoBehaviour
     public void BeastDeTransform()
     {
         stats.rb.isKinematic = true;
-        AudioManager.PlaySound(SoundType.Player_DeTransform , 1f);
+        AudioManager.PlaySound(SoundType.Player_DeTransform , 0.1f);
         BeastBoarderFilter.instance.DisableFilter();
         stats.filter.EndBeast();
         animaCon.BeastModeDeTransform(stats.transformDura);
