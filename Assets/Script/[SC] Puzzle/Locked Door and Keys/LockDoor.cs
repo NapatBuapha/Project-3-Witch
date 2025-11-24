@@ -6,6 +6,8 @@ public class LockDoor : MonoBehaviour
 {
     [SerializeField] private KeyItem[] neededItem;
     [SerializeField] private int insertedKey;
+    [SerializeField] Dialogue dialogue;
+
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class LockDoor : MonoBehaviour
 
             if(insertedKey == neededItem.Length)
             {
+                DialogueManager.SetDialogue(dialogue);
                 Destroy(gameObject);
             }
         }

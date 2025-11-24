@@ -52,9 +52,7 @@ public class SpellSlotUiManager : MonoBehaviour
     {
         if (spellSlotDict.ContainsKey(index))
         {
-            ResetSelected();
-            spellSlotDict[index].isSelected = true;
-            spellSlotDict[index].SelectedUpdate();
+            ///
             return true;
         }
 

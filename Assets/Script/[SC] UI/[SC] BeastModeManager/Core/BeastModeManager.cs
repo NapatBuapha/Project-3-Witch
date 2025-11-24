@@ -9,6 +9,7 @@ public class BeastModeManager : MonoBehaviour
     //BeastModeValue
     [SerializeField] private int beastCount;
     [SerializeField] private int maxBeastCount = 6;
+    [SerializeField] private int StartBeastCount = 25;
     public bool isBeastMode_Able { get; private set; }
 
     //Component Ref
@@ -43,7 +44,7 @@ public class BeastModeManager : MonoBehaviour
 
         groupParent.SetActive(false);
 
-        beastCount = maxBeastCount;
+        beastCount = StartBeastCount;
         isBeastMode_Able = false;
         isUIOpen = false;
         isSeenTheCutscene = false;

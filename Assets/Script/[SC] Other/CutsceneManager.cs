@@ -13,9 +13,12 @@ public class CutsceneManager : MonoBehaviour
     [Header("Wiggle")]
     [SerializeField] private float wiggleDelayed;
     [SerializeField] private float wiggleRotation;
+    AudioSource audioSource;
+    [SerializeField] AudioClip turningPageAudio;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         currentCutscene = 0;
         wiggleEffect();
     }
@@ -30,6 +33,7 @@ public class CutsceneManager : MonoBehaviour
 
     void NextPage()
     {
+        audioSource.PlayOneShot(turningPageAudio);
         if (currentCutscene >= cutsceneImages.Length - 1)
         {
             SceneManager.LoadScene("Level_Tiw");

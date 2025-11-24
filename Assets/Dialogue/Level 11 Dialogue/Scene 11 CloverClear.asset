@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 707a78e126b734147997944be7b03b37, type: 3}
-  m_Name: Scene_BeastModeDeTransform
+  m_Name: Scene 11 CloverClear
   m_EditorClassIdentifier: 
   dialogueLine:
-  - What was that just now?
-  - Wha... What have i become- Ugh!!
-  - "My chest hurt... I.. I shouldn\u2019t use it again"
+  - "\u201CGood thing I picked this up along the way.\""
+  - "\"But I can\u2019t help feeling a little regretful about it.\u201D"
   nextLine: {fileID: 0}
   speakerName: Ari
   speakerIcon: {fileID: -751976608, guid: 7e47fa83b21e7b0419e94d92e5cf2b8c, type: 3}

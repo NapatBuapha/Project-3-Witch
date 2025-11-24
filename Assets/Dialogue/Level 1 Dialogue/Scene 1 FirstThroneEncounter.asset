@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 707a78e126b734147997944be7b03b37, type: 3}
-  m_Name: Scene 1
+  m_Name: Scene 1 FirstThroneEncounter
   m_EditorClassIdentifier: 
   dialogueLine:
-  - Why do these vegetables come out and walk like this?
-  - Too bad...they're coming this way. I have to deal with them first.
+  - "\u201CWhat even is this plant? It\u2019s covered in thorns\u2026\""
+  - "\"Let\u2019s try burning it with magic\u2026\""
+  - "\"Huh. That didn\u2019t work.\""
+  - "\"Weird\u2026 now that I take a closer look, it gives off the same feeling as
+    a sealing spell.\""
+  - "\"If it\u2019s a seal, then there must be a way to undo it.\""
+  - "\"I\u2019ve been sensing a strange magical presence to the northwest since earlier\u2026\""
+  - "\"I should go check it out.\u201D"
   nextLine: {fileID: 0}
   speakerName: Ari
   speakerIcon: {fileID: -751976608, guid: 7e47fa83b21e7b0419e94d92e5cf2b8c, type: 3}

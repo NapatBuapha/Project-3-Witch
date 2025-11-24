@@ -21,6 +21,7 @@ public class SpellSlot : MonoBehaviour
     void Start()
     {
         cooldown = 0;
+        selectedMask.SetActive(true);
         cooldownText.gameObject.SetActive(false);
     }
 

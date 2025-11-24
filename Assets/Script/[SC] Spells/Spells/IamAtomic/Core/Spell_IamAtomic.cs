@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-//ãªéÊÃéÒ§ scriptable object ãªéàÊÃç¨ààÅéÇ»Ô´·Ôé§«Ð¡Ñ¹à»Å×Í§·Õè
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ò§ scriptable object ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç»Ô´ï¿½ï¿½é§«Ð¡Ñ¹ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½
 [CreateAssetMenu(fileName = "New_I am Atomic!", menuName = "Spells/I am Atomic!")]
 public class Spell_IamAtomic : SpellBase
 {
-    #region ¤èÒ·ÑèÇä»
+    #region ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½
     [Header("Spell Value")]
     [SerializeField] private string spellID_ = "06";
     [SerializeField] private string thisName_ = "I am Atomic!";
@@ -20,7 +20,7 @@ public class Spell_IamAtomic : SpellBase
 
     #endregion
 
-    #region ¤èÒÊÓËÃÑºÃÐàºÔ´
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñºï¿½ï¿½ï¿½Ô´
     [Header("Bomb Effect Value")]
     [SerializeField] private GameObject spellPrefab;
     [SerializeField] private int hpCost;
@@ -36,7 +36,7 @@ public class Spell_IamAtomic : SpellBase
     public override void BeforeCasting()
     {
         base.BeforeCasting();
-        //ÊÃéÒ§ÃÐÂÐÃÐàºÔ´
+        //ï¿½ï¿½ï¿½Ò§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
         GameObject fb = Instantiate(spellPrefab, player.transform.position, quaternion.identity);
     }
 
@@ -51,8 +51,7 @@ public class Spell_IamAtomic : SpellBase
         base.Penalty();
         PlayerHpManager p_HP = player.GetComponent<PlayerHpManager>();
 
-        if (p_HP.hp > hpCost)
-            p_HP.PayHealth(hpCost);
+        p_HP.Death();
         
           B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
           debuffManager.FindDBB("903");

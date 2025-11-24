@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 707a78e126b734147997944be7b03b37, type: 3}
-  m_Name: Scene_BeastModeDeTransform
+  m_Name: AllScene BlueThroneEncounterAgain
   m_EditorClassIdentifier: 
   dialogueLine:
-  - What was that just now?
-  - Wha... What have i become- Ugh!!
-  - "My chest hurt... I.. I shouldn\u2019t use it again"
+  - "\u201CSigh\u2026 another one of these plants?\"\n"
+  - "\"Hmm\u2026 but its color is different from the previous one.\""
+  - "\"The ring doesn\u2019t work on it either.\""
+  - "\"Maybe there\u2019s another \u2018seal breaker\u2019 somewhere.\""
+  - "\"Focus\u2026 I can sense it now!! It\u2019s to the southeast of the island.\u201D"
   nextLine: {fileID: 0}
   speakerName: Ari
   speakerIcon: {fileID: -751976608, guid: 7e47fa83b21e7b0419e94d92e5cf2b8c, type: 3}

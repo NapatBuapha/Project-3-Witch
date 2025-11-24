@@ -26,6 +26,10 @@ public class PlayerSpellSlot : MonoBehaviour
     public bool canCastSpell;
     public bool canChangeSpell;
 
+    //AK47 Special
+    public bool isAk47;
+    public int ak47Slot;
+
     //UI Ref
     SpellSlotUiManager ui;
     BeastModeManager beastModeManager;
@@ -67,6 +71,21 @@ public class PlayerSpellSlot : MonoBehaviour
         }
     }
 
+    public int FindAK47Slot()
+    {
+        for(int i = 1; i < spellDict.Count+1; i++)
+        {
+            if(spellDict[i].Item1.spellID == "03" || spellDict[i].Item1.spellID == "04")
+            {
+                ak47Slot = i;
+                Debug.Log("Founded");
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
     void Update()
     {
         if(stats.isBeastMode)
@@ -79,7 +98,7 @@ public class PlayerSpellSlot : MonoBehaviour
         {
             #region ปุ่มกด skill
             if (canChangeSpell)
-{
+            {
             for (int i = 1; i <= 5; i++)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha0 + i))
@@ -90,15 +109,21 @@ public class PlayerSpellSlot : MonoBehaviour
                     CastSpell(currentIndex);
                 }
             }
-}
+            }
             #endregion
 
             if (Input.GetMouseButton(0))
             {
-                if (spellDict[currentIndex].Item1 != null)
-                    CastSpell(currentIndex);
+                if (!isAk47)
+                    CastSpell(1);
+                else
+                {
+                    CastSpell(ak47Slot);
+                }
+                
             }
         }
+
     }
 
     void ChangeSpell(int index)

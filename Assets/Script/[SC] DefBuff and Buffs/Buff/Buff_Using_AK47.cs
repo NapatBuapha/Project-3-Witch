@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -26,6 +27,7 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
     [SerializeField] private PlayerSpellSlot pSpellSlot;
     [SerializeField] private SpellBase spellAK47ref;
     [SerializeField] private SpellBase gunSpellRef;
+    int ak47Slot;
     private int baseSpellIndex;
     protected GameObject player;
 
@@ -60,6 +62,11 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
                 pSpellSlot.spellDict[i] = (gunSpellRef , 0);
             }
         }
+
+        ak47Slot = pSpellSlot.FindAK47Slot();
+        pSpellSlot.spellDict[pSpellSlot.FindAK47Slot()] = (gunSpellRef , 0);
+        pSpellSlot.isAk47 = true;
+        pSpellSlot.canChangeSpell = false;
         
     }
 
@@ -72,13 +79,10 @@ public class Buff_Using_AK47 : Debuff_Buff_Base
 
         mob.base_Speed = baseSpeed;
         pSpellSlot.canChangeSpell = true;
-        for(int i = 1; i < pSpellSlot.spellDict.Count+1; i++)
-        {
-            if(pSpellSlot.spellDict[i].Item1.spellID == "04")
-            {
-                pSpellSlot.spellDict[i] = (spellAK47ref , spellAK47ref.castingDura);
-            }
-        }
+        pSpellSlot.isAk47 = false;
+
+        pSpellSlot.spellDict[pSpellSlot.FindAK47Slot()] = (spellAK47ref , spellAK47ref.maxCD);
+
     }
 
 }

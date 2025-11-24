@@ -7,6 +7,7 @@ public class CloverDoorUI : MonoBehaviour
     [SerializeField] CloverReceiver[] cloverReceivers;
     [SerializeField] GameObject[] clovers;
     [SerializeField] GameObject header;
+    [SerializeField] Dialogue dialogue;
 
     [SerializeField] GameObject[] disableAfterComObj;
     int cloverCount;
@@ -61,10 +62,13 @@ public class CloverDoorUI : MonoBehaviour
     void Complete()
     {
         CloseUi();
+        AudioManager.PlaySound(SoundType.Puzzle_Complete , 0.2f);
         foreach(GameObject gameObject in disableAfterComObj)
         {
             gameObject.SetActive(false);
         }
+
+        DialogueManager.SetDialogue(dialogue);
     }
 
     

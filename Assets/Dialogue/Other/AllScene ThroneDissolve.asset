@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 707a78e126b734147997944be7b03b37, type: 3}
-  m_Name: Scene 3
+  m_Name: AllScene ThroneDissolve
   m_EditorClassIdentifier: 
   dialogueLine:
-  - Fuck You
-  - Son of a Bitch
+  - "\u201CYes!! I did it!!\u201D"
   nextLine: {fileID: 0}
-  speakerName: John
-  speakerIcon: {fileID: 1657147732, guid: 8f7873cfe3028554e94c80d639e50706, type: 3}
-  isLeft: 1
+  speakerName: Ari
+  speakerIcon: {fileID: -751976608, guid: 7e47fa83b21e7b0419e94d92e5cf2b8c, type: 3}
+  isLeft: 0

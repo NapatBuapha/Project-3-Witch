@@ -9,7 +9,7 @@ public class BGManager : MonoBehaviour
     public static BGManager instance;
     AudioSource audioSource;
     [SerializeField] private float maxAudioV = 0.5f;
-    [SerializeField] private float duration = 2f;
+    [SerializeField] public float duration = 2f;
 
     [Serializable]
     public struct MusicList

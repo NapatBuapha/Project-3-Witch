@@ -67,7 +67,7 @@ public class MonsterGauntlet : MonoBehaviour
     
     void EndGauntlet()
     {
-        BGManager.instance.ChangeMusic("Default");
+        if(!PlayerHpManager.isDeath) BGManager.instance.ChangeMusic("Default");
         for (int i = 0; i < bushWall.Length; i++)
         {
             bushWall[i].SetActive(false);

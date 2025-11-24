@@ -13,7 +13,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
     //ช่วงเวลาอมตะ
     [SerializeField] float inviTime = 2f;
     bool isInvi;
-    bool isDeath;
+    public static bool isDeath;
 
 
     //variable สำหรับระบบ player เดินทะลุหลังโดนตี
@@ -91,20 +91,27 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
         if (hp <= 0 || hp <= witheredHp) 
         {
-            PlayerStateManager playerState = GetComponent<PlayerStateManager>();
-            PlayerSpellSlot playerSpellSlot = GetComponent<PlayerSpellSlot>();
-            playerState.Dying();
+            Death();
+        }
+    }
 
-            StartCoroutine(Wait());
-            IEnumerator Wait()
-            {
-                GameOverFilter.instance.GameOver();
-                playerSpellSlot.canCastSpell = false;
-                isDeath = true;
-                BGManager.instance.ChangeMusic("GameOver");
-                yield return new WaitForSeconds(4);
-                GameOverMenu.instance.GameOver();
-            }
+    public void Death()
+    {
+        PlayerStateManager playerState = GetComponent<PlayerStateManager>();
+        PlayerSpellSlot playerSpellSlot = GetComponent<PlayerSpellSlot>();
+        playerState.Dying();
+
+        StartCoroutine(Wait());
+        IEnumerator Wait()
+        {
+            GameOverFilter.instance.GameOver();
+            playerSpellSlot.canCastSpell = false;
+            isDeath = true;
+            BGManager.instance.ChangeMusic("GameOver");
+            BGManager.instance.duration = 2f;
+            yield return new WaitForSeconds(4);
+            GameOverMenu.instance.GameOver();
+
         }
     }
 
