@@ -26,13 +26,13 @@ public class CloverDoorUI : MonoBehaviour
 
     public void OpenUi()
     {
-        playerSpellSlot.canCastSpell = true;
+        playerSpellSlot.canCastSpell = false;
         header.SetActive(true);
     }
 
     public void CloseUi()
     {
-        playerSpellSlot.canCastSpell = false;
+        playerSpellSlot.canCastSpell = true;
         header.SetActive(false);
     }
 
