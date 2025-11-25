@@ -15,7 +15,7 @@ MonoBehaviour:
   spellID_: 05
   thisName_: ThunderBolt
   manaCost_: 5
-  maxCD_: 5
+  maxCD_: 8
   castingDura_: 0
   icon_: {fileID: 21300000, guid: 62103a7a7e6612544821ac82a06a793c, type: 3}
   desc_: Summon a lightning at the mouse position.

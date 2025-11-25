@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellID_: 06
   thisName_: I am Atomic!
-  manaCost_: 5
+  manaCost_: 10
   maxCD_: 20
   castingDura_: 2
   icon_: {fileID: 21300000, guid: 78528b805f1ccfc4caee4debb4ca9ec2, type: 3}
