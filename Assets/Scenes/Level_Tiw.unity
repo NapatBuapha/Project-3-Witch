@@ -138288,7 +138288,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7790697, y: 1.0905299, z: -10}
+  m_LocalPosition: {x: -3.0899875, y: 1.46024, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -234529,6 +234529,10 @@ PrefabInstance:
       value: BGManager.instance.ChangeMusic("GameOver");
       objectReference: {fileID: 0}
     - target: {fileID: 9143394485217671081, guid: 504da81f23d03774fa231dffffa61b01, type: 3}
+      propertyPath: delayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143394485217671081, guid: 504da81f23d03774fa231dffffa61b01, type: 3}
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: aaf9dfe83b21b1f479a1e5b4d4e88e65, type: 2}
@@ -282993,7 +282997,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1160924871}
-  m_Father: {fileID: 1534098912}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -290850,7 +290854,6 @@ Transform:
   - {fileID: 106933844}
   - {fileID: 103244443}
   - {fileID: 1128812724}
-  - {fileID: 1419852756}
   m_Father: {fileID: 911751830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534939838
@@ -533238,3 +533241,4 @@ SceneRoots:
   - {fileID: 502030563}
   - {fileID: 1003264288}
   - {fileID: 1442567312}
+  - {fileID: 1419852756}

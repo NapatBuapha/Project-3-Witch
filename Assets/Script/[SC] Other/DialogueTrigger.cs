@@ -5,13 +5,21 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] Dialogue dialogue;
+    [SerializeField] float delayed = 0;
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            DialogueManager.SetDialogue(dialogue);
-            Destroy(gameObject);
+            StartCoroutine(Delay());
         }
     }
+    
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(delayed);
+        DialogueManager.SetDialogue(dialogue);
+        Destroy(gameObject);
+    }
+    
 }
