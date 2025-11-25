@@ -16,13 +16,12 @@ public class CloverTrigger : MonoBehaviour ,IInteractable
 
     void Update()
     {
-        if(isOpen)
+
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Input.anyKeyDown)
-            {
-                cloverDoorUI.CloseUi();
-            }
+            cloverDoorUI.CloseUi();
         }
+        
     }
 
     public void interact()
@@ -30,6 +29,7 @@ public class CloverTrigger : MonoBehaviour ,IInteractable
         cloverDoorUI.OpenUi();
         if(inventory.inventoryDict.ContainsKey("03"))
         {
+    
             cloverDoorUI.ActiveClover(inventory.inventoryDict["03"].Item2);
         }
     }
