@@ -7,11 +7,9 @@ public class CloverTrigger : MonoBehaviour ,IInteractable
 {
     KeyInventory inventory;
     CloverDoorUI cloverDoorUI;
-    PlayerSpellSlot playerSpellSlot;
     bool isOpen;
     void Start()
     {
-        playerSpellSlot = FindAnyObjectByType<PlayerSpellSlot>();
         cloverDoorUI = FindAnyObjectByType<CloverDoorUI>();
         inventory = FindAnyObjectByType<KeyInventory>();
     }
@@ -30,7 +28,6 @@ public class CloverTrigger : MonoBehaviour ,IInteractable
     public void interact()
     {
         cloverDoorUI.OpenUi();
-        playerSpellSlot.canCastSpell = false;
         if(inventory.inventoryDict.ContainsKey("03"))
         {
             cloverDoorUI.ActiveClover(inventory.inventoryDict["03"].Item2);
@@ -41,7 +38,6 @@ public class CloverTrigger : MonoBehaviour ,IInteractable
     {
         if(col.CompareTag("Player"))
         {
-            playerSpellSlot.canCastSpell = true;
             cloverDoorUI.CloseUi();
         }
     }

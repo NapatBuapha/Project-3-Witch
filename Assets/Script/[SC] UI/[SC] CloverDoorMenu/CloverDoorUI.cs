@@ -10,11 +10,13 @@ public class CloverDoorUI : MonoBehaviour
     [SerializeField] Dialogue dialogue;
 
     [SerializeField] GameObject[] disableAfterComObj;
+    PlayerSpellSlot playerSpellSlot;
     int cloverCount;
     int maxCloverCount = 4;
 
     void Awake()
     {
+        playerSpellSlot = FindAnyObjectByType<PlayerSpellSlot>();
         CloseUi();
         foreach(GameObject clover in clovers)
         {
@@ -24,11 +26,13 @@ public class CloverDoorUI : MonoBehaviour
 
     public void OpenUi()
     {
+        playerSpellSlot.canCastSpell = true;
         header.SetActive(true);
     }
 
     public void CloseUi()
     {
+        playerSpellSlot.canCastSpell = false;
         header.SetActive(false);
     }
 
