@@ -28,8 +28,8 @@ public class GameEndMenu : MonoBehaviour
 
     public void GameEnd()
     {
-        GameStateManager.instance.ChangeState(GameStateManager.GameState.GameOver);
         panel.SetActive(true);
         isOpen = true;
+        GameStateManager.instance.ChangeState(GameStateManager.GameState.GameOver);
     }
 }

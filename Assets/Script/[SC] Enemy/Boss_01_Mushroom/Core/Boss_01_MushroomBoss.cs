@@ -79,8 +79,8 @@ public class Boss_01_MushroomBoss : BaseMobData , IDamageable
         if(hp <= 0)
         {
             //ตอนตาย
-            Destroy(gameObject);
             GameEndMenu.instance.GameEnd();
+            Destroy(gameObject);
         }
     }
 }

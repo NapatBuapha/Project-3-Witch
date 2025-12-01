@@ -51,10 +51,9 @@ public class Spell_IamAtomic : SpellBase
         base.Penalty();
         PlayerHpManager p_HP = player.GetComponent<PlayerHpManager>();
 
-        p_HP.Death();
-        
-          B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
-          debuffManager.FindDBB("903");
+        p_HP.PayHealth(hpCost);
+        B_and_DB_Manager debuffManager = player.GetComponent<B_and_DB_Manager>();
+        debuffManager.FindDBB("903");
 
         
         

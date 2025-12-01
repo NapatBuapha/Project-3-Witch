@@ -40,15 +40,15 @@ public class SpellAcceptMenuManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             LearnSkill();
         }
         
-        if(Input.GetKeyDown(KeyCode.X))
+        /*if(Input.GetKeyDown(KeyCode.X))
         {
             DiscardSkill();        
-        }
+        }*/
     }
 
     void LearnSkill()
@@ -66,7 +66,7 @@ public class SpellAcceptMenuManager : MonoBehaviour
     {
         isMenuOpen = true;
         panelHeader.SetActive(true);
-
+        GameStateManager.instance.ChangeState(GameStateManager.GameState.DialogueSequence);
         this.spellName = spellName;
         spellNameText.text = spellName;
 
@@ -82,6 +82,7 @@ public class SpellAcceptMenuManager : MonoBehaviour
     public void CloseMenu()
     {
         isMenuOpen = false;
+        GameStateManager.instance.ChangeState(GameStateManager.GameState.Default);
         panelHeader.SetActive(false);
     }
 }

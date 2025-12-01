@@ -8,10 +8,12 @@ public class MapUi : MonoBehaviour
     bool isOpen;
     [SerializeField] GameObject mapPanel;
     [SerializeField] GameObject guideIcon;
+    CanvasGroup canvasGroup;
 
     void Start()
     {
-        mapPanel.SetActive(false);
+        canvasGroup = mapPanel.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
         guideIcon.SetActive(false);
         isOpen = false;
         canOpen = false;
@@ -26,12 +28,12 @@ public class MapUi : MonoBehaviour
 
         if(!isOpen && Input.GetKey(KeyCode.Tab))
         {
-            mapPanel.SetActive(true);
+            canvasGroup.alpha = 1;
             isOpen = true;
         }
         else if(isOpen && Input.GetKeyUp(KeyCode.Tab))
         {
-            mapPanel.SetActive(false);
+            canvasGroup.alpha = 0;
             isOpen = false;
         }
     }

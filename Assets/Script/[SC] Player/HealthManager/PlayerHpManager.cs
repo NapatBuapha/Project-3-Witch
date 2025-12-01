@@ -133,7 +133,10 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
             witheredHp += value;
         }
         witheredHp = Mathf.Clamp(witheredHp,0,hp);
+
         hpUi.UpdateHP();
+        stats.filter.Hit();
+        AudioManager.PlaySound(SoundType.Hearth_Breaking , 0.5f);
 
         IEnumerator StartRegen()
         {
