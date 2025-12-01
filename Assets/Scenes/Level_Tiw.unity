@@ -138313,11 +138313,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3100a8267c26fe24cabca635bf844b6c, type: 3}
---- !u!1 &512066640 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 300561028951378259, guid: 43fd777a8c576834d97e26842c63955e, type: 3}
-  m_PrefabInstance: {fileID: 2123148768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512108519
 GameObject:
   m_ObjectHideFlags: 0
@@ -155797,8 +155792,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8075718389197240147}
+  m_Children: []
   m_Father: {fileID: 644602711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657863347
@@ -443186,6 +443180,7 @@ GameObject:
   - component: {fileID: 1714269431}
   - component: {fileID: 1714269433}
   - component: {fileID: 1714269432}
+  - component: {fileID: 1714269434}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -443253,6 +443248,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714269430}
   m_CullTransparentMesh: 1
+--- !u!225 &1714269434
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714269430}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1714562933
 GameObject:
   m_ObjectHideFlags: 0
@@ -470458,6 +470465,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 524484700}
+  - {fileID: 8075718389197240147}
   m_Father: {fileID: 674704525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1849138918
@@ -528412,7 +528420,7 @@ PrefabInstance:
     - target: {fileID: 7952258377180264405, guid: 43fd777a8c576834d97e26842c63955e, type: 3}
       propertyPath: inMapIcon
       value: 
-      objectReference: {fileID: 512066640}
+      objectReference: {fileID: 1872884312}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -537030,7 +537038,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 657679776}
+    m_TransformParent: {fileID: 1847469829}
     m_Modifications:
     - target: {fileID: 1054031294509527766, guid: 780d1dbbc8e14914f98541ec3464cb76, type: 3}
       propertyPath: m_Sprite
@@ -537054,11 +537062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513177421413079859, guid: 780d1dbbc8e14914f98541ec3464cb76, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.27
+      value: -39.72
       objectReference: {fileID: 0}
     - target: {fileID: 7513177421413079859, guid: 780d1dbbc8e14914f98541ec3464cb76, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.59
+      value: 5.62
       objectReference: {fileID: 0}
     - target: {fileID: 7513177421413079859, guid: 780d1dbbc8e14914f98541ec3464cb76, type: 3}
       propertyPath: m_LocalPosition.z
