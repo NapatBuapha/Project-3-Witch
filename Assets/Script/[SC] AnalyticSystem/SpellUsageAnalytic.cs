@@ -9,7 +9,7 @@ public class SpellUsageAnalytic : MonoBehaviour
     public static SpellUsageAnalytic instance { get; private set; }
     Dictionary<string, int> spellCountDict;
     Dictionary<string, bool> unlockedSpellDict;
-    [SerializeField] string sessionId;
+    [SerializeField] string gameSessionId;
     bool isSend;
 
 
@@ -24,7 +24,7 @@ public class SpellUsageAnalytic : MonoBehaviour
     void Start()
     {
         isSend = false;
-        sessionId = GameStateManager.instance.sessionId;
+        gameSessionId = GameStateManager.instance.gameSessionId;
     }
 
     private async void Initialize()
@@ -91,7 +91,7 @@ public class SpellUsageAnalytic : MonoBehaviour
 
         CustomEvent spellSumEvent = new CustomEvent("Spell_Spell_UsageSummary")
         {
-            {"session_id", sessionId},
+            {"GamePlayID", gameSessionId},
             {"Spell_Usage_Sum" , spellSum},
         };
 
@@ -104,7 +104,7 @@ public class SpellUsageAnalytic : MonoBehaviour
     {
         CustomEvent spellUsageEvent = new CustomEvent("Spell_Usage_Stats")
         {
-            {"session_id", sessionId},
+            {"GamePlayID", gameSessionId},
             {"Spell_ID" , spell_ID},
             {"Spell_UseCount" , spell_UseCount},
         };
@@ -116,7 +116,7 @@ public class SpellUsageAnalytic : MonoBehaviour
     {
         CustomEvent spellSumEvent = new CustomEvent("spell_unlocked")
         {
-            {"session_id", sessionId},
+            {"GamePlayID", gameSessionId},
             {"Spell_ID" , spell_ID},
             {"Spel_IsUnlock" , isUnlock}
         };
