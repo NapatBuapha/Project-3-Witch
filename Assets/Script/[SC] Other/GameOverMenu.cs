@@ -21,11 +21,13 @@ public class GameOverMenu : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
+                SpellUsageAnalytic.instance.SendFinalAnalyticData();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             if(Input.GetKeyDown(KeyCode.X))
             {
-                 Debug.Log("Quit");
+                SpellUsageAnalytic.instance.SendFinalAnalyticData();
+                Debug.Log("Quit");
                 Application.Quit();
             }
         }

@@ -155,7 +155,6 @@ public class PlayerSpellSlot : MonoBehaviour
         //เช็ค cooldown spell
         if (spellDict[index].Item2 > 0)
         {
-            Debug.Log($"{index} spell in on cooldown");
             return;
         }
 
@@ -197,6 +196,8 @@ public class PlayerSpellSlot : MonoBehaviour
         canCastSpell = true;
         spellBook.ShrededPapaerEffect();
 
+        //Send Analytic Data 
+        SpellUsageAnalytic.instance.getSpellUseCount(spellDict[index].Item1.spellID);
         if(spellDict[index].Item1.spellID != "04")
         beastModeManager.ReducedBeastCount();
     }
