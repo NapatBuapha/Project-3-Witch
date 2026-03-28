@@ -21,6 +21,7 @@ public class GameEndMenu : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.X))
             {
                 Debug.Log("Quit");
+                SpellUsageAnalytic.instance.SendFinalAnalyticData();
                 Application.Quit();
             }
         }

@@ -19,6 +19,7 @@ public class SpellPage : MonoBehaviour , IInteractable
         if(col.CompareTag("Player"))
         {
             Debug.Log("Touch");
+            SpellUsageAnalytic.instance.UnlockedSpell(spell.spellID);
             SAManager.OpenMenu(spell.name, spell.desc, spell.icon, spell.spellID);
             Destroy(gameObject); 
         }

@@ -7,6 +7,7 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
     [SerializeField] AudioSource audioSource;
+    [field:SerializeField] public string gameSessionId {get; private set;}
 
     public enum GameState
     {
@@ -19,6 +20,7 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake() 
     {
+        gameSessionId = System.Guid.NewGuid().ToString();
         instance = this;
         ChangeState(GameState.Default);
     }
