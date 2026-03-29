@@ -17,7 +17,7 @@ public class SendDataDie : MonoBehaviour
     void Awake()
     {
         instance = this;
-        dataDie.place = "LV(0)";
+        dataDie.place = "LV(1)";
     }
 
     private async void Initialize()
