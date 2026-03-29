@@ -44,4 +44,9 @@ public class BaseEnemyData : BaseMobData , IDamageable
         
         yield return new WaitForSeconds(0.2f);
     }
+
+    public void GetDeathBy(string whom)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -46,6 +46,8 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         hpUi.UpdateHP();
         isDeath = false;
         beastPenaltyVal = startPenaltyValue;
+
+        SendDataDie.instance.StartRecording();
     }
 
 
@@ -111,6 +113,8 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
             BGManager.instance.duration = 2f;
             yield return new WaitForSeconds(4);
             GameOverMenu.instance.GameOver();
+
+            SendDataDie.instance.StopTimeRecord();
 
         }
     }
@@ -195,5 +199,11 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         PayHealth(beastPenaltyVal , true);
         StartCoroutine(Invincible(inviTime));
         beastPenaltyVal ++;
+    }
+
+    public void GetDeathBy(string whom)
+    {
+        Debug.Log(whom);
+        SendDataDie.instance.dataDie.dieBy = whom;
     }
 }

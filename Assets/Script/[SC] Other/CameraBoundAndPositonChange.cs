@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraBoundAndPositonChange : MonoBehaviour
 {
     [SerializeField] GameObject pos;
+    [SerializeField] GameObject parent;
     CinemachineConfiner2D confiner2D;
     CompositeCollider2D bound;
     void Awake()
@@ -20,6 +21,7 @@ public class CameraBoundAndPositonChange : MonoBehaviour
             confiner2D.m_BoundingShape2D = bound;
             PlayerPosManager.instance.ResetPos();
             pos.SetActive(true);
+            SendDataDie.instance.dataDie.place = parent.gameObject.name;
         }
     }
 }

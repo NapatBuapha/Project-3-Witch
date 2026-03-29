@@ -6,6 +6,7 @@ using UnityEngine;
 public class OnContactDamage : MonoBehaviour
 {
     [SerializeField] private int damageValue;
+    [SerializeField] public string curN;
     public bool isHiding;
 
 
@@ -20,6 +21,7 @@ public class OnContactDamage : MonoBehaviour
         {
             IDamageable damageable = col.collider.GetComponent<IDamageable>();
             damageable.getDamage(damageValue);
+            damageable.GetDeathBy(curN);
 
         }
     }
