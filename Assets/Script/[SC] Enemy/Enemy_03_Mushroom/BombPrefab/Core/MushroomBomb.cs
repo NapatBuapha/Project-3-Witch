@@ -34,6 +34,8 @@ public class MushroomBomb : MonoBehaviour
             {
                 IDamageable targets = col.GetComponent<IDamageable>();
                 targets.getDamage(damage);
+                targets.GetDeathBy("Mushroom Bomb");
+                
             }
         }
 

@@ -53,6 +53,8 @@ public class Enemy_02_StateManager : MonoBehaviour
         col.isTrigger = true;
         #endregion
 
+        onContactDamage.curN = stats.name_;
+
 
         SwitchState(state_Idle);
         currentState.EnterState(this);

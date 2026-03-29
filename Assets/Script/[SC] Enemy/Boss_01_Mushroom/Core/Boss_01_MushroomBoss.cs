@@ -83,4 +83,9 @@ public class Boss_01_MushroomBoss : BaseMobData , IDamageable
             Destroy(gameObject);
         }
     }
+
+    public void GetDeathBy(string whom)
+    {
+        throw new System.NotImplementedException();
+    }
 }
