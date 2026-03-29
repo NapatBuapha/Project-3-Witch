@@ -407,6 +407,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1972861858}
     - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
+      propertyPath: roomPercent
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
+      propertyPath: roomComplete
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
       propertyPath: waves.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -278445,6 +278453,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1972861858}
     - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
+      propertyPath: roomPercent
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
       propertyPath: waves.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -282056,6 +282068,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1972861858}
     - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
+      propertyPath: roomPercent
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
       propertyPath: waves.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -283199,6 +283215,14 @@ PrefabInstance:
       propertyPath: bGManager
       value: 
       objectReference: {fileID: 1972861858}
+    - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
+      propertyPath: roomPercent
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
+      propertyPath: roomComplete
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8169118675709480550, guid: 8ed2f9adf7a1c844882953b0bdb99298, type: 3}
       propertyPath: bushWall.Array.size
       value: 2

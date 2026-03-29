@@ -65,6 +65,8 @@ public class CloverDoorUI : MonoBehaviour
 
     void Complete()
     {
+        PlayerCompletionPercent.instance.KeyItemPuzzleData("Clover_Puzzle", true, 8);
+
         CloseUi();
         AudioManager.PlaySound(SoundType.Puzzle_Complete , 0.2f);
         foreach(GameObject gameObject in disableAfterComObj)

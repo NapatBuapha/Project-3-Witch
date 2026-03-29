@@ -10,6 +10,10 @@ public class MonsterGauntlet : MonoBehaviour
     private bool isStart;
     [SerializeField] private int currentWave;
 
+    
+    [SerializeField] private int roomPercent = 6;
+    [SerializeField] private bool roomComplete = true;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -67,6 +71,7 @@ public class MonsterGauntlet : MonoBehaviour
     
     void EndGauntlet()
     {
+        PlayerCompletionPercent.instance.RoomPercent(roomComplete, roomPercent);
         if(!PlayerHpManager.isDeath) BGManager.instance.ChangeMusic("Default");
         for (int i = 0; i < bushWall.Length; i++)
         {
