@@ -48,7 +48,4 @@ public class PlayerCompletionPercent : MonoBehaviour
 
         AnalyticsService.Instance.RecordEvent(completionRate);
     }
-
-
-    
 }

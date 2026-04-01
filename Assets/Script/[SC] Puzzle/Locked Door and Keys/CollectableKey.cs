@@ -11,11 +11,15 @@ public class CollectableKey : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
-            if(item.item_name == "Red Ring")
-            {PlayerCompletionPercent.instance.KeyItemPuzzleData("Red_Ring", true, 4);}
+            if(item.itemID == "02")
+            {
+                PlayerCompletionPercent.instance.KeyItemPuzzleData("Red_Ring", true, 4);
+            }
 
-            if(item.item_name == "Blue Ring")
-            {PlayerCompletionPercent.instance.KeyItemPuzzleData("Blue_Ring", true, 4);}
+            if(item.itemID == "01")
+            {
+                PlayerCompletionPercent.instance.KeyItemPuzzleData("Blue_Ring", true, 4);
+            }
 
             if(inMapIcon!=null)inMapIcon.SetActive(false);
             KeyInventory p_inven = col.GetComponent<KeyInventory>();
