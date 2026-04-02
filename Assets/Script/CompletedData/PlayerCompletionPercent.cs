@@ -13,6 +13,7 @@ public class PlayerCompletionPercent : MonoBehaviour
     public int percentCompletion = 0;
     
     public bool isSend;
+    public KeyItemPuzzleData keyItemPuzzleData = new KeyItemPuzzleData();
 
     void Awake()
     {
@@ -23,14 +24,30 @@ public class PlayerCompletionPercent : MonoBehaviour
     {
         percentCompletion += percent;
 
-         completionRate = new CustomEvent("Completion_Rate")
-         {
+        if(nameData == "Blue_Ring")
+        {
+            keyItemPuzzleData.Blue_Ring = true;
+        }
+        else if(nameData == "Red_Ring")
+        {
+            keyItemPuzzleData.Red_Ring = true;
+        }
+        else if(nameData == "Clover_Puzzle")
+        {
+            keyItemPuzzleData.Clover_Puzzle = true;
+        }
+
+        /*
+        completionRate = new CustomEvent("Completion_Rate")
+        {
             {"GamePlayID", GameStateManager.instance.gameSessionId},
             {nameData , completeData},
             {"PercentCompletion", percentCompletion},
-         };
+        };
+        
 
-         AnalyticsService.Instance.RecordEvent(completionRate);
+        AnalyticsService.Instance.RecordEvent(completionRate);
+        */
 
     }
 
@@ -38,6 +55,7 @@ public class PlayerCompletionPercent : MonoBehaviour
     {
         percentCompletion += percentRoom;
 
+        /*
         completionRate = new CustomEvent("Completion_Rate")
         {
             {"GamePlayID", GameStateManager.instance.gameSessionId},
@@ -45,7 +63,32 @@ public class PlayerCompletionPercent : MonoBehaviour
             {"Completion_Room" , completeRoom},
             {"PercentCompletion", percentCompletion},
         };
+        
+
+        AnalyticsService.Instance.RecordEvent(completionRate);
+        */
+    }
+
+    public void CompletionSendData()
+    {
+        Debug.Log(percentCompletion);
+
+        completionRate = new CustomEvent("Completion_Rate")
+        {
+            {"GamePlayID", GameStateManager.instance.gameSessionId},
+            {"PercentCompletion", percentCompletion},
+            {"Blue_Ring",keyItemPuzzleData.Blue_Ring},
+            {"Red_Ring",keyItemPuzzleData.Red_Ring},
+            {"Clover_Puzzle",keyItemPuzzleData.Clover_Puzzle},
+        };
 
         AnalyticsService.Instance.RecordEvent(completionRate);
     }
+}
+
+public class KeyItemPuzzleData
+{
+    public bool Blue_Ring = false;
+    public bool Red_Ring = false;
+    public bool Clover_Puzzle = false;
 }

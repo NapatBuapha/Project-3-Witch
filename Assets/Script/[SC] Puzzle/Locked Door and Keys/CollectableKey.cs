@@ -25,6 +25,8 @@ public class CollectableKey : MonoBehaviour
             KeyInventory p_inven = col.GetComponent<KeyInventory>();
             p_inven.AddItem(item);
             DialogueManager.SetDialogue(dialogue);
+            
+            Debug.Log("!");
             Destroy(gameObject); 
         }
     }

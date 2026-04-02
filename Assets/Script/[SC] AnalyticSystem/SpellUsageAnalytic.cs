@@ -38,7 +38,6 @@ public class SpellUsageAnalytic : MonoBehaviour
         if (spell_ID.Contains(spell_ID))
         {
             spellCountDict[spell_ID]++;
-            Debug.Log(spellCountDict[spell_ID]);
         }
     }
 
@@ -61,8 +60,6 @@ public class SpellUsageAnalytic : MonoBehaviour
             spellCountDict.Add(spell.spellID, 0);
             unlockedSpellDict.Add(spell.spellID, false);
 
-            //Debug Test
-            Debug.Log(spellCountDict[spell.spellID]);
         }
     }
 

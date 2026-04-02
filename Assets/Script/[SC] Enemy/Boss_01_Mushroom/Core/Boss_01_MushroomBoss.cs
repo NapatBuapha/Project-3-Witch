@@ -79,6 +79,7 @@ public class Boss_01_MushroomBoss : BaseMobData , IDamageable
         if(hp <= 0)
         {
             PlayerCompletionPercent.instance.RoomPercent(true, 6);
+            PlayerCompletionPercent.instance.CompletionSendData();
             //ตอนตาย
             GameEndMenu.instance.GameEnd();
             Destroy(gameObject);

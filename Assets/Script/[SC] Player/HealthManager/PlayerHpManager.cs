@@ -66,7 +66,6 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
         //ON hit event//
 
-        Debug.Log("Player Take Damage: " + damageValue);
         witheredHp = Mathf.Clamp(witheredHp,0,hp); //เพื่อจำกัดจำนวน withered hp ให้เท่ากับ จำนวน hp ในปัจจุบัน
         animator.SetTrigger("Hit");
 
@@ -115,7 +114,7 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
             GameOverMenu.instance.GameOver();
 
             SendDataDie.instance.StopTimeRecord();
-
+            PlayerCompletionPercent.instance.CompletionSendData();
         }
     }
 
@@ -172,7 +171,6 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
     IEnumerator Invincible(float inviTime)
     {
-        Debug.Log("StartInvi");
         isInvi = true;
         animator.SetBool("IsIframe", true);
         //สั่งให้ collision ระหว่าง player กับ enemy ไม่ทำงาน
@@ -191,7 +189,6 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
         LayerMask.NameToLayer("Enemy"),
         false);
 
-        Debug.Log("EndInvi");
     }
     
     public void BeastPenalty()
@@ -203,7 +200,6 @@ public class PlayerHpManager : MonoBehaviour , IDamageable
 
     public void GetDeathBy(string whom)
     {
-        Debug.Log(whom);
         SendDataDie.instance.dataDie.dieBy = whom;
     }
 }
